@@ -1,0 +1,129 @@
+body {
+  color: #333;
+  padding: 20px;
+  text-align: center;
+  font-family: Arial;
+}
+
+.separator {
+  margin-top: 40px;
+}
+
+/* 3D Cube */
+.space3d {
+  perspective: 1000px;
+  width: 320px;
+  height: 320px;
+  text-align: center;
+  display: inline-block;
+}
+
+._3dbox {
+  display: inline-block;
+  transition: all 0.85s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-align: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: rotateX(-15deg) rotateY(15deg);
+}
+
+._3dface {
+  overflow: hidden;
+  position: absolute;
+  border: 1px solid #888;
+  background: #FFF;
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.1), 0 0 50px rgba(0, 0, 0, 0.3);
+  color: #333;
+  line-height: 320px;
+  opacity: 0.8;
+}
+
+._3dface--front {
+  width: 320px;
+  height: 320px;
+  transform: translate3d(0, 0, 160px);
+}
+
+._3dface--top {
+  width: 320px;
+  height: 320px;
+  transform: rotateX(90deg) translate3d(0, 0, 160px);
+}
+
+._3dface--bottom {
+  width: 320px;
+  height: 320px;
+  transform: rotateX(-90deg) translate3d(0, 0, 160px);
+}
+
+._3dface--left {
+  width: 320px;
+  height: 320px;
+  left: 50%;
+  margin-left: -160px;
+  transform: rotateY(-90deg) translate3d(0, 0, 160px);
+}
+
+._3dface--right {
+  width: 320px;
+  height: 320px;
+  left: 50%;
+  margin-left: -160px;
+  transform: rotateY(90deg) translate3d(0, 0, 160px);
+}
+
+._3dface--back {
+  width: 320px;
+  height: 320px;
+  transform: rotateY(180deg) translate3d(0, 0, 160px);
+}
+
+#radio-left:checked ~ .space3d ._3dbox {
+  transform: rotateY(90deg);
+}
+
+#radio-right:checked ~ .space3d ._3dbox {
+  transform: rotateY(-90deg);
+}
+
+#radio-bottom:checked ~ .space3d ._3dbox {
+  transform: rotateX(90deg);
+}
+
+#radio-top:checked ~ .space3d ._3dbox {
+  transform: rotateX(-90deg);
+}
+
+#radio-back:checked ~ .space3d ._3dbox {
+  transform: rotateY(180deg);
+}
+
+._3dface--front {
+  background: url(https://c5.staticflickr.com/4/3506/3732188972_3d5649d5b3_b.jpg);
+  background-size: 100%;
+}
+
+._3dface--left {
+  background: url(https://c2.staticflickr.com/5/4022/4635845313_b1bcb0fac4_b.jpg);
+  background-size: auto 100%;
+}
+
+._3dface--right {
+  background: url(https://c6.staticflickr.com/5/4062/4652446125_9d90e7bc22_b.jpg);
+  background-size: auto 100%;
+}
+
+._3dface--top {
+  background: url(https://c8.staticflickr.com/5/4017/4629641375_d73448b892_b.jpg);
+  background-size: auto 100%;
+}
+._3dface--back {
+  background: url(https://c4.staticflickr.com/2/1266/4663447027_5789354c0f_b.jpg);
+  background-size: auto 100%;
+}
+._3dface--bottom {
+  background: url(https://c7.staticflickr.com/4/3379/4630284974_b3d114e518_b.jpg);
+  background-size: auto 100%;
+}
