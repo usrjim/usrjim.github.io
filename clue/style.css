@@ -1,0 +1,16 @@
+#root .ui.segment {
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+#root .ui.card {
+  cursor: pointer;
+}
+
+#root h1 {
+  font-family: serif;
+}
+
+.ruled-out {
+  filter: blur(5px) grayscale(100%) opacity(0.5);
+}

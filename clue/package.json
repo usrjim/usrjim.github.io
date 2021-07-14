@@ -1,0 +1,16 @@
+{
+  "name": "clue",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn esbuild --bundle app.jsx --outfile=dist/app.js",
+    "serve": "python3 -m http.server"
+  },
+  "devDependencies": {
+    "esbuild": "^0.12.15"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
