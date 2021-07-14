@@ -39,7 +39,7 @@ export function Characters() {
     <div className="ui piled segment">
       <div className="ui container">
         <h1>Character</h1>
-        <div className="ui six stackable cards">
+        <div className="ui six cards">
           {characters.map(c => (
             <Card key={c.color} data={c} />
           ))}

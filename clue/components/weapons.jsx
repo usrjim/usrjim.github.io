@@ -33,7 +33,7 @@ export function Weapons() {
     <div className="ui piled segment">
       <div className="ui container">
         <h1>Weapons</h1>
-        <div className="ui six stackable cards">
+        <div className="ui six cards">
           {weapons.map(w => (
             <Card key={w.name} data={w} />
           ))}

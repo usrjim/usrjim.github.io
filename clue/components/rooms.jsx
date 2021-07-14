@@ -45,7 +45,7 @@ export function Rooms() {
     <div className="ui piled segment">
       <div className="ui container">
         <h1>Rooms</h1>
-        <div className="ui five stackable cards">
+        <div className="ui five cards">
           {rooms.map(r => (
             <Card key={r.name} data={r} />
           ))}

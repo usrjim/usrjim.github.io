@@ -20483,7 +20483,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }, /* @__PURE__ */ import_react2.default.createElement("div", {
       className: "ui container"
     }, /* @__PURE__ */ import_react2.default.createElement("h1", null, "Character"), /* @__PURE__ */ import_react2.default.createElement("div", {
-      className: "ui six stackable cards"
+      className: "ui six cards"
     }, characters.map((c) => /* @__PURE__ */ import_react2.default.createElement(Card, {
       key: c.color,
       data: c
@@ -20524,7 +20524,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }, /* @__PURE__ */ import_react3.default.createElement("div", {
       className: "ui container"
     }, /* @__PURE__ */ import_react3.default.createElement("h1", null, "Weapons"), /* @__PURE__ */ import_react3.default.createElement("div", {
-      className: "ui six stackable cards"
+      className: "ui six cards"
     }, weapons.map((w) => /* @__PURE__ */ import_react3.default.createElement(Card, {
       key: w.name,
       data: w
@@ -20577,7 +20577,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }, /* @__PURE__ */ import_react4.default.createElement("div", {
       className: "ui container"
     }, /* @__PURE__ */ import_react4.default.createElement("h1", null, "Rooms"), /* @__PURE__ */ import_react4.default.createElement("div", {
-      className: "ui five stackable cards"
+      className: "ui five cards"
     }, rooms.map((r) => /* @__PURE__ */ import_react4.default.createElement(Card, {
       key: r.name,
       data: r
