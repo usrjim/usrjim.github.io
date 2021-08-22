@@ -1,5 +1,6 @@
-import React from 'react'
+import * as React from 'react'
 import { Card } from './card'
+import { PauseGame } from './pause'
 
 export function Rooms() {
   const rooms = [
@@ -49,6 +50,7 @@ export function Rooms() {
           {rooms.map(r => (
             <Card key={r.name} data={r} />
           ))}
+          <PauseGame />
         </div>
       </div>
     </div>

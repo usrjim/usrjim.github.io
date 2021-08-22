@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import * as React from 'react'
 
 export function Card({ data }) {
-  const [isRuledOut, setRuledOut] = useState(false);
+  const [isRuledOut, setRuledOut] = React.useState(false)
   const ToggleClass = () => {
-    setRuledOut(!isRuledOut);
+    setRuledOut(!isRuledOut)
   }
 
   return (

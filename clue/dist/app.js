@@ -498,7 +498,7 @@
             }
             return element;
           };
-          function createElement(type, config, children) {
+          function createElement7(type, config, children) {
             var propName;
             var props = {};
             var key = null;
@@ -1044,7 +1044,7 @@
             }
             return dispatcher.useContext(Context, unstable_observedBits);
           }
-          function useState2(initialState) {
+          function useState3(initialState) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useState(initialState);
           }
@@ -1064,7 +1064,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useLayoutEffect(create, deps);
           }
-          function useCallback(callback, deps) {
+          function useCallback3(callback, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useCallback(callback, deps);
           }
@@ -1546,7 +1546,7 @@
                 error("React.createElement: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", typeString, info);
               }
             }
-            var element = createElement.apply(this, arguments);
+            var element = createElement7.apply(this, arguments);
             if (element == null) {
               return element;
             }
@@ -1623,7 +1623,7 @@
           exports.isValidElement = isValidElement;
           exports.lazy = lazy;
           exports.memo = memo;
-          exports.useCallback = useCallback;
+          exports.useCallback = useCallback3;
           exports.useContext = useContext;
           exports.useDebugValue = useDebugValue;
           exports.useEffect = useEffect;
@@ -1632,7 +1632,7 @@
           exports.useMemo = useMemo;
           exports.useReducer = useReducer;
           exports.useRef = useRef;
-          exports.useState = useState2;
+          exports.useState = useState3;
           exports.version = ReactVersion;
         })();
       }
@@ -2440,11 +2440,11 @@
       if (true) {
         (function() {
           "use strict";
-          var React6 = require_react();
+          var React7 = require_react();
           var _assign = require_object_assign();
           var Scheduler = require_scheduler();
           var tracing = require_tracing();
-          var ReactSharedInternals = React6.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React7.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           function warn(format) {
             {
               for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
@@ -2476,7 +2476,7 @@
               Function.prototype.apply.call(console[level], console, argsWithFormat);
             }
           }
-          if (!React6) {
+          if (!React7) {
             {
               throw Error("ReactDOM was loaded before React. Make sure you load the React package before loading ReactDOM.");
             }
@@ -2488,7 +2488,7 @@
           var HostPortal = 4;
           var HostComponent = 5;
           var HostText = 6;
-          var Fragment = 7;
+          var Fragment2 = 7;
           var Mode = 8;
           var ContextConsumer = 9;
           var ContextProvider = 10;
@@ -3692,7 +3692,7 @@
           var didWarnInvalidChild = false;
           function flattenChildren(children) {
             var content = "";
-            React6.Children.forEach(children, function(child) {
+            React7.Children.forEach(children, function(child) {
               if (child == null) {
                 return;
               }
@@ -3703,7 +3703,7 @@
           function validateProps(element, props) {
             {
               if (typeof props.children === "object" && props.children !== null) {
-                React6.Children.forEach(props.children, function(child) {
+                React7.Children.forEach(props.children, function(child) {
                   if (child == null) {
                     return;
                   }
@@ -8457,7 +8457,7 @@
               }
             }
           }
-          function createElement(type, props, rootContainerElement, parentNamespace) {
+          function createElement7(type, props, rootContainerElement, parentNamespace) {
             var isCustomComponentTag;
             var ownerDocument = getOwnerDocumentFromRootContainer(rootContainerElement);
             var domElement;
@@ -9334,7 +9334,7 @@
               }
               parentNamespace = hostContextDev.namespace;
             }
-            var domElement = createElement(type, props, rootContainerInstance, parentNamespace);
+            var domElement = createElement7(type, props, rootContainerInstance, parentNamespace);
             precacheFiberNode(internalInstanceHandle, domElement);
             updateFiberProps(domElement, props);
             return domElement;
@@ -10896,7 +10896,7 @@
           }
           var fakeInternalInstance = {};
           var isArray = Array.isArray;
-          var emptyRefsObject = new React6.Component().refs;
+          var emptyRefsObject = new React7.Component().refs;
           var didWarnAboutStateAssignmentForComponent;
           var didWarnAboutUninitializedState;
           var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -11672,7 +11672,7 @@
               }
             }
             function updateFragment2(returnFiber, current2, fragment, lanes, key) {
-              if (current2 === null || current2.tag !== Fragment) {
+              if (current2 === null || current2.tag !== Fragment2) {
                 var created = createFiberFromFragment(fragment, returnFiber.mode, lanes, key);
                 created.return = returnFiber;
                 return created;
@@ -12040,7 +12040,7 @@
               while (child !== null) {
                 if (child.key === key) {
                   switch (child.tag) {
-                    case Fragment: {
+                    case Fragment2: {
                       if (element.type === REACT_FRAGMENT_TYPE) {
                         deleteRemainingChildren(returnFiber, child.sibling);
                         var existing = useFiber(child, element.props.children);
@@ -15644,7 +15644,7 @@
                 var _resolvedProps2 = workInProgress2.elementType === type ? _unresolvedProps2 : resolveDefaultProps(type, _unresolvedProps2);
                 return updateForwardRef(current2, workInProgress2, type, _resolvedProps2, renderLanes2);
               }
-              case Fragment:
+              case Fragment2:
                 return updateFragment(current2, workInProgress2, renderLanes2);
               case Mode:
                 return updateMode(current2, workInProgress2, renderLanes2);
@@ -15811,7 +15811,7 @@
               case SimpleMemoComponent:
               case FunctionComponent:
               case ForwardRef:
-              case Fragment:
+              case Fragment2:
               case Mode:
               case Profiler:
               case ContextConsumer:
@@ -19515,7 +19515,7 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
             return fiber;
           }
           function createFiberFromFragment(elements, mode, lanes, key) {
-            var fiber = createFiber(Fragment, elements, key, mode);
+            var fiber = createFiber(Fragment2, elements, key, mode);
             fiber.lanes = lanes;
             return fiber;
           }
@@ -20420,24 +20420,24 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
   });
 
   // app.jsx
-  var import_react5 = __toModule(require_react());
+  var React6 = __toModule(require_react());
   var import_react_dom = __toModule(require_react_dom());
 
   // components/characters.jsx
-  var import_react2 = __toModule(require_react());
+  var React2 = __toModule(require_react());
 
   // components/card.jsx
-  var import_react = __toModule(require_react());
+  var React = __toModule(require_react());
   function Card({ data }) {
-    const [isRuledOut, setRuledOut] = (0, import_react.useState)(false);
+    const [isRuledOut, setRuledOut] = React.useState(false);
     const ToggleClass = () => {
       setRuledOut(!isRuledOut);
     };
-    return /* @__PURE__ */ import_react.default.createElement("div", {
+    return /* @__PURE__ */ React.createElement("div", {
       className: "ui card"
-    }, /* @__PURE__ */ import_react.default.createElement("div", {
+    }, /* @__PURE__ */ React.createElement("div", {
       className: "image"
-    }, /* @__PURE__ */ import_react.default.createElement("img", {
+    }, /* @__PURE__ */ React.createElement("img", {
       src: "img/" + data.pic,
       className: isRuledOut ? "ruled-out" : null,
       onClick: ToggleClass
@@ -20478,20 +20478,20 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         pic: "orchid.jpg"
       }
     ];
-    return /* @__PURE__ */ import_react2.default.createElement("div", {
+    return /* @__PURE__ */ React2.createElement("div", {
       className: "ui piled segment"
-    }, /* @__PURE__ */ import_react2.default.createElement("div", {
+    }, /* @__PURE__ */ React2.createElement("div", {
       className: "ui container"
-    }, /* @__PURE__ */ import_react2.default.createElement("h1", null, "Character"), /* @__PURE__ */ import_react2.default.createElement("div", {
+    }, /* @__PURE__ */ React2.createElement("h1", null, "Character"), /* @__PURE__ */ React2.createElement("div", {
       className: "ui six cards"
-    }, characters.map((c) => /* @__PURE__ */ import_react2.default.createElement(Card, {
+    }, characters.map((c) => /* @__PURE__ */ React2.createElement(Card, {
       key: c.color,
       data: c
     })))));
   }
 
   // components/weapons.jsx
-  var import_react3 = __toModule(require_react());
+  var React3 = __toModule(require_react());
   function Weapons() {
     const weapons = [
       {
@@ -20519,20 +20519,49 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         pic: "wrench.jpg"
       }
     ];
-    return /* @__PURE__ */ import_react3.default.createElement("div", {
+    return /* @__PURE__ */ React3.createElement("div", {
       className: "ui piled segment"
-    }, /* @__PURE__ */ import_react3.default.createElement("div", {
+    }, /* @__PURE__ */ React3.createElement("div", {
       className: "ui container"
-    }, /* @__PURE__ */ import_react3.default.createElement("h1", null, "Weapons"), /* @__PURE__ */ import_react3.default.createElement("div", {
+    }, /* @__PURE__ */ React3.createElement("h1", null, "Weapons"), /* @__PURE__ */ React3.createElement("div", {
       className: "ui six cards"
-    }, weapons.map((w) => /* @__PURE__ */ import_react3.default.createElement(Card, {
+    }, weapons.map((w) => /* @__PURE__ */ React3.createElement(Card, {
       key: w.name,
       data: w
     })))));
   }
 
   // components/rooms.jsx
-  var import_react4 = __toModule(require_react());
+  var React5 = __toModule(require_react());
+
+  // components/pause.jsx
+  var React4 = __toModule(require_react());
+
+  // events.js
+  var on = (eventType, listener) => {
+    document.addEventListener(eventType, listener);
+  };
+  var trigger = (eventType, data) => {
+    const event = new CustomEvent(eventType, { detail: data });
+    document.dispatchEvent(event);
+  };
+
+  // components/pause.jsx
+  function PauseGame() {
+    const triggerPause = React4.useCallback(() => {
+      trigger("pause");
+    }, []);
+    return /* @__PURE__ */ React4.createElement("div", {
+      className: "ui card"
+    }, /* @__PURE__ */ React4.createElement("div", {
+      className: "image"
+    }, /* @__PURE__ */ React4.createElement("img", {
+      src: "img/pauseGame.jpg",
+      onClick: triggerPause
+    })));
+  }
+
+  // components/rooms.jsx
   function Rooms() {
     const rooms = [
       {
@@ -20572,23 +20601,49 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
         pic: "kitchen.jpg"
       }
     ];
-    return /* @__PURE__ */ import_react4.default.createElement("div", {
+    return /* @__PURE__ */ React5.createElement("div", {
       className: "ui piled segment"
-    }, /* @__PURE__ */ import_react4.default.createElement("div", {
+    }, /* @__PURE__ */ React5.createElement("div", {
       className: "ui container"
-    }, /* @__PURE__ */ import_react4.default.createElement("h1", null, "Rooms"), /* @__PURE__ */ import_react4.default.createElement("div", {
+    }, /* @__PURE__ */ React5.createElement("h1", null, "Rooms"), /* @__PURE__ */ React5.createElement("div", {
       className: "ui five cards"
-    }, rooms.map((r) => /* @__PURE__ */ import_react4.default.createElement(Card, {
+    }, rooms.map((r) => /* @__PURE__ */ React5.createElement(Card, {
       key: r.name,
       data: r
-    })))));
+    })), /* @__PURE__ */ React5.createElement(PauseGame, null))));
   }
 
   // app.jsx
   function App() {
-    return /* @__PURE__ */ import_react5.default.createElement("div", null, /* @__PURE__ */ import_react5.default.createElement(Characters, null), /* @__PURE__ */ import_react5.default.createElement(Weapons, null), /* @__PURE__ */ import_react5.default.createElement(Rooms, null));
+    const [isPaused, setIsPaused] = React6.useState(false);
+    const pauseGame = React6.useCallback(() => {
+      console.log("pauseGame called");
+      setIsPaused(true);
+    }, []);
+    const resumeGame = React6.useCallback(() => {
+      console.log("resumeGame called");
+      setIsPaused(false);
+    }, []);
+    on("pause", pauseGame);
+    on("resume", resumeGame);
+    const triggerResume = React6.useCallback(() => {
+      trigger("resume");
+    }, []);
+    const ResumeButton = () => {
+      return /* @__PURE__ */ React6.createElement("div", {
+        className: `ui centered card ${isPaused ? "" : "hidden"}`
+      }, /* @__PURE__ */ React6.createElement("div", {
+        className: "image"
+      }, /* @__PURE__ */ React6.createElement("img", {
+        src: "img/resumeGame.jpg",
+        onClick: triggerResume
+      })));
+    };
+    return /* @__PURE__ */ React6.createElement(React6.Fragment, null, /* @__PURE__ */ React6.createElement("div", {
+      className: isPaused ? "hidden" : ""
+    }, /* @__PURE__ */ React6.createElement(Characters, null), /* @__PURE__ */ React6.createElement(Weapons, null), /* @__PURE__ */ React6.createElement(Rooms, null)), /* @__PURE__ */ React6.createElement(ResumeButton, null));
   }
-  import_react_dom.default.render(/* @__PURE__ */ import_react5.default.createElement(App, null), document.getElementById("root"));
+  import_react_dom.default.render(/* @__PURE__ */ React6.createElement(App, null), document.getElementById("root"));
 })();
 /*
 object-assign
