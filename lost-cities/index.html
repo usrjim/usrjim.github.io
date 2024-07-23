@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="data:," />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lost Cities</title>
+  <style>
+    .tab-container {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-family: monospace;
+    }
+    .tab {
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      font-size: 18px;
+      color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .total {
+      font-size: 200%;
+      font-weight: bold;
+    }
+    .content {
+      display: none;
+      gap: 10px;
+      margin: 20px 0;
+      flex-direction: column;
+    }
+    .content .cards-row {
+      display: flex;
+      gap: 10px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="tab-container">
+    <div class="tab" onclick="showContent(1)" id="tab1"></div>
+    <div class="tab" onclick="showContent(2)" id="tab2"></div>
+    <div class="tab" onclick="showContent(3)" id="tab3"></div>
+    <div class="tab" onclick="showContent(4)" id="tab4"></div>
+    <div class="tab" onclick="showContent(5)" id="tab5"></div>
+    <div class="total hidden">🟰 <span></span></div>
+  </div>
+  </div>
+  <div class="content" id="content1" data-index="1"></div>
+  <div class="content" id="content2" data-index="2"></div>
+  <div class="content" id="content3" data-index="3"></div>
+  <div class="content" id="content4" data-index="4"></div>
+  <div class="content" id="content5" data-index="5"></div>
+  <script>
+    const colors = ["lightcoral", "lightgreen", "whitesmoke", "lightblue", "lightyellow"];
+    function generateCards(container, color) {
+      const wagers = [...Array(3)].map((_) => `<my-card content="🤝" color="${color}" status="off"></my-card>`);
+      const cards = [...Array(9)].map((_, i) => `<my-card content="${i + 2}" color="${color}" status="off"></my-card>`);
+      container.innerHTML = `
+        <div class="cards-row">${wagers.join("")}</div>
+        <div class="cards-row">${cards.join("")}</div>
+      `;
+    }
+    function showContent(tabIndex) {
+      const contents = document.getElementsByClassName("content");
+      for (var i = 0; i < contents.length; i++) {
+        contents[i].style.display = "none";
+      }
+
+      const selectedContent = document.getElementById("content" + tabIndex);
+      selectedContent.style.display = "flex";
+
+      if (!selectedContent.classList.contains("ready")) {
+        selectedContent.classList.add("ready");
+        generateCards(selectedContent, colors[tabIndex - 1]);
+      }
+    }
+    function calculate(container) {
+      const cards = container.querySelectorAll("my-card[status=on]");
+      if (!cards.length) return "";
+
+      let totalPoints = 0;
+      let wagerCount = 0;
+
+      cards.forEach((card) => {
+        const content = card.getAttribute("content");
+        if (content === "🤝") {
+          wagerCount++;
+        } else {
+          totalPoints += parseInt(content);
+        }
+      });
+
+      totalPoints -= 20;
+
+      if (wagerCount === 1) {
+        totalPoints *= 2;
+      } else if (wagerCount === 2) {
+        totalPoints *= 3;
+      } else if (wagerCount === 3) {
+        totalPoints *= 4;
+      }
+
+      return totalPoints;
+    }
+    function calculateTotal() {
+      const tabs = document.getElementsByClassName("tab");
+      let total = 0;
+      for (let i = 0; i < tabs.length; i++) {
+        const points = parseInt(tabs[i].textContent);
+        if (!isNaN(points)) {
+          total += points;
+        }
+      }
+      return total;
+    }
+    function updateTab(e) {
+      const container = e.closest(".content");
+      const index = container.dataset.index;
+      const points = calculate(container);
+      document.getElementById(`tab${index}`).textContent = points;
+
+      const totalDiv = document.querySelector(".total");
+      const total = calculateTotal();
+      totalDiv.classList.remove("hidden");
+      totalDiv.querySelector("span").textContent = total;
+    }
+    window.onload = () => {
+      const tabs = document.getElementsByClassName("tab");
+      for (let i = 0; i < tabs.length; i++) {
+        tabs[i].style.backgroundColor = colors[i];
+      }
+    }
+  </script>
+</body>
+</div>
+
+<template id="card-template">
+  <style>
+    .card {
+      color: black;
+      border: 2px solid black;
+      border-radius: 6px;
+      width: 50px;
+      height: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-family: monospace;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    :host([status="on"]) .card {
+      font-size: 200%;
+      filter: brightness(1.2);
+    }
+  </style>
+  <div class="card"></div>
+</template>
+
+<script>
+  class Card extends HTMLElement {
+    constructor() {
+      super();
+      this.attachShadow({ mode: 'open' });
+      const template = document.getElementById('card-template');
+      const content = template.content.cloneNode(true);
+      this.shadowRoot.appendChild(content);
+    }
+
+    connectedCallback() {
+      const card = this.shadowRoot.querySelector('.card');
+      card.textContent = this.getAttribute('content');
+      card.style.backgroundColor = this.getAttribute("color");
+
+      card.addEventListener('click', () => {
+        if (this.getAttribute('status') === 'on') {
+          this.setAttribute('status', 'off');
+          card.textContent = this.getAttribute('content');
+        } else {
+          this.setAttribute('status', 'on');
+          card.textContent = '✅';
+        }
+        updateTab(this);
+      });
+    }
+  }
+
+  customElements.define('my-card', Card);
+</script>
+
+</html>
