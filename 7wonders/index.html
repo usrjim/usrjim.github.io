@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7 Wonders Score Tracker</title>
+    <style>
+      * {
+        touch-action: manipulation;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+      }
+      .container {
+        max-width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+      h1 {
+        text-align: center;
+        color: #8b4513;
+        font-size: 1.8rem;
+        margin: 10px 0;
+      }
+      h2 {
+        font-size: 1.4rem;
+        margin: 10px 0;
+      }
+      .setup-section,
+      .category-section {
+        margin-bottom: 15px;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      /* Category-specific background colors */
+      #military {
+        background-color: #ffdddd; /* Light red for military */
+        border-left: 5px solid #ff9999;
+      }
+      #treasury {
+        background-color: #fff6dd; /* Light yellow for treasury */
+        border-left: 5px solid #ffd699;
+      }
+      #wonder {
+        background-color: #e6f2ff; /* Light blue for wonder */
+        border-left: 5px solid #99ccff;
+      }
+      #civilian {
+        background-color: #e6ffed; /* Light green for civilian */
+        border-left: 5px solid #99e6b3;
+      }
+      #scientific {
+        background-color: #e6f9ff; /* Light cyan for scientific */
+        border-left: 5px solid #99e6ff;
+      }
+      #commercial {
+        background-color: #fff2e6; /* Light orange for commercial */
+        border-left: 5px solid #ffcc99;
+      }
+      #guilds {
+        background-color: #f2e6ff; /* Light purple for guilds */
+        border-left: 5px solid #cc99ff;
+      }
+      .hidden {
+        display: none;
+      }
+      button {
+        background-color: #8b4513;
+        color: white;
+        border: none;
+        padding: 12px 15px;
+        border-radius: 50px;
+        cursor: pointer;
+        margin-top: 10px;
+        width: 100%;
+        font-size: 1rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+      button:hover {
+        background-color: #a0522d;
+      }
+      button:active {
+        transform: translateY(1px);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        font-size: 0.9rem;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 6px 4px;
+        text-align: center;
+      }
+      th {
+        background-color: #8b4513;
+        color: white;
+      }
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      .total-row {
+        font-weight: bold;
+        background-color: #e6ccb3 !important;
+      }
+      .player-input {
+        margin-bottom: 10px;
+      }
+      .category-name {
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #333;
+        text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.5);
+      }
+      input[type="number"],
+      input[type="text"],
+      input[type="range"] {
+        width: 100%;
+        margin: 5px 0 10px;
+        padding: 10px;
+        box-sizing: border-box;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+      .slider-container {
+        display: flex;
+        align-items: center;
+        margin: 5px 0 10px;
+      }
+      input[type="range"] {
+        flex-grow: 1;
+        padding: 0;
+        margin-right: 10px;
+      }
+      .slider-value {
+        min-width: 30px;
+        text-align: center;
+        font-weight: bold;
+      }
+      #newGame {
+        margin-top: 20px;
+      }
+      .table-container {
+        overflow-x: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>7 Wonders</h1>
+
+      <div id="setup" class="setup-section">
+        <h2>Number of Players (2-7)</h2>
+        <div>
+          <div class="slider-container">
+            <input
+              type="range"
+              id="numPlayers"
+              min="2"
+              max="7"
+              value="4"
+              step="1"
+            />
+            <span class="slider-value" id="numPlayersValue">4</span>
+          </div>
+          <button id="setupPlayers">Continue</button>
+        </div>
+      </div>
+
+      <div id="playerNames" class="setup-section hidden">
+        <h2>Enter Player Names</h2>
+        <div id="playerInputs"></div>
+        <button id="startScoring">Start Scoring</button>
+      </div>
+
+      <div id="scoring" class="hidden">
+        <div id="military" class="category-section">
+          <div class="category-name">1. Military Conflicts</div>
+          <div id="militaryInputs"></div>
+          <button id="nextTreasury">Next</button>
+        </div>
+
+        <div id="treasury" class="category-section hidden">
+          <div class="category-name">2. Treasury Contents</div>
+          <div id="treasuryInputs"></div>
+          <button id="nextWonder">Next</button>
+        </div>
+
+        <div id="wonder" class="category-section hidden">
+          <div class="category-name">3. Wonder</div>
+          <div id="wonderInputs"></div>
+          <button id="nextCivilian">Next</button>
+        </div>
+
+        <div id="civilian" class="category-section hidden">
+          <div class="category-name">4. Civilian Structures</div>
+          <div id="civilianInputs"></div>
+          <button id="nextScientific">Next</button>
+        </div>
+
+        <div id="scientific" class="category-section hidden">
+          <div class="category-name">5. Scientific Structures</div>
+          <div id="scientificInputs"></div>
+          <button id="nextCommercial">Next</button>
+        </div>
+
+        <div id="commercial" class="category-section hidden">
+          <div class="category-name">6. Commercial Structures</div>
+          <div id="commercialInputs"></div>
+          <button id="nextGuilds">Next</button>
+        </div>
+
+        <div id="guilds" class="category-section hidden">
+          <div class="category-name">7. Guilds</div>
+          <div id="guildsInputs"></div>
+          <button id="showResults">Show Results</button>
+        </div>
+      </div>
+
+      <div id="results" class="hidden">
+        <h2>Final Scores</h2>
+        <div class="table-container">
+          <table id="scoreTable">
+            <thead id="scoreHeader">
+              <!-- Header with player names will be filled here -->
+            </thead>
+            <tbody id="scoreBody">
+              <!-- Scores will be filled here -->
+            </tbody>
+          </table>
+        </div>
+        <button id="newGame">New Game</button>
+      </div>
+
+      <script>
+        let players = [];
+        const categories = [
+          "military",
+          "treasury",
+          "wonder",
+          "civilian",
+          "scientific",
+          "commercial",
+          "guilds",
+        ];
+
+        // Event listeners
+        document
+          .getElementById("setupPlayers")
+          .addEventListener("click", setupPlayers);
+        document
+          .getElementById("startScoring")
+          .addEventListener("click", startScoring);
+        document
+          .getElementById("nextTreasury")
+          .addEventListener("click", () =>
+            nextCategory("military", "treasury"),
+          );
+        document
+          .getElementById("nextWonder")
+          .addEventListener("click", () => nextCategory("treasury", "wonder"));
+        document
+          .getElementById("nextCivilian")
+          .addEventListener("click", () => nextCategory("wonder", "civilian"));
+        document
+          .getElementById("nextScientific")
+          .addEventListener("click", () =>
+            nextCategory("civilian", "scientific"),
+          );
+        document
+          .getElementById("nextCommercial")
+          .addEventListener("click", () =>
+            nextCategory("scientific", "commercial"),
+          );
+        document
+          .getElementById("nextGuilds")
+          .addEventListener("click", () =>
+            nextCategory("commercial", "guilds"),
+          );
+        document
+          .getElementById("showResults")
+          .addEventListener("click", showResults);
+        document.getElementById("newGame").addEventListener("click", resetGame);
+
+        // Add event listener for player number slider
+        document
+          .getElementById("numPlayers")
+          .addEventListener("input", function () {
+            document.getElementById("numPlayersValue").textContent = this.value;
+          });
+
+        function setupPlayers() {
+          const numPlayers = parseInt(
+            document.getElementById("numPlayers").value,
+          );
+
+          if (numPlayers < 2 || numPlayers > 7) {
+            alert("Please enter a number between 2 and 7.");
+            return;
+          }
+
+          // Hide setup and show player names section
+          document.getElementById("setup").classList.add("hidden");
+          document.getElementById("playerNames").classList.remove("hidden");
+
+          // Generate input fields for player names
+          const playerInputs = document.getElementById("playerInputs");
+          playerInputs.innerHTML = "";
+
+          for (let i = 1; i <= numPlayers; i++) {
+            const div = document.createElement("div");
+            div.className = "player-input";
+            div.innerHTML = `
+                    <label for="player${i}">Player ${i} Name:</label>
+                    <input type="text" id="player${i}">
+                `;
+            playerInputs.appendChild(div);
+          }
+        }
+
+        function startScoring() {
+          // Initialize players array
+          players = [];
+          const numPlayers = parseInt(
+            document.getElementById("numPlayers").value,
+          );
+
+          for (let i = 1; i <= numPlayers; i++) {
+            const name =
+              document.getElementById(`player${i}`).value.trim() ||
+              `Player ${i}`;
+            players.push({
+              name: name,
+              military: 0,
+              treasury: 0,
+              wonder: 0,
+              civilian: 0,
+              scientific: 0,
+              commercial: 0,
+              guilds: 0,
+            });
+          }
+
+          // Hide player names and show scoring
+          document.getElementById("playerNames").classList.add("hidden");
+          document.getElementById("scoring").classList.remove("hidden");
+
+          // Setup inputs for all categories
+          setupCategoryInputs();
+        }
+
+        function setupCategoryInputs() {
+          // Define max values for each category
+          const maxValues = {
+            military: 18, // Max military score (6 points per era)
+            treasury: 30, // 3 coins = 1 point
+            wonder: 30, // Typical max wonder points
+            civilian: 30, // Blue cards
+            scientific: 60, // Max with sets and symbols
+            commercial: 20, // Yellow cards
+            guilds: 30, // Purple cards
+          };
+
+          categories.forEach((category) => {
+            const inputs = document.getElementById(`${category}Inputs`);
+            inputs.innerHTML = "";
+
+            players.forEach((player, index) => {
+              const div = document.createElement("div");
+              div.className = "player-input";
+              const max = maxValues[category];
+              div.innerHTML = `
+                        <label for="${category}${index}">${player.name}:</label>
+                        <div class="slider-container">
+                            <input type="range" id="${category}${index}" min="0" max="${max}" value="0" step="1">
+                            <span class="slider-value" id="${category}${index}Value">0</span>
+                        </div>
+                    `;
+              inputs.appendChild(div);
+
+              // Add event listener to update the displayed value
+              const slider = div.querySelector(`#${category}${index}`);
+              const valueDisplay = div.querySelector(
+                `#${category}${index}Value`,
+              );
+
+              slider.addEventListener("input", function () {
+                valueDisplay.textContent = this.value;
+              });
+            });
+          });
+        }
+
+        function nextCategory(current, next) {
+          // Save current category scores
+          saveScores(current);
+
+          // Hide current and show next
+          document.getElementById(current).classList.add("hidden");
+          document.getElementById(next).classList.remove("hidden");
+        }
+
+        function saveScores(category) {
+          players.forEach((player, index) => {
+            const score =
+              parseInt(document.getElementById(`${category}${index}`).value) ||
+              0;
+            player[category] = score;
+          });
+        }
+
+        function showResults() {
+          // Save final category scores
+          saveScores("guilds");
+
+          // Hide scoring and show results
+          document.getElementById("scoring").classList.add("hidden");
+          document.getElementById("results").classList.remove("hidden");
+
+          // Create table header with player names
+          const scoreHeader = document.getElementById("scoreHeader");
+          scoreHeader.innerHTML = "";
+
+          // First row with player names as columns
+          const headerRow = document.createElement("tr");
+          headerRow.innerHTML = "<th>Category</th>"; // First cell is for category names
+
+          // Add player names to the header
+          players.forEach((player) => {
+            headerRow.innerHTML += `<th>${player.name}</th>`;
+          });
+
+          scoreHeader.appendChild(headerRow);
+
+          // Generate table body with categories as rows
+          const scoreBody = document.getElementById("scoreBody");
+          scoreBody.innerHTML = "";
+
+          // Create a row for each category
+          const categoryLabels = {
+            military: "Military",
+            treasury: "Treasury",
+            wonder: "Wonder",
+            civilian: "Civilian",
+            scientific: "Scientific",
+            commercial: "Commercial",
+            guilds: "Guilds",
+          };
+
+          categories.forEach((category) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `<td>${categoryLabels[category]}</td>`;
+
+            // Add each player's score for this category
+            players.forEach((player) => {
+              row.innerHTML += `<td>${player[category]}</td>`;
+            });
+
+            scoreBody.appendChild(row);
+          });
+
+          // Add total row
+          const totalRow = document.createElement("tr");
+          totalRow.className = "total-row";
+          totalRow.innerHTML = "<td>Total</td>";
+
+          // Calculate total for each player
+          players.forEach((player) => {
+            const playerTotal = categories.reduce(
+              (sum, category) => sum + player[category],
+              0,
+            );
+            totalRow.innerHTML += `<td>${playerTotal}</td>`;
+          });
+
+          scoreBody.appendChild(totalRow);
+        }
+
+        function resetGame() {
+          // Reset the game to the initial state
+          document.getElementById("results").classList.add("hidden");
+          document.getElementById("setup").classList.remove("hidden");
+          document.getElementById("numPlayers").value = "4";
+          document.getElementById("numPlayersValue").textContent = "4";
+          players = [];
+        }
+      </script>
+    </div>
+  </body>
+</html>
