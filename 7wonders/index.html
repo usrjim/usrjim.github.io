@@ -146,6 +146,55 @@
         text-align: center;
         font-weight: bold;
       }
+      /* Larger slider thumb for better touch interaction */
+      input[type="range"] {
+        -webkit-appearance: none;
+        appearance: none;
+        height: 25px;
+        background: transparent;
+      }
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 30px;
+        height: 30px;
+        background: #8b4513;
+        border-radius: 50%;
+        cursor: pointer;
+        margin-top: -10px;
+      }
+      input[type="range"]::-moz-range-thumb {
+        width: 30px;
+        height: 30px;
+        background: #8b4513;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      input[type="range"]::-ms-thumb {
+        width: 30px;
+        height: 30px;
+        background: #8b4513;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      input[type="range"]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 10px;
+        background: #ddd;
+        border-radius: 5px;
+      }
+      input[type="range"]::-moz-range-track {
+        width: 100%;
+        height: 10px;
+        background: #ddd;
+        border-radius: 5px;
+      }
+      input[type="range"]::-ms-track {
+        width: 100%;
+        height: 10px;
+        background: transparent;
+        border-color: transparent;
+        color: transparent;
+      }
       #newGame {
         margin-top: 20px;
       }
@@ -359,7 +408,7 @@
         }
 
         function setupCategoryInputs() {
-          // Define max values for each category
+          // Define min and max values for each category
           const maxValues = {
             military: 18, // Max military score (6 points per era)
             treasury: 30, // 3 coins = 1 point
@@ -368,6 +417,11 @@
             scientific: 60, // Max with sets and symbols
             commercial: 20, // Yellow cards
             guilds: 30, // Purple cards
+          };
+          
+          // Define min values for categories that can go negative
+          const minValues = {
+            military: -6, // Min military score (losing all conflicts)
           };
 
           categories.forEach((category) => {
@@ -378,11 +432,13 @@
               const div = document.createElement("div");
               div.className = "player-input";
               const max = maxValues[category];
+              const min = minValues[category] !== undefined ? minValues[category] : 0;
+              const defaultValue = min < 0 ? 0 : min;
               div.innerHTML = `
                         <label for="${category}${index}">${player.name}:</label>
                         <div class="slider-container">
-                            <input type="range" id="${category}${index}" min="0" max="${max}" value="0" step="1">
-                            <span class="slider-value" id="${category}${index}Value">0</span>
+                            <input type="range" id="${category}${index}" min="${min}" max="${max}" value="${defaultValue}" step="1">
+                            <span class="slider-value" id="${category}${index}Value">${defaultValue}</span>
                         </div>
                     `;
               inputs.appendChild(div);
