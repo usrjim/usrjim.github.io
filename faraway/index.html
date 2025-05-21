@@ -184,14 +184,14 @@
       <h1>Faraway</h1>
 
       <div id="setup" class="setup-section">
-        <h2>Number of Players (2-6)</h2>
+        <h2>Number of Players (2-7)</h2>
         <div>
           <div class="slider-container">
             <input
               type="range"
               id="numPlayers"
               min="2"
-              max="6"
+              max="7"
               value="4"
               step="1"
             />
@@ -340,8 +340,8 @@
             document.getElementById("numPlayers").value,
           );
 
-          if (numPlayers < 2 || numPlayers > 6) {
-            alert("Please enter a number between 2 and 6.");
+          if (numPlayers < 2 || numPlayers > 7) {
+            alert("Please enter a number between 2 and 7.");
             return;
           }
 
