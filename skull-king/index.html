@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skull King Score Tracker</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Creepster&family=Pirata+One&family=Roboto:wght@300;400;500;700&display=swap");
+
+      * {
+        touch-action: manipulation;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        background: linear-gradient(
+          135deg,
+          #1a1a2e 0%,
+          #16213e 50%,
+          #0f3460 100%
+        );
+        min-height: 100vh;
+        color: #fff;
+      }
+
+      .container {
+        background: linear-gradient(145deg, #2c2c54 0%, #1a1a2e 100%);
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow:
+          0 0 50px rgba(255, 215, 0, 0.3),
+          inset 0 0 30px rgba(255, 215, 0, 0.1);
+        border: 2px solid #ffd700;
+        position: relative;
+        backdrop-filter: blur(10px);
+      }
+
+      .container::before {
+        content: "💀";
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 30px;
+        background: linear-gradient(145deg, #2c2c54 0%, #1a1a2e 100%);
+        padding: 5px 15px;
+        border-radius: 15px;
+        border: 2px solid #ffd700;
+      }
+
+      h1 {
+        text-align: center;
+        color: #ffd700;
+        margin-bottom: 30px;
+        font-family: "Pirata One", cursive;
+        font-size: 2.5em;
+        text-shadow:
+          0 0 10px #ffd700,
+          0 0 20px #ffd700,
+          0 0 40px #ffd700;
+        letter-spacing: 2px;
+      }
+
+      .player-setup {
+        margin-bottom: 30px;
+      }
+
+      .player-setup label {
+        font-size: 18px;
+        margin-right: 10px;
+        color: #ffd700;
+        font-weight: 500;
+      }
+
+      .player-setup select {
+        padding: 12px 16px;
+        font-size: 16px;
+        border: 2px solid #ffd700;
+        border-radius: 10px;
+        background: linear-gradient(145deg, #2c2c54, #1a1a2e);
+        color: #fff;
+        outline: none;
+        transition: all 0.3s ease;
+      }
+
+      .player-setup select:focus {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        border-color: #ffed4e;
+      }
+
+      .player-names {
+        margin-top: 20px;
+      }
+
+      .player-name-input {
+        margin: 10px 0;
+      }
+
+      .player-name-input label {
+        display: inline-block;
+        width: 100px;
+        text-align: left;
+        margin-right: 10px;
+        color: #ffd700;
+        font-weight: 500;
+      }
+
+      .player-name-input input {
+        padding: 12px 16px;
+        font-size: 16px;
+        border: 2px solid #ffd700;
+        border-radius: 10px;
+        width: 250px;
+        background: linear-gradient(145deg, #2c2c54, #1a1a2e);
+        color: #fff;
+        outline: none;
+        transition: all 0.3s ease;
+      }
+
+      .player-name-input input:focus {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        border-color: #ffed4e;
+      }
+
+      .player-name-input input::placeholder {
+        color: #999;
+      }
+
+      .start-btn {
+        background: linear-gradient(145deg, #4caf50, #45a049);
+        color: white;
+        padding: 15px 35px;
+        font-size: 18px;
+        font-weight: 600;
+        border: 2px solid #ffd700;
+        border-radius: 15px;
+        cursor: pointer;
+        margin: 20px;
+        box-shadow:
+          0 5px 15px rgba(76, 175, 80, 0.4),
+          0 0 20px rgba(255, 215, 0, 0.3);
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .start-btn:hover {
+        background: linear-gradient(145deg, #45a049, #3d8b40);
+        transform: translateY(-2px);
+        box-shadow:
+          0 8px 20px rgba(76, 175, 80, 0.6),
+          0 0 30px rgba(255, 215, 0, 0.5);
+      }
+
+      .round-container {
+        display: none;
+      }
+
+      .round-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .round-header h2 {
+        color: #ffd700;
+        margin-bottom: 10px;
+        font-family: "Pirata One", cursive;
+        font-size: 2em;
+        text-shadow: 0 0 10px #ffd700;
+      }
+
+      .score-limits {
+        color: #ccc;
+        font-size: 16px;
+        font-style: italic;
+      }
+
+      .player-scores {
+        margin-bottom: 30px;
+      }
+
+      .player-score {
+        margin-bottom: 20px;
+        padding: 20px;
+        background: linear-gradient(145deg, #3c3c74, #2c2c54);
+        border-radius: 15px;
+        border: 2px solid #4a4a8a;
+        box-shadow:
+          0 4px 15px rgba(0, 0, 0, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .player-score:hover {
+        border-color: #ffd700;
+        box-shadow:
+          0 6px 20px rgba(0, 0, 0, 0.4),
+          0 0 15px rgba(255, 215, 0, 0.3);
+      }
+
+      .player-score label {
+        display: block;
+        margin-bottom: 15px;
+        font-weight: bold;
+        color: #ffd700;
+        font-size: 18px;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+      }
+
+      .score-slider {
+        width: 100%;
+        margin-bottom: 10px;
+        -webkit-appearance: none;
+        height: 8px;
+        border-radius: 5px;
+        background: linear-gradient(to right, #ff4444, #ffaa00, #4caf50);
+        outline: none;
+        opacity: 0.8;
+        transition: opacity 0.2s;
+      }
+
+      .score-slider:hover {
+        opacity: 1;
+      }
+
+      .score-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #ffd700;
+        border: 2px solid #333;
+        cursor: pointer;
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+      }
+
+      .score-slider::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #ffd700;
+        border: 2px solid #333;
+        cursor: pointer;
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+      }
+
+      .score-value {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        color: #ffd700;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        border: 1px solid #4a4a8a;
+      }
+
+      .navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 30px;
+      }
+
+      .nav-btn {
+        padding: 12px 25px;
+        font-size: 16px;
+        border: 2px solid #ffd700;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .back-btn {
+        background: linear-gradient(145deg, #ff9800, #e68900);
+        color: white;
+        box-shadow:
+          0 4px 15px rgba(255, 152, 0, 0.4),
+          0 0 15px rgba(255, 215, 0, 0.3);
+      }
+
+      .back-btn:hover {
+        background: linear-gradient(145deg, #e68900, #cc7a00);
+        transform: translateY(-2px);
+        box-shadow:
+          0 6px 20px rgba(255, 152, 0, 0.6),
+          0 0 25px rgba(255, 215, 0, 0.5);
+      }
+
+      .next-btn {
+        background: linear-gradient(145deg, #2196f3, #1976d2);
+        color: white;
+        box-shadow:
+          0 4px 15px rgba(33, 150, 243, 0.4),
+          0 0 15px rgba(255, 215, 0, 0.3);
+      }
+
+      .next-btn:hover {
+        background: linear-gradient(145deg, #1976d2, #1565c0);
+        transform: translateY(-2px);
+        box-shadow:
+          0 6px 20px rgba(33, 150, 243, 0.6),
+          0 0 25px rgba(255, 215, 0, 0.5);
+      }
+
+      .results-container {
+        display: none;
+      }
+
+      .results-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background: linear-gradient(145deg, #2c2c54, #1a1a2e);
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .results-table th,
+      .results-table td {
+        border: 1px solid #4a4a8a;
+        padding: 12px 8px;
+        text-align: center;
+        color: #fff;
+      }
+
+      .results-table th {
+        background: linear-gradient(145deg, #ffd700, #ffed4e);
+        font-weight: bold;
+        color: #1a1a2e;
+        text-shadow: none;
+        font-size: 14px;
+      }
+
+      .total-column {
+        background: linear-gradient(145deg, #4caf50, #45a049) !important;
+        font-weight: bold;
+        color: #fff !important;
+      }
+
+      .winner {
+        background: linear-gradient(145deg, #ffd700, #ffed4e) !important;
+        color: #1a1a2e !important;
+        font-weight: bold;
+        text-shadow: none;
+        animation: glow 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes glow {
+        from {
+          box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        to {
+          box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+        }
+      }
+
+      .reset-btn {
+        background: linear-gradient(145deg, #f44336, #d32f2f);
+        color: white;
+        padding: 15px 35px;
+        font-size: 18px;
+        font-weight: 600;
+        border: 2px solid #ffd700;
+        border-radius: 15px;
+        cursor: pointer;
+        margin-top: 30px;
+        box-shadow:
+          0 5px 15px rgba(244, 67, 54, 0.4),
+          0 0 20px rgba(255, 215, 0, 0.3);
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .reset-btn:hover {
+        background: linear-gradient(145deg, #d32f2f, #b71c1c);
+        transform: translateY(-2px);
+        box-shadow:
+          0 8px 20px rgba(244, 67, 54, 0.6),
+          0 0 30px rgba(255, 215, 0, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Player Setup -->
+      <div id="player-setup" class="player-setup">
+        <h1>🏴‍☠️ Skull King</h1>
+        <label for="player-count">Number of Players:</label>
+        <select id="player-count" onchange="updatePlayerNameInputs()">
+          <option value="2">2 Players</option>
+          <option value="3">3 Players</option>
+          <option value="4">4 Players</option>
+          <option value="5">5 Players</option>
+          <option value="6">6 Players</option>
+          <option value="7">7 Players</option>
+          <option value="8">8 Players</option>
+        </select>
+
+        <div id="player-names" class="player-names">
+          <!-- Player name inputs will be generated here -->
+        </div>
+
+        <button class="start-btn" onclick="startGame()">Start Game</button>
+      </div>
+
+      <!-- Round Container -->
+      <div id="round-container" class="round-container">
+        <div class="round-header">
+          <h2 id="round-title">Round 1</h2>
+          <div class="score-limits" id="score-limits">
+            Score Range: -10 to 200
+          </div>
+        </div>
+
+        <div class="player-scores" id="player-scores">
+          <!-- Player score inputs will be generated here -->
+        </div>
+
+        <div class="navigation">
+          <button
+            id="back-btn"
+            class="nav-btn back-btn"
+            onclick="goBack()"
+            style="display: none"
+          >
+            ← Back
+          </button>
+          <button id="next-btn" class="nav-btn next-btn" onclick="nextRound()">
+            Next Round →
+          </button>
+        </div>
+      </div>
+
+      <!-- Results Container -->
+      <div id="results-container" class="results-container">
+        <h2>Final Results</h2>
+        <table class="results-table" id="results-table">
+          <!-- Results table will be generated here -->
+        </table>
+        <button class="reset-btn" onclick="resetGame()">Start New Game</button>
+      </div>
+    </div>
+
+    <script>
+      const roundLimits = [
+        { lower: -10, upper: 200 },
+        { lower: -20, upper: 240 },
+        { lower: -30, upper: 270 },
+        { lower: -40, upper: 300 },
+        { lower: -50, upper: 330 },
+        { lower: -60, upper: 350 },
+        { lower: -70, upper: 370 },
+        { lower: -80, upper: 390 },
+        { lower: -90, upper: 410 },
+        { lower: -100, upper: 430 },
+      ];
+
+      let playerCount = 4;
+      let currentRound = 1;
+      let scores = {};
+      let playerNames = {};
+
+      function updatePlayerNameInputs() {
+        const count = parseInt(document.getElementById("player-count").value);
+        const container = document.getElementById("player-names");
+        container.innerHTML = "";
+
+        for (let i = 1; i <= count; i++) {
+          const div = document.createElement("div");
+          div.className = "player-name-input";
+          div.innerHTML = `
+                    <label>Player ${i}:</label>
+                    <input type="text" id="player-name-${i}" placeholder="Enter name" value="">
+                `;
+          container.appendChild(div);
+        }
+      }
+
+      function startGame() {
+        playerCount = parseInt(document.getElementById("player-count").value);
+        currentRound = 1;
+        scores = {};
+        playerNames = {};
+
+        // Get player names
+        for (let player = 1; player <= playerCount; player++) {
+          const nameInput = document.getElementById(`player-name-${player}`);
+          playerNames[`player${player}`] =
+            nameInput.value || `Player ${player}`;
+        }
+
+        // Initialize scores for all players and rounds
+        for (let player = 1; player <= playerCount; player++) {
+          scores[`player${player}`] = new Array(10).fill(0);
+        }
+
+        document.getElementById("player-setup").style.display = "none";
+        document.getElementById("round-container").style.display = "block";
+
+        showRound(1);
+      }
+
+      function showRound(round) {
+        currentRound = round;
+        const limits = roundLimits[round - 1];
+
+        document.getElementById("round-title").textContent = `Round ${round}`;
+        document.getElementById("score-limits").textContent =
+          `Score Range: ${limits.lower} to ${limits.upper}`;
+
+        const playerScoresDiv = document.getElementById("player-scores");
+        playerScoresDiv.innerHTML = "";
+
+        for (let player = 1; player <= playerCount; player++) {
+          const playerDiv = document.createElement("div");
+          playerDiv.className = "player-score";
+
+          const currentScore = scores[`player${player}`][round - 1];
+
+          playerDiv.innerHTML = `
+                    <label>${playerNames[`player${player}`]}</label>
+                    <input type="range" 
+                           class="score-slider" 
+                           min="${limits.lower}" 
+                           max="${limits.upper}" 
+                           value="${currentScore}"
+                           oninput="updateScore(${player}, this.value)">
+                    <div class="score-value" id="score-value-${player}">${currentScore}</div>
+                `;
+
+          playerScoresDiv.appendChild(playerDiv);
+        }
+
+        // Show/hide navigation buttons
+        document.getElementById("back-btn").style.display =
+          round > 1 ? "block" : "none";
+        document.getElementById("next-btn").textContent =
+          round === 10 ? "Show Results" : "Next Round →";
+      }
+
+      function updateScore(player, value) {
+        scores[`player${player}`][currentRound - 1] = parseInt(value);
+        document.getElementById(`score-value-${player}`).textContent = value;
+      }
+
+      function nextRound() {
+        if (currentRound === 10) {
+          showResults();
+        } else {
+          showRound(currentRound + 1);
+        }
+      }
+
+      function goBack() {
+        if (currentRound > 1) {
+          showRound(currentRound - 1);
+        }
+      }
+
+      function showResults() {
+        document.getElementById("round-container").style.display = "none";
+        document.getElementById("results-container").style.display = "block";
+
+        const table = document.getElementById("results-table");
+        let html = "<thead><tr><th>Player</th>";
+
+        // Add round headers
+        for (let round = 1; round <= 10; round++) {
+          html += `<th>R${round}</th>`;
+        }
+        html += '<th class="total-column">Total</th></tr></thead><tbody>';
+
+        let playerTotals = [];
+
+        // Add player rows
+        for (let player = 1; player <= playerCount; player++) {
+          const playerScores = scores[`player${player}`];
+          const total = playerScores.reduce((sum, score) => sum + score, 0);
+          playerTotals.push({ player, total });
+
+          html += `<tr><td>${playerNames[`player${player}`]}</td>`;
+
+          for (let round = 0; round < 10; round++) {
+            html += `<td>${playerScores[round]}</td>`;
+          }
+
+          html += `<td class="total-column">${total}</td></tr>`;
+        }
+
+        html += "</tbody>";
+        table.innerHTML = html;
+
+        // Highlight winner
+        const maxTotal = Math.max(...playerTotals.map((p) => p.total));
+        const winnerRows = table.querySelectorAll("tbody tr");
+        playerTotals.forEach((player, index) => {
+          if (player.total === maxTotal) {
+            winnerRows[index].classList.add("winner");
+          }
+        });
+      }
+
+      function resetGame() {
+        document.getElementById("results-container").style.display = "none";
+        document.getElementById("player-setup").style.display = "block";
+        scores = {};
+        playerNames = {};
+        currentRound = 1;
+        updatePlayerNameInputs(); // Initialize the name inputs
+      }
+
+      // Initialize player name inputs on page load
+      updatePlayerNameInputs();
+    </script>
+  </body>
+</html>

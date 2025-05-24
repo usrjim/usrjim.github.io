@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flip 7 Score Tracker</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        touch-action: manipulation;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        max-width: 900px;
+        margin: 0 auto;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      h1 {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 30px;
+        font-size: 2.5rem;
+        font-weight: 300;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      h2 {
+        color: #34495e;
+        margin-bottom: 25px;
+        font-size: 1.5rem;
+        font-weight: 400;
+      }
+
+      .setup-section,
+      .game-section {
+        margin-bottom: 30px;
+      }
+
+      .player-input {
+        margin: 15px 0;
+        padding: 10px;
+        background: rgba(103, 126, 234, 0.05);
+        border-radius: 10px;
+        border-left: 4px solid #667eea;
+      }
+
+      .player-input label {
+        display: inline-block;
+        width: 100px;
+        font-weight: 600;
+        color: #2c3e50;
+      }
+
+      .player-input input[type="text"],
+      select {
+        padding: 12px 16px;
+        border: 2px solid #e1e8ed;
+        border-radius: 8px;
+        width: 200px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        background: white;
+      }
+
+      .player-input input[type="text"]:focus,
+      select:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(103, 126, 234, 0.1);
+        transform: translateY(-1px);
+      }
+
+      .score-input {
+        margin: 20px 0;
+        padding: 20px;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.9) 0%,
+          rgba(247, 249, 252, 0.9) 100%
+        );
+        border-radius: 15px;
+        border: 1px solid rgba(103, 126, 234, 0.2);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        transition: transform 0.2s ease;
+      }
+
+      .score-input:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+      }
+
+      .score-input label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #2c3e50;
+        font-size: 1.1rem;
+      }
+
+      .slider-container {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .slider {
+        flex-grow: 1;
+        height: 8px;
+        background: linear-gradient(to right, #e1e8ed, #667eea);
+        outline: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .slider::-webkit-slider-thumb {
+        appearance: none;
+        width: 24px;
+        height: 24px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(103, 126, 234, 0.3);
+        transition: all 0.2s ease;
+      }
+
+      .slider::-webkit-slider-thumb:hover {
+        transform: scale(1.2);
+        box-shadow: 0 4px 15px rgba(103, 126, 234, 0.5);
+      }
+
+      .slider::-moz-range-thumb {
+        width: 24px;
+        height: 24px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        border-radius: 50%;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 2px 8px rgba(103, 126, 234, 0.3);
+      }
+
+      .score-display {
+        font-weight: bold;
+        font-size: 20px;
+        min-width: 50px;
+        text-align: center;
+        color: #2c3e50;
+        background: rgba(103, 126, 234, 0.1);
+        padding: 8px 12px;
+        border-radius: 8px;
+        border: 2px solid rgba(103, 126, 234, 0.2);
+      }
+
+      .scores-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .scores-table th,
+      .scores-table td {
+        border: none;
+        padding: 15px 12px;
+        text-align: center;
+        transition: background-color 0.2s ease;
+      }
+
+      .scores-table th {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        font-weight: 600;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      }
+
+      .scores-table tbody tr:nth-child(even) {
+        background-color: rgba(103, 126, 234, 0.05);
+      }
+
+      .scores-table tbody tr:hover {
+        background-color: rgba(103, 126, 234, 0.1);
+      }
+
+      .total-row {
+        font-weight: bold;
+        background: linear-gradient(
+          135deg,
+          rgba(40, 167, 69, 0.1),
+          rgba(40, 167, 69, 0.2)
+        ) !important;
+        border-top: 2px solid #28a745;
+      }
+
+      .winner {
+        background: linear-gradient(135deg, #ffd700, #ffeb3b) !important;
+        color: #2c3e50;
+        font-weight: bold;
+        box-shadow: inset 0 0 10px rgba(255, 215, 0, 0.5);
+        position: relative;
+      }
+
+      .winner::before {
+        content: "👑";
+        position: absolute;
+        left: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      button {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        margin: 5px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(103, 126, 234, 0.3);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(103, 126, 234, 0.4);
+        background: linear-gradient(135deg, #5a6fd8, #6b4d99);
+      }
+
+      button:active {
+        transform: translateY(0);
+      }
+
+      button:disabled {
+        background: linear-gradient(135deg, #6c757d, #5a6268);
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .back-button {
+        background: linear-gradient(135deg, #6c757d, #5a6268);
+      }
+
+      .back-button:hover {
+        background: linear-gradient(135deg, #545b62, #4e555b);
+      }
+
+      .button-container {
+        text-align: center;
+        margin: 20px 0;
+      }
+
+      .game-complete {
+        text-align: center;
+        color: #28a745;
+        font-size: 24px;
+        font-weight: bold;
+        margin: 20px 0;
+        padding: 20px;
+        background: linear-gradient(
+          135deg,
+          rgba(40, 167, 69, 0.1),
+          rgba(40, 167, 69, 0.2)
+        );
+        border-radius: 15px;
+        border: 2px solid #28a745;
+        animation: celebrationPulse 1.5s ease-in-out infinite alternate;
+      }
+
+      @keyframes celebrationPulse {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1.02);
+        }
+      }
+
+      .round-header {
+        text-align: center;
+        color: #667eea;
+        font-size: 20px;
+        margin: 20px 0;
+        padding: 15px;
+        background: linear-gradient(
+          135deg,
+          rgba(103, 126, 234, 0.1),
+          rgba(118, 75, 162, 0.1)
+        );
+        border-radius: 10px;
+        border-left: 4px solid #667eea;
+        font-weight: 600;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      /* Add smooth transitions for section changes */
+      .setup-section,
+      .game-section {
+        animation: fadeIn 0.5s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Custom styling for select dropdown */
+      select {
+        background: white;
+        cursor: pointer;
+      }
+
+      select:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(103, 126, 234, 0.1);
+      }
+
+      /* Improved mobile responsiveness */
+      @media (max-width: 768px) {
+        body {
+          padding: 10px;
+        }
+
+        .container {
+          padding: 20px;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        .player-input input[type="text"],
+        select {
+          width: 150px;
+        }
+
+        .scores-table th,
+        .scores-table td {
+          padding: 8px 6px;
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="setupSection" class="setup-section">
+        <h1>Flip 7</h1>
+        <h2>Game Setup</h2>
+        <div class="player-input">
+          <label for="numPlayers">Players:</label>
+          <select id="numPlayers">
+            <option value="2">2 Players</option>
+            <option value="3">3 Players</option>
+            <option value="4">4 Players</option>
+            <option value="5">5 Players</option>
+            <option value="6">6 Players</option>
+          </select>
+        </div>
+        <div id="playerNames"></div>
+        <div class="button-container">
+          <button onclick="startGame()">Start Game</button>
+        </div>
+      </div>
+
+      <div id="gameSection" class="game-section hidden">
+        <div id="roundHeader" class="round-header"></div>
+        <div id="scoreInputs"></div>
+        <div class="button-container">
+          <button id="backButton" class="back-button hidden" onclick="goBack()">
+            Back
+          </button>
+          <button id="nextButton" onclick="nextRound()">Next Round</button>
+        </div>
+        <div id="gameComplete" class="game-complete hidden"></div>
+        <div id="scoresTable"></div>
+      </div>
+    </div>
+
+    <script>
+      let players = [];
+      let currentRound = 1;
+      let scores = {};
+      let roundScores = {};
+
+      document
+        .getElementById("numPlayers")
+        .addEventListener("change", generatePlayerInputs);
+
+      function generatePlayerInputs() {
+        const numPlayers = parseInt(
+          document.getElementById("numPlayers").value,
+        );
+        const container = document.getElementById("playerNames");
+        container.innerHTML = "";
+
+        for (let i = 1; i <= numPlayers; i++) {
+          const div = document.createElement("div");
+          div.className = "player-input";
+          div.innerHTML = `
+                    <label for="player${i}">Player ${i}:</label>
+                    <input type="text" id="player${i}" value="" />
+                `;
+          container.appendChild(div);
+        }
+      }
+
+      function startGame() {
+        const numPlayers = parseInt(
+          document.getElementById("numPlayers").value,
+        );
+        players = [];
+        scores = {};
+        roundScores = {};
+
+        for (let i = 1; i <= numPlayers; i++) {
+          const playerName =
+            document.getElementById(`player${i}`).value || `Player ${i}`;
+          players.push(playerName);
+          scores[playerName] = [];
+        }
+
+        currentRound = 1;
+        document.getElementById("setupSection").classList.add("hidden");
+        document.getElementById("gameSection").classList.remove("hidden");
+        showRoundInput();
+      }
+
+      function showRoundInput() {
+        document.getElementById("roundHeader").textContent =
+          `Round ${currentRound}`;
+
+        const container = document.getElementById("scoreInputs");
+        container.innerHTML = "";
+        roundScores = {};
+
+        players.forEach((player) => {
+          const div = document.createElement("div");
+          div.className = "score-input";
+          const currentTotal = scores[player].reduce(
+            (sum, score) => sum + score,
+            0,
+          );
+
+          div.innerHTML = `
+                    <label>${player} (Current Total: ${currentTotal})</label>
+                    <div class="slider-container">
+                        <input type="range" class="slider" min="0" max="180" value="0" 
+                               oninput="updateScore('${player}', this.value)" />
+                        <span class="score-display" id="score-${player}">0</span>
+                    </div>
+                `;
+          container.appendChild(div);
+          roundScores[player] = 0;
+        });
+
+        // Show/hide back button
+        if (currentRound > 1) {
+          document.getElementById("backButton").classList.remove("hidden");
+        } else {
+          document.getElementById("backButton").classList.add("hidden");
+        }
+
+        updateScoresTable();
+      }
+
+      function updateScore(player, value) {
+        roundScores[player] = parseInt(value);
+        document.getElementById(`score-${player}`).textContent = value;
+      }
+
+      function nextRound() {
+        // Add current round scores to total scores
+        players.forEach((player) => {
+          scores[player].push(roundScores[player]);
+        });
+
+        // Check if any player reached 200
+        const winner = players.find((player) => {
+          const total = scores[player].reduce((sum, score) => sum + score, 0);
+          return total >= 200;
+        });
+
+        if (winner) {
+          document.getElementById("gameComplete").innerHTML =
+            `🎉 Game Complete! 🎉`;
+          document.getElementById("gameComplete").classList.remove("hidden");
+          document.getElementById("nextButton").classList.add("hidden");
+          document.getElementById("backButton").classList.add("hidden");
+          document.getElementById("scoreInputs").innerHTML = "";
+          document.getElementById("roundHeader").textContent = "";
+        } else {
+          currentRound++;
+          showRoundInput();
+        }
+
+        updateScoresTable();
+      }
+
+      function goBack() {
+        if (currentRound > 1) {
+          // Remove the last round scores
+          players.forEach((player) => {
+            scores[player].pop();
+          });
+          currentRound--;
+          showRoundInput();
+        }
+      }
+
+      function updateScoresTable() {
+        const container = document.getElementById("scoresTable");
+
+        if (currentRound === 1 && Object.keys(scores).length === 0) {
+          container.innerHTML = "";
+          return;
+        }
+
+        let table = '<table class="scores-table"><thead><tr><th>Round</th>';
+
+        // Add player headers
+        players.forEach((player) => {
+          const total = scores[player].reduce((sum, score) => sum + score, 0);
+          const isWinner = total >= 200;
+          const headerClass = isWinner ? "winner" : "";
+          table += `<th class="${headerClass}">${player}</th>`;
+        });
+        table += "</tr></thead><tbody>";
+
+        // Add round rows
+        for (let i = 1; i < currentRound; i++) {
+          table += `<tr><td><strong>Round ${i}</strong></td>`;
+
+          // Add player scores for this round
+          players.forEach((player) => {
+            const score = scores[player][i - 1] || 0;
+            table += `<td>${score}</td>`;
+          });
+
+          table += "</tr>";
+        }
+
+        // Add total row
+        table += '<tr class="total-row"><td><strong>Total</strong></td>';
+        players.forEach((player) => {
+          const total = scores[player].reduce((sum, score) => sum + score, 0);
+          const isWinner = total >= 200;
+          const cellClass = isWinner ? "winner" : "";
+          table += `<td class="${cellClass}"><strong>${total}</strong></td>`;
+        });
+        table += "</tr>";
+
+        table += "</tbody></table>";
+        container.innerHTML = table;
+      }
+
+      // Initialize player inputs on page load
+      generatePlayerInputs();
+    </script>
+  </body>
+</html>
