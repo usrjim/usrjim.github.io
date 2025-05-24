@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sushi Go! Score Tracker</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(45deg, #ff9a56, #ff6b6b);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .setup {
+            padding: 20px;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .setup-row {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .setup-row label {
+            font-weight: bold;
+            min-width: 120px;
+        }
+        
+        select, input, button {
+            padding: 8px 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        button {
+            background: #4ecdc4;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #45b7b8;
+        }
+        
+        .game-area {
+            padding: 20px;
+        }
+        
+        .scoreboard {
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        th {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+        }
+        
+        .player-name {
+            background: #f8f9fa;
+            font-weight: bold;
+            color: #495057;
+        }
+        
+        .round-header {
+            background: #ff9a56;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .total-row {
+            background: #28a745;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        input[type="number"] {
+            width: 60px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #4ecdc4;
+            box-shadow: 0 0 5px rgba(78, 205, 196, 0.3);
+        }
+
+        .slider-container {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            gap: 10px;
+        }
+
+        .slider-container label {
+            min-width: 100px;
+            font-weight: bold;
+            color: #495057;
+        }
+
+        input[type="range"] {
+            flex-grow: 1;
+            height: 25px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: transparent;
+            border: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 30px;
+            height: 30px;
+            background: #4ecdc4;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-top: -10px;
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 30px;
+            height: 30px;
+            background: #4ecdc4;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
+
+        input[type="range"]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 10px;
+            background: #ddd;
+            border-radius: 5px;
+        }
+
+        input[type="range"]::-moz-range-track {
+            width: 100%;
+            height: 10px;
+            background: #ddd;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .slider-value {
+            min-width: 35px;
+            text-align: center;
+            font-weight: bold;
+            color: #4ecdc4;
+            font-size: 1.1em;
+        }
+
+        .round-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            display: none;
+        }
+
+        .round-section.active {
+            display: block;
+        }
+
+        .round-title {
+            text-align: center;
+            color: #4ecdc4;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .round-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            padding: 12px 20px;
+            background: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+            flex: 1;
+            max-width: 120px;
+        }
+
+        .nav-btn:hover {
+            background: #5a6268;
+        }
+
+        .nav-btn:disabled {
+            background: #dee2e6;
+            cursor: not-allowed;
+        }
+
+        .next-btn {
+            background: #4ecdc4;
+        }
+
+        .next-btn:hover {
+            background: #45b7b8;
+        }
+
+        .summary-section {
+            background: #e8f5e8;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            display: none;
+        }
+        
+        .winner {
+            background: #ffd700;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .controls {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .controls button {
+            margin: 0 10px;
+            padding: 10px 20px;
+        }
+        
+        .reset-btn {
+            background: #dc3545;
+        }
+        
+        .reset-btn:hover {
+            background: #c82333;
+        }
+        
+        @media (max-width: 768px) {
+            .setup-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .setup-row label {
+                min-width: auto;
+            }
+            
+            input[type="number"] {
+                width: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🍣 Sushi Go! Score Tracker 🍣</h1>
+        </div>
+        
+        <div class="setup" id="setup">
+            <div class="setup-row">
+                <label for="playerCount">Number of Players:</label>
+                <select id="playerCount">
+                    <option value="2">2 Players</option>
+                    <option value="3">3 Players</option>
+                    <option value="4">4 Players</option>
+                    <option value="5">5 Players</option>
+                </select>
+                <button onclick="setupGame()">Setup Game</button>
+            </div>
+            
+            <div id="playerNames" style="display: none;">
+                <div class="setup-row">
+                    <label>Player Names:</label>
+                    <div id="nameInputs"></div>
+                </div>
+                <button onclick="startGame()">Start Game</button>
+            </div>
+        </div>
+        
+        <div class="game-area">
+            <div id="scoring" style="display: none;">
+                <div id="round1" class="round-section active">
+                    <div class="round-title">Round 1 (0-25 points)</div>
+                    <div id="round1Inputs"></div>
+                    <div class="round-navigation">
+                        <button class="nav-btn" disabled>Previous</button>
+                        <button class="nav-btn next-btn" onclick="nextRound(1)">Next Round</button>
+                    </div>
+                </div>
+
+                <div id="round2" class="round-section">
+                    <div class="round-title">Round 2 (0-30 points)</div>
+                    <div id="round2Inputs"></div>
+                    <div class="round-navigation">
+                        <button class="nav-btn" onclick="previousRound(2)">Previous</button>
+                        <button class="nav-btn next-btn" onclick="nextRound(2)">Next Round</button>
+                    </div>
+                </div>
+
+                <div id="round3" class="round-section">
+                    <div class="round-title">Round 3 (0-35 points)</div>
+                    <div id="round3Inputs"></div>
+                    <div class="round-navigation">
+                        <button class="nav-btn" onclick="previousRound(3)">Previous</button>
+                        <button class="nav-btn next-btn" onclick="showSummary()">Show Results</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="summary" class="summary-section">
+                <h2 style="text-align: center; color: #4ecdc4;">Final Scores</h2>
+                <div class="scoreboard">
+                    <table id="summaryTable">
+                        <!-- Summary table will be generated here -->
+                    </table>
+                </div>
+                
+                <div class="controls">
+                    <button onclick="previousRound(4)">Back to Round 3</button>
+                    <button onclick="resetGame()" class="reset-btn">New Game</button>
+                </div>
+            </div>
+
+            <div id="scoreboard" style="display: none;">
+                <div class="scoreboard">
+                    <table id="scoreTable">
+                        <!-- Score table will be generated here -->
+                    </table>
+                </div>
+                
+                <div class="controls">
+                    <button onclick="calculateTotals()">Calculate Totals</button>
+                    <button onclick="resetGame()" class="reset-btn">Reset Game</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let players = [];
+        let currentPlayers = 2;
+        
+        function setupGame() {
+            currentPlayers = parseInt(document.getElementById('playerCount').value);
+            const nameInputs = document.getElementById('nameInputs');
+            nameInputs.innerHTML = '';
+            
+            for (let i = 1; i <= currentPlayers; i++) {
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.placeholder = `Player ${i}`;
+                input.id = `player${i}`;
+                input.style.marginRight = '10px';
+                input.style.marginBottom = '5px';
+                nameInputs.appendChild(input);
+            }
+            
+            document.getElementById('playerNames').style.display = 'block';
+        }
+        
+        function startGame() {
+            players = [];
+            for (let i = 1; i <= currentPlayers; i++) {
+                const name = document.getElementById(`player${i}`).value || `Player ${i}`;
+                players.push({
+                    name: name,
+                    round1: 0,
+                    round2: 0,
+                    round3: 0,
+                    total: 0
+                });
+            }
+            
+            // Hide the entire setup section
+            document.getElementById('setup').style.display = 'none';
+            
+            setupRoundInputs();
+            document.getElementById('scoring').style.display = 'block';
+        }
+
+        function setupRoundInputs() {
+            const rounds = [
+                { id: 'round1', max: 25 },
+                { id: 'round2', max: 30 },
+                { id: 'round3', max: 35 }
+            ];
+
+            rounds.forEach(round => {
+                const inputs = document.getElementById(`${round.id}Inputs`);
+                inputs.innerHTML = '';
+
+                players.forEach((player, index) => {
+                    const div = document.createElement('div');
+                    div.className = 'slider-container';
+                    div.innerHTML = `
+                        <label for="${round.id}${index}">${player.name}:</label>
+                        <input type="range" id="${round.id}${index}" min="0" max="${round.max}" value="0" step="1">
+                        <span class="slider-value" id="${round.id}${index}Value">0</span>
+                    `;
+                    inputs.appendChild(div);
+
+                    // Add event listener to update the displayed value
+                    const slider = div.querySelector(`#${round.id}${index}`);
+                    const valueDisplay = div.querySelector(`#${round.id}${index}Value`);
+
+                    slider.addEventListener('input', function() {
+                        valueDisplay.textContent = this.value;
+                        players[index][round.id] = parseInt(this.value);
+                    });
+                });
+            });
+        }
+
+        function nextRound(currentRound) {
+            // Save current round scores
+            saveRoundScores(`round${currentRound}`);
+            
+            // Hide current round and show next
+            document.getElementById(`round${currentRound}`).classList.remove('active');
+            if (currentRound < 3) {
+                document.getElementById(`round${currentRound + 1}`).classList.add('active');
+            }
+        }
+
+        function previousRound(currentRound) {
+            // Save current round scores
+            if (currentRound <= 3) {
+                saveRoundScores(`round${currentRound}`);
+            }
+            
+            // Hide current and show previous
+            if (currentRound === 4) {
+                // Coming from summary
+                document.getElementById('summary').style.display = 'none';
+                document.getElementById('round3').classList.add('active');
+            } else {
+                document.getElementById(`round${currentRound}`).classList.remove('active');
+                document.getElementById(`round${currentRound - 1}`).classList.add('active');
+            }
+        }
+
+        function saveRoundScores(roundId) {
+            players.forEach((player, index) => {
+                const slider = document.getElementById(`${roundId}${index}`);
+                if (slider) {
+                    player[roundId] = parseInt(slider.value) || 0;
+                }
+            });
+        }
+
+        function showSummary() {
+            // Save round 3 scores
+            saveRoundScores('round3');
+            
+            // Hide round 3 and show summary
+            document.getElementById('round3').classList.remove('active');
+            document.getElementById('summary').style.display = 'block';
+            
+            // Create summary table
+            createSummaryTable();
+        }
+
+        function createSummaryTable() {
+            const table = document.getElementById('summaryTable');
+            table.innerHTML = '';
+            
+            // Header row with player names
+            const headerRow = table.insertRow();
+            headerRow.insertCell().innerHTML = '<strong>Round</strong>';
+            players.forEach(player => {
+                headerRow.insertCell().innerHTML = `<strong class="player-name">${player.name}</strong>`;
+            });
+            
+            // Round 1 row
+            const round1Row = table.insertRow();
+            round1Row.insertCell().innerHTML = '<strong class="round-header">Round 1</strong>';
+            players.forEach(player => {
+                round1Row.insertCell().innerHTML = player.round1;
+            });
+            
+            // Round 2 row
+            const round2Row = table.insertRow();
+            round2Row.insertCell().innerHTML = '<strong class="round-header">Round 2</strong>';
+            players.forEach(player => {
+                round2Row.insertCell().innerHTML = player.round2;
+            });
+            
+            // Round 3 row
+            const round3Row = table.insertRow();
+            round3Row.insertCell().innerHTML = '<strong class="round-header">Round 3</strong>';
+            players.forEach(player => {
+                round3Row.insertCell().innerHTML = player.round3;
+            });
+            
+            // Total row
+            const totalRow = table.insertRow();
+            totalRow.insertCell().innerHTML = '<strong>Total</strong>';
+            
+            let maxScore = -1;
+            let winners = [];
+            
+            players.forEach((player, index) => {
+                const total = player.round1 + player.round2 + player.round3;
+                player.total = total;
+                
+                const totalCell = totalRow.insertCell();
+                totalCell.innerHTML = `<strong>${total}</strong>`;
+                totalCell.id = `summary-total-${index}`;
+                
+                if (total > maxScore) {
+                    maxScore = total;
+                    winners = [index];
+                } else if (total === maxScore && total > 0) {
+                    winners.push(index);
+                }
+            });
+            
+            // Highlight winner(s)
+            winners.forEach(index => {
+                document.getElementById(`summary-total-${index}`).className = 'winner total-row';
+            });
+        }
+        
+        function createScoreTable() {
+            const table = document.getElementById('scoreTable');
+            table.innerHTML = '';
+            
+            // Header row
+            const headerRow = table.insertRow();
+            headerRow.insertCell().innerHTML = '<strong>Player</strong>';
+            headerRow.insertCell().innerHTML = '<strong class="round-header">Round 1<br>(0-25 pts)</strong>';
+            headerRow.insertCell().innerHTML = '<strong class="round-header">Round 2<br>(0-30 pts)</strong>';
+            headerRow.insertCell().innerHTML = '<strong class="round-header">Round 3<br>(0-35 pts)</strong>';
+            headerRow.insertCell().innerHTML = '<strong>Total</strong>';
+            
+            // Player rows
+            players.forEach((player, index) => {
+                const row = table.insertRow();
+                row.insertCell().innerHTML = `<strong class="player-name">${player.name}</strong>`;
+                
+                // Round 1 (max 25)
+                const round1Cell = row.insertCell();
+                round1Cell.innerHTML = `<input type="number" min="0" max="25" value="${player.round1}" onchange="updateScore(${index}, 'round1', this.value)">`;
+                
+                // Round 2 (max 30)
+                const round2Cell = row.insertCell();
+                round2Cell.innerHTML = `<input type="number" min="0" max="30" value="${player.round2}" onchange="updateScore(${index}, 'round2', this.value)">`;
+                
+                // Round 3 (max 35)
+                const round3Cell = row.insertCell();
+                round3Cell.innerHTML = `<input type="number" min="0" max="35" value="${player.round3}" onchange="updateScore(${index}, 'round3', this.value)">`;
+                
+                // Total
+                const totalCell = row.insertCell();
+                totalCell.innerHTML = `<strong>${player.total}</strong>`;
+                totalCell.id = `total-${index}`;
+            });
+        }
+        
+        function updateScore(playerIndex, round, value) {
+            const score = parseInt(value) || 0;
+            players[playerIndex][round] = score;
+            calculateTotals();
+        }
+        
+        function calculateTotals() {
+            let maxScore = -1;
+            let winners = [];
+            
+            players.forEach((player, index) => {
+                const total = player.round1 + player.round2 + player.round3;
+                player.total = total;
+                
+                const totalCell = document.getElementById(`total-${index}`);
+                totalCell.innerHTML = `<strong>${total}</strong>`;
+                totalCell.className = '';
+                
+                if (total > maxScore) {
+                    maxScore = total;
+                    winners = [index];
+                } else if (total === maxScore && total > 0) {
+                    winners.push(index);
+                }
+            });
+            
+            // Highlight winner(s)
+            winners.forEach(index => {
+                document.getElementById(`total-${index}`).className = 'winner total-row';
+            });
+        }
+        
+        function resetGame() {
+            // Show setup section again
+            document.getElementById('setup').style.display = 'block';
+            document.getElementById('scoring').style.display = 'none';
+            document.getElementById('summary').style.display = 'none';
+            document.getElementById('playerNames').style.display = 'none';
+            
+            // Reset to round 1
+            document.querySelectorAll('.round-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById('round1').classList.add('active');
+            
+            players = [];
+        }
+        
+        // Initialize with 2 players on page load
+        window.onload = function() {
+            setupGame();
+        };
+    </script>
+</body>
+</html>

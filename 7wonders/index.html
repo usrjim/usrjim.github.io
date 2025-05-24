@@ -205,6 +205,17 @@
       .table-container {
         overflow-x: auto;
       }
+      .previous-button {
+        width: auto;
+        padding: 8px 16px;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+        margin-top: 0;
+        background-color: #999;
+      }
+      .previous-button:hover {
+        background-color: #777;
+      }
     </style>
   </head>
   <body>
@@ -243,36 +254,42 @@
         </div>
 
         <div id="treasury" class="category-section hidden">
+          <button id="prevMilitary" class="previous-button">← Previous</button>
           <div class="category-name">2. Treasury Contents</div>
           <div id="treasuryInputs"></div>
           <button id="nextWonder">Next</button>
         </div>
 
         <div id="wonder" class="category-section hidden">
+          <button id="prevTreasury" class="previous-button">← Previous</button>
           <div class="category-name">3. Wonder</div>
           <div id="wonderInputs"></div>
           <button id="nextCivilian">Next</button>
         </div>
 
         <div id="civilian" class="category-section hidden">
+          <button id="prevWonder" class="previous-button">← Previous</button>
           <div class="category-name">4. Civilian Structures</div>
           <div id="civilianInputs"></div>
           <button id="nextScientific">Next</button>
         </div>
 
         <div id="scientific" class="category-section hidden">
+          <button id="prevCivilian" class="previous-button">← Previous</button>
           <div class="category-name">5. Scientific Structures</div>
           <div id="scientificInputs"></div>
           <button id="nextCommercial">Next</button>
         </div>
 
         <div id="commercial" class="category-section hidden">
+          <button id="prevScientific" class="previous-button">← Previous</button>
           <div class="category-name">6. Commercial Structures</div>
           <div id="commercialInputs"></div>
           <button id="nextGuilds">Next</button>
         </div>
 
         <div id="guilds" class="category-section hidden">
+          <button id="prevCommercial" class="previous-button">← Previous</button>
           <div class="category-name">7. Guilds</div>
           <div id="guildsInputs"></div>
           <button id="showResults">Show Results</button>
@@ -342,6 +359,26 @@
           .getElementById("showResults")
           .addEventListener("click", showResults);
 
+        // Add event listeners for previous buttons
+        document
+          .getElementById("prevMilitary")
+          .addEventListener("click", () => previousCategory("treasury", "military"));
+        document
+          .getElementById("prevTreasury")
+          .addEventListener("click", () => previousCategory("wonder", "treasury"));
+        document
+          .getElementById("prevWonder")
+          .addEventListener("click", () => previousCategory("civilian", "wonder"));
+        document
+          .getElementById("prevCivilian")
+          .addEventListener("click", () => previousCategory("scientific", "civilian"));
+        document
+          .getElementById("prevScientific")
+          .addEventListener("click", () => previousCategory("commercial", "scientific"));
+        document
+          .getElementById("prevCommercial")
+          .addEventListener("click", () => previousCategory("guilds", "commercial"));
+
         // Add event listener for player number slider
         document
           .getElementById("numPlayers")
@@ -407,6 +444,9 @@
 
           // Setup inputs for all categories
           setupCategoryInputs();
+
+          // Load saved scores when navigating between categories
+          loadSavedScores();
         }
 
         function setupCategoryInputs() {
@@ -468,12 +508,34 @@
           document.getElementById(next).classList.remove("hidden");
         }
 
+        function previousCategory(current, previous) {
+          // Save current category scores
+          saveScores(current);
+
+          // Hide current and show previous
+          document.getElementById(current).classList.add("hidden");
+          document.getElementById(previous).classList.remove("hidden");
+        }
+
         function saveScores(category) {
           players.forEach((player, index) => {
             const score =
               parseInt(document.getElementById(`${category}${index}`).value) ||
               0;
             player[category] = score;
+          });
+        }
+
+        function loadSavedScores() {
+          categories.forEach((category) => {
+            players.forEach((player, index) => {
+              const slider = document.getElementById(`${category}${index}`);
+              const valueDisplay = document.getElementById(`${category}${index}Value`);
+              if (slider && valueDisplay) {
+                slider.value = player[category];
+                valueDisplay.textContent = player[category];
+              }
+            });
           });
         }
 

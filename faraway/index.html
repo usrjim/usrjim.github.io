@@ -177,6 +177,17 @@
       .table-container {
         overflow-x: auto;
       }
+      .previous-button {
+        width: auto;
+        padding: 8px 16px;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+        margin-top: 0;
+        background-color: #999;
+      }
+      .previous-button:hover {
+        background-color: #777;
+      }
     </style>
   </head>
   <body>
@@ -215,48 +226,56 @@
         </div>
 
         <div id="region7" class="category-section hidden">
+          <button id="prevRegion8" class="previous-button">← Previous</button>
           <div class="category-name">Region 7</div>
           <div id="region7Inputs"></div>
           <button id="nextRegion6">Next</button>
         </div>
 
         <div id="region6" class="category-section hidden">
+          <button id="prevRegion7" class="previous-button">← Previous</button>
           <div class="category-name">Region 6</div>
           <div id="region6Inputs"></div>
           <button id="nextRegion5">Next</button>
         </div>
 
         <div id="region5" class="category-section hidden">
+          <button id="prevRegion6" class="previous-button">← Previous</button>
           <div class="category-name">Region 5</div>
           <div id="region5Inputs"></div>
           <button id="nextRegion4">Next</button>
         </div>
 
         <div id="region4" class="category-section hidden">
+          <button id="prevRegion5" class="previous-button">← Previous</button>
           <div class="category-name">Region 4</div>
           <div id="region4Inputs"></div>
           <button id="nextRegion3">Next</button>
         </div>
 
         <div id="region3" class="category-section hidden">
+          <button id="prevRegion4" class="previous-button">← Previous</button>
           <div class="category-name">Region 3</div>
           <div id="region3Inputs"></div>
           <button id="nextRegion2">Next</button>
         </div>
 
         <div id="region2" class="category-section hidden">
+          <button id="prevRegion3" class="previous-button">← Previous</button>
           <div class="category-name">Region 2</div>
           <div id="region2Inputs"></div>
           <button id="nextRegion1">Next</button>
         </div>
 
         <div id="region1" class="category-section hidden">
+          <button id="prevRegion2" class="previous-button">← Previous</button>
           <div class="category-name">Region 1</div>
           <div id="region1Inputs"></div>
           <button id="nextSanctuary">Next</button>
         </div>
 
         <div id="sanctuary" class="category-section hidden">
+          <button id="prevRegion1" class="previous-button">← Previous</button>
           <div class="category-name">Sanctuary</div>
           <div id="sanctuaryInputs"></div>
           <button id="showResults">Show Results</button>
@@ -328,6 +347,32 @@
           .getElementById("showResults")
           .addEventListener("click", showResults);
 
+        // Add event listeners for previous buttons
+        document
+          .getElementById("prevRegion8")
+          .addEventListener("click", () => previousCategory("region7", "region8"));
+        document
+          .getElementById("prevRegion7")
+          .addEventListener("click", () => previousCategory("region6", "region7"));
+        document
+          .getElementById("prevRegion6")
+          .addEventListener("click", () => previousCategory("region5", "region6"));
+        document
+          .getElementById("prevRegion5")
+          .addEventListener("click", () => previousCategory("region4", "region5"));
+        document
+          .getElementById("prevRegion4")
+          .addEventListener("click", () => previousCategory("region3", "region4"));
+        document
+          .getElementById("prevRegion3")
+          .addEventListener("click", () => previousCategory("region2", "region3"));
+        document
+          .getElementById("prevRegion2")
+          .addEventListener("click", () => previousCategory("region1", "region2"));
+        document
+          .getElementById("prevRegion1")
+          .addEventListener("click", () => previousCategory("sanctuary", "region1"));
+
         // Add event listener for player number slider
         document
           .getElementById("numPlayers")
@@ -395,6 +440,9 @@
 
           // Setup inputs for all categories
           setupCategoryInputs();
+
+          // Load saved scores when navigating between categories
+          loadSavedScores();
         }
 
         function setupCategoryInputs() {
@@ -456,12 +504,34 @@
           document.getElementById(next).classList.remove("hidden");
         }
 
+        function previousCategory(current, previous) {
+          // Save current category scores
+          saveScores(current);
+
+          // Hide current and show previous
+          document.getElementById(current).classList.add("hidden");
+          document.getElementById(previous).classList.remove("hidden");
+        }
+
         function saveScores(category) {
           players.forEach((player, index) => {
             const score =
               parseInt(document.getElementById(`${category}${index}`).value) ||
               0;
             player[category] = score;
+          });
+        }
+
+        function loadSavedScores() {
+          categories.forEach((category) => {
+            players.forEach((player, index) => {
+              const slider = document.getElementById(`${category}${index}`);
+              const valueDisplay = document.getElementById(`${category}${index}Value`);
+              if (slider && valueDisplay) {
+                slider.value = player[category];
+                valueDisplay.textContent = player[category];
+              }
+            });
           });
         }
 
