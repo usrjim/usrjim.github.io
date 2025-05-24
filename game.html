@@ -1,171 +1,181 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Games</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+      }
 
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        text-align: center;
+        color: white;
+        margin-bottom: 40px;
+        font-size: 2.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .games-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        padding: 20px 0;
+      }
+
+      .game-card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .game-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .game-image {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #999;
+        font-size: 1.2rem;
+        border-bottom: 1px solid #eee;
+      }
+
+      .game-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+      }
+
+      .game-info {
+        padding: 25px;
+      }
+
+      .game-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .game-description {
+        color: #666;
+        line-height: 1.6;
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 768px) {
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
+          padding: 0 10px;
         }
 
         h1 {
-            text-align: center;
-            color: white;
-            margin-bottom: 40px;
-            font-size: 2.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+          font-size: 2rem;
+          margin-bottom: 30px;
         }
 
         .games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            padding: 20px 0;
-        }
-
-        .game-card {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .game-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        .game-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 1.2rem;
-            border-bottom: 1px solid #eee;
-        }
-
-        .game-image img {
-            width: 100%; height: 100%; object-fit: cover;
-            object-position: top;
+          grid-template-columns: 1fr;
+          gap: 20px;
         }
 
         .game-info {
-            padding: 25px;
+          padding: 20px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 15px;
+        }
+
+        h1 {
+          font-size: 1.8rem;
         }
 
         .game-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #333;
+          font-size: 1.3rem;
         }
-
-        .game-description {
-            color: #666;
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 10px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-                margin-bottom: 30px;
-            }
-            
-            .games-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .game-info {
-                padding: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 15px;
-            }
-            
-            h1 {
-                font-size: 1.8rem;
-            }
-            
-            .game-title {
-                font-size: 1.3rem;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <h1>Games</h1>
-        <div class="games-grid" id="games-grid"></div>
+      <h1>Games</h1>
+      <div class="games-grid" id="games-grid"></div>
     </div>
 
     <script>
-        // Games data
-        const games = [
-            {
-                title: "7 Wonders",
-                description: "Players draft cards to develop their ancient civilization, build a Wonder, and score points through military, science, and cultural achievements.",
-                image: "/images/covers/7wonders.jpg",
-                link: "/7wonders/"
-            },
-            {
-                title: "The Crew: The Quest for Planet Nine",
-                description: "A cooperative trick-taking game where players must complete specific missions in space by strategically playing cards to win or lose tricks.",
-                image: "/images/covers/the_crew.jpg",
-                link: "/crew/"
-            },
-            {
-                title: "Faraway",
-                description: "Players explore a mystical land, collecting sets of cards and strategically placing them to reveal hidden regions and score points.",
-                image: "/images/covers/faraway.jpg",
-                link: "/faraway/"
-            },
-            {
-                title: "Lost Cities",
-                description: "Two explorers race to discover forgotten civilizations by playing expedition cards in ascending order to score points, but must manage the risk of investing too much.",
-                image: "/images/covers/lost_cities.jpg",
-                link: "/lost-cities"
-            },
-            {
-                title: "Sushi Go!",
-                description: "A fast-paced card drafting game where players collect sets of sushi dishes as they are passed around to score the most points.",
-                image: "/images/covers/sushi_go.jpg",
-                link: "/sushi-go/"
-            }
-        ];
+      // Games data
+      const games = [
+        {
+          title: "7 Wonders",
+          description:
+            "Players draft cards to develop their ancient civilization, build a Wonder, and score points through military, science, and cultural achievements.",
+          image: "/images/covers/7wonders.jpg",
+          link: "/7wonders/",
+        },
+        {
+          title: "The Crew: The Quest for Planet Nine",
+          description:
+            "A cooperative trick-taking game where players must complete specific missions in space by strategically playing cards to win or lose tricks.",
+          image: "/images/covers/the_crew.jpg",
+          link: "/crew/",
+        },
+        {
+          title: "Faraway",
+          description:
+            "Players explore a mystical land, collecting sets of cards and strategically placing them to reveal hidden regions and score points.",
+          image: "/images/covers/faraway.jpg",
+          link: "/faraway/",
+        },
+        {
+          title: "Lost Cities",
+          description:
+            "Two explorers race to discover forgotten civilizations by playing expedition cards in ascending order to score points, but must manage the risk of investing too much.",
+          image: "/images/covers/lost_cities.jpg",
+          link: "/lost-cities",
+        },
+        {
+          title: "Sushi Go!",
+          description:
+            "A fast-paced card drafting game where players collect sets of sushi dishes as they are passed around to score the most points.",
+          image: "/images/covers/sushi_go.jpg",
+          link: "/sushi-go/",
+        },
+      ];
 
-        // Function to create a game card element
-        function createGameCard(game) {
-            return `
+      // Function to create a game card element
+      function createGameCard(game) {
+        return `
                 <a href="${game.link}" class="game-card">
                     <div class="game-image">
                         <img src="${game.image}" alt="${game.title} Cover">
@@ -178,16 +188,18 @@
                     </div>
                 </a>
             `;
-        }
+      }
 
-        // Function to render games
-        function renderGames() {
-            const gamesGrid = document.getElementById('games-grid');
-            gamesGrid.innerHTML = games.map(game => createGameCard(game)).join('');
-        }
+      // Function to render games
+      function renderGames() {
+        const gamesGrid = document.getElementById("games-grid");
+        gamesGrid.innerHTML = games
+          .map((game) => createGameCard(game))
+          .join("");
+      }
 
-        // Load games when the page loads
-        document.addEventListener('DOMContentLoaded', renderGames);
+      // Load games when the page loads
+      document.addEventListener("DOMContentLoaded", renderGames);
     </script>
-</body>
+  </body>
 </html>

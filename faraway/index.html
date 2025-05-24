@@ -13,55 +13,106 @@
         overflow-x: hidden;
       }
       body {
-        font-family: Arial, sans-serif;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #f5f5f5;
+        background: linear-gradient(
+          135deg,
+          #0f0c29 0%,
+          #24243e 30%,
+          #302b63 70%,
+          #6a4c93 100%
+        );
+        background-attachment: fixed;
+        min-height: 100vh;
+        color: #2c2c54;
       }
       .container {
         max-width: 100%;
-        padding: 10px;
+        padding: 20px;
         box-sizing: border-box;
       }
       h1 {
         text-align: center;
-        color: #6b3dc2;
-        font-size: 1.8rem;
-        margin: 10px 0;
+        color: #6a4c93;
+        font-size: 2.5rem;
+        margin: 20px 0;
+        text-shadow: 2px 2px 4px rgba(211, 199, 222, 0.91);
+        font-weight: 700;
+        letter-spacing: 2px;
       }
       h2 {
-        font-size: 1.4rem;
-        margin: 10px 0;
+        font-size: 1.6rem;
+        margin: 15px 0;
+        color: #6a4c93;
+        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
       }
       .setup-section,
       .category-section {
-        margin-bottom: 15px;
-        padding: 15px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        background-color: white;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        padding: 25px;
+        border: 2px solid #9370db;
+        border-radius: 15px;
+        background: linear-gradient(145deg, #f8f9ff 0%, #e6e9ff 100%);
+        box-shadow:
+          0 8px 20px rgba(106, 76, 147, 0.25),
+          inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        position: relative;
+        overflow: hidden;
+      }
+      .setup-section::before,
+      .category-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #6a4c93, #9370db, #6a4c93);
       }
       .hidden {
         display: none;
       }
       button {
-        background-color: #6b3dc2;
+        background: linear-gradient(
+          135deg,
+          #6a4c93 0%,
+          #9370db 50%,
+          #ba68c8 100%
+        );
         color: white;
         border: none;
-        padding: 12px 15px;
-        border-radius: 50px;
+        padding: 15px 25px;
+        border-radius: 25px;
         cursor: pointer;
-        margin-top: 10px;
+        margin-top: 15px;
         width: 100%;
-        font-size: 1rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow:
+          0 4px 15px rgba(106, 76, 147, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
       }
       button:hover {
-        background-color: #7643d5;
+        background: linear-gradient(
+          135deg,
+          #5e3c87 0%,
+          #8a63d2 50%,
+          #a855c7 100%
+        );
+        transform: translateY(-2px);
+        box-shadow:
+          0 6px 20px rgba(106, 76, 147, 0.4),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
       }
       button:active {
         transform: translateY(1px);
+        box-shadow:
+          0 2px 10px rgba(106, 76, 147, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
       }
       table {
         width: 100%;
@@ -76,24 +127,35 @@
         text-align: center;
       }
       th {
-        background-color: #6b3dc2;
+        background-color: #6a4c93;
         color: white;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
       }
-      tr:nth-child(even) {
-        background-color: #f2f2f2;
+      tr {
+        background-color: #e6e9ff;
       }
       .total-row {
         font-weight: bold;
-        background-color: #e6ccb3 !important;
+        background-color: #9370db !important;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      }
+      .total-row:hover {
+        background-color: #8a63d2 !important;
       }
       .player-input {
         margin-bottom: 10px;
       }
       .category-name {
+        font-size: 24px;
         font-weight: bold;
         margin-bottom: 10px;
-        color: #333;
+        color: #6a4c93;
         text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.5);
+        text-align: center;
       }
       input[type="number"],
       input[type="text"],
@@ -133,35 +195,37 @@
         -webkit-appearance: none;
         width: 30px;
         height: 30px;
-        background: #6b3dc2;
+        background: linear-gradient(135deg, #6a4c93, #9370db);
         border-radius: 50%;
         cursor: pointer;
         margin-top: -10px;
+        box-shadow: 0 2px 8px rgba(106, 76, 147, 0.4);
       }
       input[type="range"]::-moz-range-thumb {
         width: 30px;
         height: 30px;
-        background: #6b3dc2;
+        background: linear-gradient(135deg, #6a4c93, #9370db);
         border-radius: 50%;
         cursor: pointer;
+        border: none;
       }
       input[type="range"]::-ms-thumb {
         width: 30px;
         height: 30px;
-        background: #6b3dc2;
+        background: linear-gradient(135deg, #6a4c93, #9370db);
         border-radius: 50%;
         cursor: pointer;
       }
       input[type="range"]::-webkit-slider-runnable-track {
         width: 100%;
         height: 10px;
-        background: #ddd;
+        background: linear-gradient(90deg, #e6e9ff, #9370db, #e6e9ff);
         border-radius: 5px;
       }
       input[type="range"]::-moz-range-track {
         width: 100%;
         height: 10px;
-        background: #ddd;
+        background: linear-gradient(90deg, #e6e9ff, #9370db, #e6e9ff);
         border-radius: 5px;
       }
       input[type="range"]::-ms-track {
@@ -181,20 +245,25 @@
         width: auto;
         padding: 8px 16px;
         font-size: 0.9rem;
-        margin-bottom: 10px;
+        margin-bottom: 30px;
         margin-top: 0;
         background-color: #999;
       }
       .previous-button:hover {
         background-color: #777;
       }
+      #results {
+        text-align: center;
+      }
+      #results h2 {
+        color: #e7dbff;
+      }
     </style>
   </head>
   <body>
     <div class="container">
-      <h1>Faraway</h1>
-
       <div id="setup" class="setup-section">
+        <h1>Faraway</h1>
         <h2>Number of Players (2-7)</h2>
         <div>
           <div class="slider-container">
@@ -226,56 +295,56 @@
         </div>
 
         <div id="region7" class="category-section hidden">
-          <button id="prevRegion8" class="previous-button">← Previous</button>
+          <button id="prevRegion8" class="previous-button">← Back</button>
           <div class="category-name">Region 7</div>
           <div id="region7Inputs"></div>
           <button id="nextRegion6">Next</button>
         </div>
 
         <div id="region6" class="category-section hidden">
-          <button id="prevRegion7" class="previous-button">← Previous</button>
+          <button id="prevRegion7" class="previous-button">← Back</button>
           <div class="category-name">Region 6</div>
           <div id="region6Inputs"></div>
           <button id="nextRegion5">Next</button>
         </div>
 
         <div id="region5" class="category-section hidden">
-          <button id="prevRegion6" class="previous-button">← Previous</button>
+          <button id="prevRegion6" class="previous-button">← Back</button>
           <div class="category-name">Region 5</div>
           <div id="region5Inputs"></div>
           <button id="nextRegion4">Next</button>
         </div>
 
         <div id="region4" class="category-section hidden">
-          <button id="prevRegion5" class="previous-button">← Previous</button>
+          <button id="prevRegion5" class="previous-button">← Back</button>
           <div class="category-name">Region 4</div>
           <div id="region4Inputs"></div>
           <button id="nextRegion3">Next</button>
         </div>
 
         <div id="region3" class="category-section hidden">
-          <button id="prevRegion4" class="previous-button">← Previous</button>
+          <button id="prevRegion4" class="previous-button">← Back</button>
           <div class="category-name">Region 3</div>
           <div id="region3Inputs"></div>
           <button id="nextRegion2">Next</button>
         </div>
 
         <div id="region2" class="category-section hidden">
-          <button id="prevRegion3" class="previous-button">← Previous</button>
+          <button id="prevRegion3" class="previous-button">← Back</button>
           <div class="category-name">Region 2</div>
           <div id="region2Inputs"></div>
           <button id="nextRegion1">Next</button>
         </div>
 
         <div id="region1" class="category-section hidden">
-          <button id="prevRegion2" class="previous-button">← Previous</button>
+          <button id="prevRegion2" class="previous-button">← Back</button>
           <div class="category-name">Region 1</div>
           <div id="region1Inputs"></div>
           <button id="nextSanctuary">Next</button>
         </div>
 
         <div id="sanctuary" class="category-section hidden">
-          <button id="prevRegion1" class="previous-button">← Previous</button>
+          <button id="prevRegion1" class="previous-button">← Back</button>
           <div class="category-name">Sanctuary</div>
           <div id="sanctuaryInputs"></div>
           <button id="showResults">Show Results</button>
@@ -350,28 +419,44 @@
         // Add event listeners for previous buttons
         document
           .getElementById("prevRegion8")
-          .addEventListener("click", () => previousCategory("region7", "region8"));
+          .addEventListener("click", () =>
+            previousCategory("region7", "region8"),
+          );
         document
           .getElementById("prevRegion7")
-          .addEventListener("click", () => previousCategory("region6", "region7"));
+          .addEventListener("click", () =>
+            previousCategory("region6", "region7"),
+          );
         document
           .getElementById("prevRegion6")
-          .addEventListener("click", () => previousCategory("region5", "region6"));
+          .addEventListener("click", () =>
+            previousCategory("region5", "region6"),
+          );
         document
           .getElementById("prevRegion5")
-          .addEventListener("click", () => previousCategory("region4", "region5"));
+          .addEventListener("click", () =>
+            previousCategory("region4", "region5"),
+          );
         document
           .getElementById("prevRegion4")
-          .addEventListener("click", () => previousCategory("region3", "region4"));
+          .addEventListener("click", () =>
+            previousCategory("region3", "region4"),
+          );
         document
           .getElementById("prevRegion3")
-          .addEventListener("click", () => previousCategory("region2", "region3"));
+          .addEventListener("click", () =>
+            previousCategory("region2", "region3"),
+          );
         document
           .getElementById("prevRegion2")
-          .addEventListener("click", () => previousCategory("region1", "region2"));
+          .addEventListener("click", () =>
+            previousCategory("region1", "region2"),
+          );
         document
           .getElementById("prevRegion1")
-          .addEventListener("click", () => previousCategory("sanctuary", "region1"));
+          .addEventListener("click", () =>
+            previousCategory("sanctuary", "region1"),
+          );
 
         // Add event listener for player number slider
         document
@@ -526,7 +611,9 @@
           categories.forEach((category) => {
             players.forEach((player, index) => {
               const slider = document.getElementById(`${category}${index}`);
-              const valueDisplay = document.getElementById(`${category}${index}Value`);
+              const valueDisplay = document.getElementById(
+                `${category}${index}Value`,
+              );
               if (slider && valueDisplay) {
                 slider.value = player[category];
                 valueDisplay.textContent = player[category];

@@ -83,6 +83,9 @@
         cursor: pointer;
         font-size: 16px;
       }
+      .nav-button.alt {
+        background-color: #374ad9;
+      }
       .nav-button:disabled {
         background-color: #cccccc;
         cursor: not-allowed;
@@ -113,8 +116,6 @@
   </head>
   <body>
     <div class="container">
-      <h1>The Crew</h1>
-
       <div class="task-selector">
         <select id="taskSelect">
           <!-- Options will be populated by JavaScript -->
@@ -128,6 +129,7 @@
 
       <div class="navigation">
         <button id="prevButton" class="nav-button">Previous</button>
+        <button id="randomButton" class="nav-button alt">Random</button>
         <button id="nextButton" class="nav-button">Next</button>
       </div>
     </div>
@@ -141,6 +143,7 @@
         const taskAudio = document.getElementById("taskAudio");
         const playButton = document.getElementById("playButton");
         const prevButton = document.getElementById("prevButton");
+        const randomButton = document.getElementById("randomButton");
         const nextButton = document.getElementById("nextButton");
 
         const MIN_TASK = 1;
@@ -207,6 +210,12 @@
           if (currentTask < MAX_TASK) {
             loadTask(currentTask + 1);
           }
+        });
+
+        randomButton.addEventListener("click", function () {
+          const randomTask =
+            Math.floor(Math.random() * (MAX_TASK - MIN_TASK + 1)) + MIN_TASK;
+          loadTask(randomTask);
         });
 
         taskAudio.addEventListener("ended", function () {
