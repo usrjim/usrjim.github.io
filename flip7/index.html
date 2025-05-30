@@ -103,11 +103,6 @@
         transition: transform 0.2s ease;
       }
 
-      .score-input:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-      }
-
       .score-input label {
         display: block;
         font-weight: 600;
@@ -141,11 +136,6 @@
         cursor: pointer;
         box-shadow: 0 2px 8px rgba(103, 126, 234, 0.3);
         transition: all 0.2s ease;
-      }
-
-      .slider::-webkit-slider-thumb:hover {
-        transform: scale(1.2);
-        box-shadow: 0 4px 15px rgba(103, 126, 234, 0.5);
       }
 
       .slider::-moz-range-thumb {
@@ -198,10 +188,6 @@
         background-color: rgba(103, 126, 234, 0.05);
       }
 
-      .scores-table tbody tr:hover {
-        background-color: rgba(103, 126, 234, 0.1);
-      }
-
       .total-row {
         font-weight: bold;
         background: linear-gradient(
@@ -244,12 +230,6 @@
         letter-spacing: 0.5px;
       }
 
-      button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(103, 126, 234, 0.4);
-        background: linear-gradient(135deg, #5a6fd8, #6b4d99);
-      }
-
       button:active {
         transform: translateY(0);
       }
@@ -263,10 +243,6 @@
 
       .back-button {
         background: linear-gradient(135deg, #6c757d, #5a6268);
-      }
-
-      .back-button:hover {
-        background: linear-gradient(135deg, #545b62, #4e555b);
       }
 
       .button-container {
@@ -466,7 +442,14 @@
 
         const container = document.getElementById("scoreInputs");
         container.innerHTML = "";
-        roundScores = {};
+
+        // Initialize roundScores if it doesn't exist or preserve existing values
+        if (!roundScores || Object.keys(roundScores).length === 0) {
+          roundScores = {};
+          players.forEach((player) => {
+            roundScores[player] = 0;
+          });
+        }
 
         players.forEach((player) => {
           const div = document.createElement("div");
@@ -476,16 +459,17 @@
             0,
           );
 
+          const currentRoundScore = roundScores[player] || 0;
+
           div.innerHTML = `
                     <label>${player} (Current Total: ${currentTotal})</label>
                     <div class="slider-container">
-                        <input type="range" class="slider" min="0" max="180" value="0" 
+                        <input type="range" class="slider" min="0" max="80" value="${currentRoundScore}" 
                                oninput="updateScore('${player}', this.value)" />
-                        <span class="score-display" id="score-${player}">0</span>
+                        <span class="score-display" id="score-${player}" onclick="enterCustomScore('${player}')" style="cursor: pointer;" title="Click to enter custom score">${currentRoundScore}</span>
                     </div>
                 `;
           container.appendChild(div);
-          roundScores[player] = 0;
         });
 
         // Show/hide back button
@@ -501,6 +485,26 @@
       function updateScore(player, value) {
         roundScores[player] = parseInt(value);
         document.getElementById(`score-${player}`).textContent = value;
+      }
+
+      function enterCustomScore(player) {
+        const currentScore = roundScores[player] || 0;
+        const customScore = prompt(
+          `Enter custom score for ${player}:`,
+          currentScore,
+        );
+
+        if (customScore !== null && !isNaN(customScore)) {
+          const score = Math.max(0, parseInt(customScore)); // Ensure non-negative
+          roundScores[player] = score;
+          document.getElementById(`score-${player}`).textContent = score;
+
+          // Update the slider to match the custom score
+          const slider = document.querySelector(`input[oninput*="${player}"]`);
+          if (slider && score <= 80) {
+            slider.value = score;
+          }
+        }
       }
 
       function nextRound() {
@@ -525,6 +529,11 @@
           document.getElementById("roundHeader").textContent = "";
         } else {
           currentRound++;
+          // Reset roundScores for the new round
+          roundScores = {};
+          players.forEach((player) => {
+            roundScores[player] = 0;
+          });
           showRoundInput();
         }
 
@@ -533,9 +542,9 @@
 
       function goBack() {
         if (currentRound > 1) {
-          // Remove the last round scores
+          // Remove the last round scores and restore them to roundScores
           players.forEach((player) => {
-            scores[player].pop();
+            roundScores[player] = scores[player].pop();
           });
           currentRound--;
           showRoundInput();
