@@ -15,7 +15,7 @@
         font-family: "Roboto", sans-serif;
         max-width: 900px;
         margin: 0 auto;
-        padding: 20px;
+        padding: 20px 10px;
         background: linear-gradient(
           135deg,
           #1a1a2e 0%,
@@ -24,11 +24,12 @@
         );
         min-height: 100vh;
         color: #fff;
+        overflow-x: hidden;
       }
 
       .container {
         background: linear-gradient(145deg, #2c2c54 0%, #1a1a2e 100%);
-        padding: 40px;
+        padding: 20px;
         border-radius: 20px;
         box-shadow:
           0 0 50px rgba(255, 215, 0, 0.3),
@@ -66,6 +67,10 @@
 
       .player-setup {
         margin-bottom: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
       }
 
       .player-setup label {
@@ -103,7 +108,7 @@
         display: inline-block;
         width: 100px;
         text-align: left;
-        margin-right: 10px;
+        margin-bottom: 5px;
         color: #ffd700;
         font-weight: 500;
       }
@@ -113,7 +118,8 @@
         font-size: 16px;
         border: 2px solid #ffd700;
         border-radius: 10px;
-        width: 250px;
+        width: 100%;
+        box-sizing: border-box;
         background: linear-gradient(145deg, #2c2c54, #1a1a2e);
         color: #fff;
         outline: none;
@@ -145,14 +151,6 @@
         transition: all 0.3s ease;
         text-transform: uppercase;
         letter-spacing: 1px;
-      }
-
-      .start-btn:hover {
-        background: linear-gradient(145deg, #45a049, #3d8b40);
-        transform: translateY(-2px);
-        box-shadow:
-          0 8px 20px rgba(76, 175, 80, 0.6),
-          0 0 30px rgba(255, 215, 0, 0.5);
       }
 
       .round-container {
@@ -194,13 +192,6 @@
         transition: all 0.3s ease;
       }
 
-      .player-score:hover {
-        border-color: #ffd700;
-        box-shadow:
-          0 6px 20px rgba(0, 0, 0, 0.4),
-          0 0 15px rgba(255, 215, 0, 0.3);
-      }
-
       .player-score label {
         display: block;
         margin-bottom: 15px;
@@ -220,10 +211,6 @@
         outline: none;
         opacity: 0.8;
         transition: opacity 0.2s;
-      }
-
-      .score-slider:hover {
-        opacity: 1;
       }
 
       .score-slider::-webkit-slider-thumb {
@@ -268,7 +255,7 @@
       }
 
       .nav-btn {
-        padding: 12px 25px;
+        padding: 6px 10px;
         font-size: 16px;
         border: 2px solid #ffd700;
         border-radius: 10px;
@@ -289,28 +276,12 @@
           0 0 15px rgba(255, 215, 0, 0.3);
       }
 
-      .back-btn:hover {
-        background: linear-gradient(145deg, #e68900, #cc7a00);
-        transform: translateY(-2px);
-        box-shadow:
-          0 6px 20px rgba(255, 152, 0, 0.6),
-          0 0 25px rgba(255, 215, 0, 0.5);
-      }
-
       .next-btn {
         background: linear-gradient(145deg, #2196f3, #1976d2);
         color: white;
         box-shadow:
           0 4px 15px rgba(33, 150, 243, 0.4),
           0 0 15px rgba(255, 215, 0, 0.3);
-      }
-
-      .next-btn:hover {
-        background: linear-gradient(145deg, #1976d2, #1565c0);
-        transform: translateY(-2px);
-        box-shadow:
-          0 6px 20px rgba(33, 150, 243, 0.6),
-          0 0 25px rgba(255, 215, 0, 0.5);
       }
 
       .results-container {
@@ -383,14 +354,6 @@
         text-transform: uppercase;
         letter-spacing: 1px;
       }
-
-      .reset-btn:hover {
-        background: linear-gradient(145deg, #d32f2f, #b71c1c);
-        transform: translateY(-2px);
-        box-shadow:
-          0 8px 20px rgba(244, 67, 54, 0.6),
-          0 0 30px rgba(255, 215, 0, 0.5);
-      }
     </style>
   </head>
   <body>
@@ -398,7 +361,6 @@
       <!-- Player Setup -->
       <div id="player-setup" class="player-setup">
         <h1>🏴‍☠️ Skull King</h1>
-        <label for="player-count">Number of Players:</label>
         <select id="player-count" onchange="updatePlayerNameInputs()">
           <option value="2">2 Players</option>
           <option value="3">3 Players</option>
@@ -455,18 +417,7 @@
     </div>
 
     <script>
-      const roundLimits = [
-        { lower: -10, upper: 200 },
-        { lower: -20, upper: 240 },
-        { lower: -30, upper: 270 },
-        { lower: -40, upper: 300 },
-        { lower: -50, upper: 330 },
-        { lower: -60, upper: 350 },
-        { lower: -70, upper: 370 },
-        { lower: -80, upper: 390 },
-        { lower: -90, upper: 410 },
-        { lower: -100, upper: 430 },
-      ];
+      const scoreLimits = { lower: -30, upper: 80 };
 
       let playerCount = 4;
       let currentRound = 1;
@@ -515,11 +466,10 @@
 
       function showRound(round) {
         currentRound = round;
-        const limits = roundLimits[round - 1];
 
         document.getElementById("round-title").textContent = `Round ${round}`;
         document.getElementById("score-limits").textContent =
-          `Score Range: ${limits.lower} to ${limits.upper}`;
+          `Score Range: ${scoreLimits.lower} to ${scoreLimits.upper}`;
 
         const playerScoresDiv = document.getElementById("player-scores");
         playerScoresDiv.innerHTML = "";
@@ -534,11 +484,11 @@
                     <label>${playerNames[`player${player}`]}</label>
                     <input type="range" 
                            class="score-slider" 
-                           min="${limits.lower}" 
-                           max="${limits.upper}" 
+                           min="${scoreLimits.lower}" 
+                           max="${scoreLimits.upper}" 
                            value="${currentScore}"
                            oninput="updateScore(${player}, this.value)">
-                    <div class="score-value" id="score-value-${player}">${currentScore}</div>
+                    <div class="score-value" id="score-value-${player}" onclick="editScore(${player})">${currentScore}</div>
                 `;
 
           playerScoresDiv.appendChild(playerDiv);
@@ -554,6 +504,35 @@
       function updateScore(player, value) {
         scores[`player${player}`][currentRound - 1] = parseInt(value);
         document.getElementById(`score-value-${player}`).textContent = value;
+      }
+
+      function editScore(player) {
+        const currentScore = scores[`player${player}`][currentRound - 1];
+        const newScore = prompt(
+          `Enter score for ${playerNames[`player${player}`]}:`,
+          currentScore,
+        );
+
+        if (newScore !== null && newScore !== "") {
+          const scoreValue = parseInt(newScore);
+          if (!isNaN(scoreValue)) {
+            scores[`player${player}`][currentRound - 1] = scoreValue;
+            document.getElementById(`score-value-${player}`).textContent =
+              scoreValue;
+
+            // Update the slider to match the new score
+            const slider = document.querySelector(
+              `input[oninput*="updateScore(${player}"]`,
+            );
+            if (
+              slider &&
+              scoreValue >= scoreLimits.lower &&
+              scoreValue <= scoreLimits.upper
+            ) {
+              slider.value = scoreValue;
+            }
+          }
+        }
       }
 
       function nextRound() {
@@ -575,40 +554,48 @@
         document.getElementById("results-container").style.display = "block";
 
         const table = document.getElementById("results-table");
-        let html = "<thead><tr><th>Player</th>";
+        let html = "<thead><tr><th>Round</th>";
 
-        // Add round headers
-        for (let round = 1; round <= 10; round++) {
-          html += `<th>R${round}</th>`;
+        // Add player headers
+        for (let player = 1; player <= playerCount; player++) {
+          html += `<th>${playerNames[`player${player}`]}</th>`;
         }
-        html += '<th class="total-column">Total</th></tr></thead><tbody>';
+        html += "</tr></thead><tbody>";
 
+        // Add round rows
+        for (let round = 1; round <= 10; round++) {
+          html += `<tr><td>Round ${round}</td>`;
+
+          for (let player = 1; player <= playerCount; player++) {
+            const score = scores[`player${player}`][round - 1];
+            html += `<td>${score}</td>`;
+          }
+
+          html += "</tr>";
+        }
+
+        // Add totals row
+        html += '<tr class="total-column"><td>Total</td>';
         let playerTotals = [];
 
-        // Add player rows
         for (let player = 1; player <= playerCount; player++) {
           const playerScores = scores[`player${player}`];
           const total = playerScores.reduce((sum, score) => sum + score, 0);
           playerTotals.push({ player, total });
-
-          html += `<tr><td>${playerNames[`player${player}`]}</td>`;
-
-          for (let round = 0; round < 10; round++) {
-            html += `<td>${playerScores[round]}</td>`;
-          }
-
-          html += `<td class="total-column">${total}</td></tr>`;
+          html += `<td>${total}</td>`;
         }
 
-        html += "</tbody>";
+        html += "</tr></tbody>";
         table.innerHTML = html;
 
         // Highlight winner
         const maxTotal = Math.max(...playerTotals.map((p) => p.total));
-        const winnerRows = table.querySelectorAll("tbody tr");
-        playerTotals.forEach((player, index) => {
-          if (player.total === maxTotal) {
-            winnerRows[index].classList.add("winner");
+        const totalRow = table.querySelector("tbody tr:last-child");
+        const totalCells = totalRow.querySelectorAll("td");
+
+        playerTotals.forEach((playerData, index) => {
+          if (playerData.total === maxTotal) {
+            totalCells[index + 1].classList.add("winner"); // +1 to skip the "Total" label cell
           }
         });
       }
