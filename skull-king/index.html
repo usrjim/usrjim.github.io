@@ -548,6 +548,7 @@
 
           playerDiv.innerHTML = `
                     <label>${playerNames[`player${player}`]}</label>
+                    <div class="score-value" id="score-value-${player}" onclick="editScore(${player})">${currentScore}</div>
                     <input type="range" 
                            class="score-slider" 
                            min="${scoreLimits.lower}" 
@@ -555,7 +556,6 @@
                            step="10"
                            value="${currentScore}"
                            oninput="updateScore(${player}, this.value)">
-                    <div class="score-value" id="score-value-${player}" onclick="editScore(${player})">${currentScore}</div>
                 `;
 
           playerScoresDiv.appendChild(playerDiv);
@@ -584,12 +584,19 @@
         let playerTotals = [];
         for (let player = 1; player <= playerCount; player++) {
           const playerScores = scores[`player${player}`];
+          const total = playerScores
+            .slice(0, currentRound)
+            .reduce((sum, score) => sum + score, 0);
           playerTotals.push({
             player,
             name: playerNames[`player${player}`],
             currentRoundScore: playerScores[currentRound - 1],
+            total: total,
           });
         }
+
+        // Sort by total score (highest first)
+        playerTotals.sort((a, b) => b.total - a.total);
 
         // Build table HTML
         let html = `
