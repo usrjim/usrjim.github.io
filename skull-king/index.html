@@ -354,6 +354,70 @@
         text-transform: uppercase;
         letter-spacing: 1px;
       }
+
+      .score-summary {
+        margin-top: 30px;
+        padding: 20px;
+        background: linear-gradient(145deg, #3c3c74, #2c2c54);
+        border-radius: 15px;
+        border: 2px solid #ffd700;
+        box-shadow:
+          0 4px 15px rgba(0, 0, 0, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      }
+
+      .score-summary h3 {
+        color: #ffd700;
+        margin-bottom: 15px;
+        font-family: "Pirata One", cursive;
+        font-size: 1.5em;
+        text-shadow: 0 0 10px #ffd700;
+        text-align: center;
+      }
+
+      .summary-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: linear-gradient(145deg, #2c2c54, #1a1a2e);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .summary-table th,
+      .summary-table td {
+        border: 1px solid #4a4a8a;
+        padding: 8px 12px;
+        text-align: center;
+        color: #fff;
+      }
+
+      .summary-table th {
+        background: linear-gradient(145deg, #ffd700, #ffed4e);
+        font-weight: bold;
+        color: #1a1a2e;
+        font-size: 14px;
+      }
+
+      .current-leader {
+        background: linear-gradient(145deg, #4caf50, #45a049) !important;
+        font-weight: bold;
+        color: #fff !important;
+      }
+
+      .summary-table .rank-1 {
+        color: #ffd700 !important;
+        font-weight: bold;
+      }
+
+      .summary-table .rank-2 {
+        color: #c0c0c0 !important;
+        font-weight: bold;
+      }
+
+      .summary-table .rank-3 {
+        color: #cd7f32 !important;
+        font-weight: bold;
+      }
     </style>
   </head>
   <body>
@@ -388,6 +452,13 @@
           <!-- Player score inputs will be generated here -->
         </div>
 
+        <div class="score-summary" id="score-summary">
+          <h3>Current Standings</h3>
+          <table class="summary-table" id="summary-table">
+            <!-- Summary table will be generated here -->
+          </table>
+        </div>
+
         <div class="navigation">
           <button
             id="back-btn"
@@ -414,7 +485,7 @@
     </div>
 
     <script>
-      const scoreLimits = { lower: -30, upper: 80 };
+      const scoreLimits = { lower: -50, upper: 150 };
 
       let playerCount = 4;
       let currentRound = 1;
@@ -480,7 +551,8 @@
                     <input type="range" 
                            class="score-slider" 
                            min="${scoreLimits.lower}" 
-                           max="${scoreLimits.upper}" 
+                           max="${scoreLimits.upper}"
+                           step="10"
                            value="${currentScore}"
                            oninput="updateScore(${player}, this.value)">
                     <div class="score-value" id="score-value-${player}" onclick="editScore(${player})">${currentScore}</div>
@@ -488,6 +560,9 @@
 
           playerScoresDiv.appendChild(playerDiv);
         }
+
+        // Update score summary
+        updateScoreSummary();
 
         // Show/hide navigation buttons
         document.getElementById("back-btn").style.display =
@@ -499,6 +574,51 @@
       function updateScore(player, value) {
         scores[`player${player}`][currentRound - 1] = parseInt(value);
         document.getElementById(`score-value-${player}`).textContent = value;
+        updateScoreSummary();
+      }
+
+      function updateScoreSummary() {
+        const summaryTable = document.getElementById("summary-table");
+
+        // Calculate totals through current round
+        let playerTotals = [];
+        for (let player = 1; player <= playerCount; player++) {
+          const playerScores = scores[`player${player}`];
+          playerTotals.push({
+            player,
+            name: playerNames[`player${player}`],
+            currentRoundScore: playerScores[currentRound - 1],
+          });
+        }
+
+        // Build table HTML
+        let html = `
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Player</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+        `;
+
+        playerTotals.forEach((playerData, index) => {
+          const rank = index + 1;
+          const rankClass = rank <= 3 ? `rank-${rank}` : "";
+          const isLeader = rank === 1 ? "current-leader" : "";
+
+          html += `
+            <tr class="${isLeader}">
+              <td class="${rankClass}">${rank}</td>
+              <td class="${rankClass}">${playerData.name}</td>
+              <td class="${rankClass}">${playerData.total}</td>
+            </tr>
+          `;
+        });
+
+        html += "</tbody>";
+        summaryTable.innerHTML = html;
       }
 
       function editScore(player) {
@@ -526,6 +646,8 @@
             ) {
               slider.value = scoreValue;
             }
+
+            updateScoreSummary();
           }
         }
       }
