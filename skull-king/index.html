@@ -180,71 +180,115 @@
         margin-bottom: 30px;
       }
 
-      .player-score {
-        margin-bottom: 20px;
+      .score-input-container {
+        display: none;
         padding: 20px;
         background: linear-gradient(145deg, #3c3c74, #2c2c54);
         border-radius: 15px;
-        border: 2px solid #4a4a8a;
+        border: 2px solid #ffd700;
         box-shadow:
           0 4px 15px rgba(0, 0, 0, 0.3),
           inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        transition: all 0.3s ease;
-      }
-
-      .player-score label {
-        display: block;
-        margin-bottom: 15px;
-        font-weight: bold;
-        color: #ffd700;
-        font-size: 18px;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-      }
-
-      .score-slider {
-        width: 100%;
-        margin-bottom: 10px;
-        -webkit-appearance: none;
-        height: 8px;
-        border-radius: 5px;
-        background: linear-gradient(to right, #ff4444, #ffaa00, #4caf50);
-        outline: none;
-        opacity: 0.8;
-        transition: opacity 0.2s;
-      }
-
-      .score-slider::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        appearance: none;
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        background: #ffd700;
-        border: 2px solid #333;
-        cursor: pointer;
-        box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-      }
-
-      .score-slider::-moz-range-thumb {
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        background: #ffd700;
-        border: 2px solid #333;
-        cursor: pointer;
-        box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-      }
-
-      .score-value {
         text-align: center;
+      }
+
+      .score-input-container.active {
+        display: block;
+      }
+
+      .current-player-name {
         font-size: 24px;
         font-weight: bold;
         color: #ffd700;
+        margin-bottom: 20px;
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-        padding: 10px;
-        background: rgba(0, 0, 0, 0.2);
-        border-radius: 10px;
-        border: 1px solid #4a4a8a;
+      }
+
+      .score-display {
+        font-size: 48px;
+        font-weight: bold;
+        color: #ffd700;
+        margin: 20px 0;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 15px;
+        border: 2px solid #4a4a8a;
+        min-height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .number-pad {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        margin: 20px 0;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .number-btn {
+        padding: 20px;
+        font-size: 24px;
+        font-weight: bold;
+        background: linear-gradient(145deg, #2196f3, #1976d2);
+        color: white;
+        border: 2px solid #ffd700;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(33, 150, 243, 0.4);
+      }
+
+      .number-btn:active {
+        transform: scale(0.95);
+        box-shadow: 0 2px 8px rgba(33, 150, 243, 0.6);
+      }
+
+      .sign-btn {
+        background: linear-gradient(145deg, #ff9800, #e68900);
+        grid-column: span 3;
+      }
+
+      .clear-btn {
+        background: linear-gradient(145deg, #f44336, #d32f2f);
+        grid-column: span 3;
+      }
+
+      .player-navigation {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        gap: 10px;
+      }
+
+      .player-nav-btn {
+        padding: 15px 25px;
+        font-size: 16px;
+        font-weight: bold;
+        border: 2px solid #ffd700;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        flex: 1;
+        max-width: 150px;
+      }
+
+      .prev-player-btn {
+        background: linear-gradient(145deg, #ff9800, #e68900);
+        color: white;
+      }
+
+      .next-player-btn {
+        background: linear-gradient(145deg, #4caf50, #45a049);
+        color: white;
+      }
+
+      .player-nav-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
       }
 
       .navigation {
@@ -449,7 +493,7 @@
         </div>
 
         <div class="player-scores" id="player-scores">
-          <!-- Player score inputs will be generated here -->
+          <!-- Score input container will be generated here -->
         </div>
 
         <div class="score-summary" id="score-summary">
@@ -491,6 +535,9 @@
       let currentRound = 1;
       let scores = {};
       let playerNames = {};
+      let currentPlayer = 1;
+      let currentScore = 0;
+      let isNegative = false;
 
       function updatePlayerNameInputs() {
         const count = parseInt(document.getElementById("player-count").value);
@@ -534,32 +581,54 @@
 
       function showRound(round) {
         currentRound = round;
+        currentPlayer = 1;
+        currentScore = 0;
+        isNegative = false;
 
         document.getElementById("round-title").textContent = `Round ${round}`;
 
         const playerScoresDiv = document.getElementById("player-scores");
         playerScoresDiv.innerHTML = "";
 
+        // Create score input containers for each player
         for (let player = 1; player <= playerCount; player++) {
-          const playerDiv = document.createElement("div");
-          playerDiv.className = "player-score";
+          const scoreInputDiv = document.createElement("div");
+          scoreInputDiv.className = "score-input-container";
+          scoreInputDiv.id = `score-input-${player}`;
+          if (player === 1) scoreInputDiv.classList.add("active");
 
           const currentScore = scores[`player${player}`][round - 1];
 
-          playerDiv.innerHTML = `
-                    <label>${playerNames[`player${player}`]}</label>
-                    <div class="score-value" id="score-value-${player}" onclick="editScore(${player})">${currentScore}</div>
-                    <input type="range" 
-                           class="score-slider" 
-                           min="${scoreLimits.lower}" 
-                           max="${scoreLimits.upper}"
-                           step="10"
-                           value="${currentScore}"
-                           oninput="updateScore(${player}, this.value)">
-                `;
+          scoreInputDiv.innerHTML = `
+            <div class="current-player-name">${playerNames[`player${player}`]}</div>
+            <div class="score-display" id="score-display-${player}">${currentScore}</div>
+            <div class="number-pad">
+              <button class="number-btn" onclick="inputNumber(1)">1</button>
+              <button class="number-btn" onclick="inputNumber(2)">2</button>
+              <button class="number-btn" onclick="inputNumber(3)">3</button>
+              <button class="number-btn" onclick="inputNumber(4)">4</button>
+              <button class="number-btn" onclick="inputNumber(5)">5</button>
+              <button class="number-btn" onclick="inputNumber(6)">6</button>
+              <button class="number-btn" onclick="inputNumber(7)">7</button>
+              <button class="number-btn" onclick="inputNumber(8)">8</button>
+              <button class="number-btn" onclick="inputNumber(9)">9</button>
+              <button class="number-btn sign-btn" onclick="toggleSign()">+/-</button>
+              <button class="number-btn clear-btn" onclick="clearScore()">Clear</button>
+            </div>
+            <div class="player-navigation">
+              <button class="player-nav-btn prev-player-btn" onclick="previousPlayer()" ${player === 1 ? 'disabled' : ''}>← Previous</button>
+              <button class="player-nav-btn next-player-btn" onclick="nextPlayer()">${player === playerCount ? 'Confirm Score' : 'Next →'}</button>
+            </div>
+          `;
 
-          playerScoresDiv.appendChild(playerDiv);
+          playerScoresDiv.appendChild(scoreInputDiv);
         }
+
+        // Set current score for the first player
+        currentScore = scores[`player${currentPlayer}`][round - 1];
+        isNegative = currentScore < 0;
+        currentScore = Math.abs(currentScore);
+        updateScoreDisplay();
 
         // Update score summary
         updateScoreSummary();
@@ -571,9 +640,74 @@
           round === 10 ? "Show Results" : "Next Round →";
       }
 
-      function updateScore(player, value) {
-        scores[`player${player}`][currentRound - 1] = parseInt(value);
-        document.getElementById(`score-value-${player}`).textContent = value;
+      function inputNumber(digit) {
+        // If current score is 0, replace it with the digit * 10
+        if (currentScore === 0) {
+          currentScore = digit * 10;
+        } else {
+          // Append the digit (multiply current by 10 and add new digit)
+          currentScore = currentScore * 10 + digit;
+        }
+        updateScoreDisplay();
+      }
+
+      function toggleSign() {
+        isNegative = !isNegative;
+        updateScoreDisplay();
+      }
+
+      function clearScore() {
+        currentScore = 0;
+        isNegative = false;
+        updateScoreDisplay();
+      }
+
+      function updateScoreDisplay() {
+        const displayValue = isNegative ? -currentScore : currentScore;
+        const scoreDisplay = document.getElementById(`score-display-${currentPlayer}`);
+        if (scoreDisplay) {
+          scoreDisplay.textContent = displayValue;
+        }
+      }
+
+      function previousPlayer() {
+        if (currentPlayer > 1) {
+          // Save current score
+          scores[`player${currentPlayer}`][currentRound - 1] = isNegative ? -currentScore : currentScore;
+          
+          // Move to previous player
+          document.getElementById(`score-input-${currentPlayer}`).classList.remove("active");
+          currentPlayer--;
+          document.getElementById(`score-input-${currentPlayer}`).classList.add("active");
+          
+          // Load previous player's score
+          const prevScore = scores[`player${currentPlayer}`][currentRound - 1];
+          isNegative = prevScore < 0;
+          currentScore = Math.abs(prevScore);
+          updateScoreDisplay();
+          updateScoreSummary();
+        }
+      }
+
+      function nextPlayer() {
+        // Save current score
+        scores[`player${currentPlayer}`][currentRound - 1] = isNegative ? -currentScore : currentScore;
+        
+        if (currentPlayer < playerCount) {
+          // Move to next player
+          document.getElementById(`score-input-${currentPlayer}`).classList.remove("active");
+          currentPlayer++;
+          document.getElementById(`score-input-${currentPlayer}`).classList.add("active");
+          
+          // Load next player's score
+          const nextScore = scores[`player${currentPlayer}`][currentRound - 1];
+          isNegative = nextScore < 0;
+          currentScore = Math.abs(nextScore);
+          updateScoreDisplay();
+        } else {
+          // All players have entered scores, move to summary
+          document.getElementById(`score-input-${currentPlayer}`).classList.remove("active");
+        }
         updateScoreSummary();
       }
 
@@ -628,36 +762,7 @@
         summaryTable.innerHTML = html;
       }
 
-      function editScore(player) {
-        const currentScore = scores[`player${player}`][currentRound - 1];
-        const newScore = prompt(
-          `Enter score for ${playerNames[`player${player}`]}:`,
-          currentScore,
-        );
 
-        if (newScore !== null && newScore !== "") {
-          const scoreValue = parseInt(newScore);
-          if (!isNaN(scoreValue)) {
-            scores[`player${player}`][currentRound - 1] = scoreValue;
-            document.getElementById(`score-value-${player}`).textContent =
-              scoreValue;
-
-            // Update the slider to match the new score
-            const slider = document.querySelector(
-              `input[oninput*="updateScore(${player}"]`,
-            );
-            if (
-              slider &&
-              scoreValue >= scoreLimits.lower &&
-              scoreValue <= scoreLimits.upper
-            ) {
-              slider.value = scoreValue;
-            }
-
-            updateScoreSummary();
-          }
-        }
-      }
 
       function nextRound() {
         if (currentRound === 10) {
