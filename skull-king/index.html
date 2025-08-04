@@ -612,8 +612,11 @@
               <button class="number-btn" onclick="inputNumber(7)">7</button>
               <button class="number-btn" onclick="inputNumber(8)">8</button>
               <button class="number-btn" onclick="inputNumber(9)">9</button>
-              <button class="number-btn sign-btn" onclick="toggleSign()">+/-</button>
-              <button class="number-btn clear-btn" onclick="clearScore()">Clear</button>
+              <button class="number-btn" onclick="inputNumber(0)">0</button>
+              <div>
+                <button class="number-btn sign-btn" onclick="toggleSign()">+/-</button>
+                <button class="number-btn clear-btn" onclick="clearScore()">Clear</button>
+              </div>
             </div>
             <div class="player-navigation">
               <button class="player-nav-btn prev-player-btn" onclick="previousPlayer()" ${player === 1 ? 'disabled' : ''}>← Previous</button>
@@ -641,9 +644,14 @@
       }
 
       function inputNumber(digit) {
-        // If current score is 0, replace it with the digit * 10
+        // If current score is 0 and digit is 0, do nothing
+        if (currentScore === 0 && digit === 0) {
+          return;
+        }
+        
+        // If current score is 0, replace it with the digit
         if (currentScore === 0) {
-          currentScore = digit * 10;
+          currentScore = digit;
         } else {
           // Append the digit (multiply current by 10 and add new digit)
           currentScore = currentScore * 10 + digit;
