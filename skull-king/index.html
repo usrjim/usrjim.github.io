@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -31,8 +31,7 @@
         background: linear-gradient(145deg, #2c2c54 0%, #1a1a2e 100%);
         padding: 20px;
         border-radius: 20px;
-        box-shadow:
-          0 0 50px rgba(255, 215, 0, 0.3),
+        box-shadow: 0 0 50px rgba(255, 215, 0, 0.3),
           inset 0 0 30px rgba(255, 215, 0, 0.1);
         border: 2px solid #ffd700;
         position: relative;
@@ -58,10 +57,7 @@
         margin-bottom: 30px;
         font-family: "Pirata One", cursive;
         font-size: 2.5em;
-        text-shadow:
-          0 0 10px #ffd700,
-          0 0 20px #ffd700,
-          0 0 40px #ffd700;
+        text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 40px #ffd700;
         letter-spacing: 2px;
       }
 
@@ -145,8 +141,7 @@
         border-radius: 15px;
         cursor: pointer;
         margin: 20px;
-        box-shadow:
-          0 5px 15px rgba(76, 175, 80, 0.4),
+        box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4),
           0 0 20px rgba(255, 215, 0, 0.3);
         transition: all 0.3s ease;
         text-transform: uppercase;
@@ -186,8 +181,7 @@
         background: linear-gradient(145deg, #3c3c74, #2c2c54);
         border-radius: 15px;
         border: 2px solid #ffd700;
-        box-shadow:
-          0 4px 15px rgba(0, 0, 0, 0.3),
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3),
           inset 0 1px 0 rgba(255, 255, 255, 0.1);
         text-align: center;
       }
@@ -200,16 +194,16 @@
         font-size: 24px;
         font-weight: bold;
         color: #ffd700;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
       }
 
       .score-display {
-        font-size: 48px;
+        font-size: 36px;
         font-weight: bold;
         color: #ffd700;
-        margin: 20px 0;
-        padding: 20px;
+        margin: 0;
+        padding: 0;
         background: rgba(0, 0, 0, 0.3);
         border-radius: 15px;
         border: 2px solid #4a4a8a;
@@ -230,7 +224,7 @@
       }
 
       .number-btn {
-        padding: 20px;
+        padding: 10px;
         font-size: 24px;
         font-weight: bold;
         background: linear-gradient(145deg, #2196f3, #1976d2);
@@ -249,12 +243,10 @@
 
       .sign-btn {
         background: linear-gradient(145deg, #ff9800, #e68900);
-        grid-column: span 3;
       }
 
       .clear-btn {
         background: linear-gradient(145deg, #f44336, #d32f2f);
-        grid-column: span 3;
       }
 
       .player-navigation {
@@ -265,7 +257,7 @@
       }
 
       .player-nav-btn {
-        padding: 15px 25px;
+        padding: 10px;
         font-size: 16px;
         font-weight: bold;
         border: 2px solid #ffd700;
@@ -315,16 +307,14 @@
       .back-btn {
         background: linear-gradient(145deg, #ff9800, #e68900);
         color: white;
-        box-shadow:
-          0 4px 15px rgba(255, 152, 0, 0.4),
+        box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4),
           0 0 15px rgba(255, 215, 0, 0.3);
       }
 
       .next-btn {
         background: linear-gradient(145deg, #2196f3, #1976d2);
         color: white;
-        box-shadow:
-          0 4px 15px rgba(33, 150, 243, 0.4),
+        box-shadow: 0 4px 15px rgba(33, 150, 243, 0.4),
           0 0 15px rgba(255, 215, 0, 0.3);
       }
 
@@ -391,8 +381,7 @@
         border-radius: 15px;
         cursor: pointer;
         margin-top: 30px;
-        box-shadow:
-          0 5px 15px rgba(244, 67, 54, 0.4),
+        box-shadow: 0 5px 15px rgba(244, 67, 54, 0.4),
           0 0 20px rgba(255, 215, 0, 0.3);
         transition: all 0.3s ease;
         text-transform: uppercase;
@@ -405,8 +394,7 @@
         background: linear-gradient(145deg, #3c3c74, #2c2c54);
         border-radius: 15px;
         border: 2px solid #ffd700;
-        box-shadow:
-          0 4px 15px rgba(0, 0, 0, 0.3),
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3),
           inset 0 1px 0 rgba(255, 255, 255, 0.1);
       }
 
@@ -600,7 +588,9 @@
           const currentScore = scores[`player${player}`][round - 1];
 
           scoreInputDiv.innerHTML = `
-            <div class="current-player-name">${playerNames[`player${player}`]}</div>
+            <div class="current-player-name">${
+              playerNames[`player${player}`]
+            }</div>
             <div class="score-display" id="score-display-${player}">${currentScore}</div>
             <div class="number-pad">
               <button class="number-btn" onclick="inputNumber(1)">1</button>
@@ -613,14 +603,16 @@
               <button class="number-btn" onclick="inputNumber(8)">8</button>
               <button class="number-btn" onclick="inputNumber(9)">9</button>
               <button class="number-btn" onclick="inputNumber(0)">0</button>
-              <div>
-                <button class="number-btn sign-btn" onclick="toggleSign()">+/-</button>
-                <button class="number-btn clear-btn" onclick="clearScore()">Clear</button>
-              </div>
+              <button class="number-btn sign-btn" onclick="toggleSign()">+/-</button>
+              <button class="number-btn clear-btn" onclick="clearScore()">C</button>
             </div>
             <div class="player-navigation">
-              <button class="player-nav-btn prev-player-btn" onclick="previousPlayer()" ${player === 1 ? 'disabled' : ''}>← Previous</button>
-              <button class="player-nav-btn next-player-btn" onclick="nextPlayer()">${player === playerCount ? 'Confirm Score' : 'Next →'}</button>
+              <button class="player-nav-btn prev-player-btn" onclick="previousPlayer()" ${
+                player === 1 ? "disabled" : ""
+              }>← Previous</button>
+              <button class="player-nav-btn next-player-btn" onclick="nextPlayer()">${
+                player === playerCount ? "Finish" : "Next →"
+              }</button>
             </div>
           `;
 
@@ -648,10 +640,10 @@
         if (currentScore === 0 && digit === 0) {
           return;
         }
-        
+
         // If current score is 0, replace it with the digit
         if (currentScore === 0) {
-          currentScore = digit;
+          currentScore = digit * 10;
         } else {
           // Append the digit (multiply current by 10 and add new digit)
           currentScore = currentScore * 10 + digit;
@@ -672,7 +664,9 @@
 
       function updateScoreDisplay() {
         const displayValue = isNegative ? -currentScore : currentScore;
-        const scoreDisplay = document.getElementById(`score-display-${currentPlayer}`);
+        const scoreDisplay = document.getElementById(
+          `score-display-${currentPlayer}`
+        );
         if (scoreDisplay) {
           scoreDisplay.textContent = displayValue;
         }
@@ -681,13 +675,19 @@
       function previousPlayer() {
         if (currentPlayer > 1) {
           // Save current score
-          scores[`player${currentPlayer}`][currentRound - 1] = isNegative ? -currentScore : currentScore;
-          
+          scores[`player${currentPlayer}`][currentRound - 1] = isNegative
+            ? -currentScore
+            : currentScore;
+
           // Move to previous player
-          document.getElementById(`score-input-${currentPlayer}`).classList.remove("active");
+          document
+            .getElementById(`score-input-${currentPlayer}`)
+            .classList.remove("active");
           currentPlayer--;
-          document.getElementById(`score-input-${currentPlayer}`).classList.add("active");
-          
+          document
+            .getElementById(`score-input-${currentPlayer}`)
+            .classList.add("active");
+
           // Load previous player's score
           const prevScore = scores[`player${currentPlayer}`][currentRound - 1];
           isNegative = prevScore < 0;
@@ -699,14 +699,20 @@
 
       function nextPlayer() {
         // Save current score
-        scores[`player${currentPlayer}`][currentRound - 1] = isNegative ? -currentScore : currentScore;
-        
+        scores[`player${currentPlayer}`][currentRound - 1] = isNegative
+          ? -currentScore
+          : currentScore;
+
         if (currentPlayer < playerCount) {
           // Move to next player
-          document.getElementById(`score-input-${currentPlayer}`).classList.remove("active");
+          document
+            .getElementById(`score-input-${currentPlayer}`)
+            .classList.remove("active");
           currentPlayer++;
-          document.getElementById(`score-input-${currentPlayer}`).classList.add("active");
-          
+          document
+            .getElementById(`score-input-${currentPlayer}`)
+            .classList.add("active");
+
           // Load next player's score
           const nextScore = scores[`player${currentPlayer}`][currentRound - 1];
           isNegative = nextScore < 0;
@@ -714,7 +720,9 @@
           updateScoreDisplay();
         } else {
           // All players have entered scores, move to summary
-          document.getElementById(`score-input-${currentPlayer}`).classList.remove("active");
+          document
+            .getElementById(`score-input-${currentPlayer}`)
+            .classList.remove("active");
         }
         updateScoreSummary();
       }
@@ -769,8 +777,6 @@
         html += "</tbody>";
         summaryTable.innerHTML = html;
       }
-
-
 
       function nextRound() {
         if (currentRound === 10) {
