@@ -26,11 +26,11 @@
         text-align: center;
       }
 
-      h1 {
+      h3 {
         color: #d4af37;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         margin-bottom: 30px;
-        font-size: 2.5em;
+        font-size: 1.5em;
       }
 
       .controls {
@@ -85,14 +85,6 @@
       .generate-btn:hover {
         background: #a50000;
         transform: scale(1.05);
-      }
-
-      .grid-container {
-        background: rgba(0, 0, 0, 0.3);
-        padding: 20px;
-        border-radius: 10px;
-        border: 2px solid #8b4513;
-        margin-top: 20px;
       }
 
       .grid {
@@ -192,9 +184,9 @@
         <div class="grid-toggle">
           <span>Grid Size: </span>
           <button class="toggle-btn active" data-grid="4x4">
-            4x4 (16 tokens)
+            4x4
           </button>
-          <button class="toggle-btn" data-grid="4x5">4x5 (20 tokens)</button>
+          <button class="toggle-btn" data-grid="4x5">4x5</button>
         </div>
 
         <button class="generate-btn" onclick="generateChaosBag()">
@@ -384,7 +376,7 @@
             // Empty cell
             const emptyLabel = document.createElement("div");
             emptyLabel.className = "token-name";
-            emptyLabel.textContent = "Empty";
+            // emptyLabel.textContent = "Empty";
             emptyLabel.style.color = "#666";
             cell.appendChild(emptyLabel);
             cell.style.opacity = "0.5";
@@ -399,13 +391,13 @@
               const fallback = document.createElement("div");
               fallback.style.cssText =
                 "width:50px;height:50px;background:#333;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;";
-              fallback.textContent = tokenInfo[token].name;
+              // fallback.textContent = tokenInfo[token].name;
               this.parentNode.insertBefore(fallback, this.nextSibling);
             };
 
             const tokenName = document.createElement("div");
             tokenName.className = "token-name";
-            tokenName.textContent = tokenInfo[token].name;
+            // tokenName.textContent = tokenInfo[token].name;
 
             cell.appendChild(tokenImage);
             cell.appendChild(tokenName);
