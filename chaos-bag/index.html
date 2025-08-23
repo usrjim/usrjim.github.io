@@ -11,8 +11,12 @@
         box-sizing: border-box;
         touch-action: manipulation;
       }
+      :root {
+        --family: "Georgia", serif;
+        --mono: "Berkeley Mono", Courier, monospace;
+      }
       body {
-        font-family: "Georgia", serif;
+        font-family: var(--family);
         background: linear-gradient(135deg, #2c1810, #4a2c17);
         color: #e8d5b7;
         margin: 0;
@@ -109,7 +113,7 @@
       .token-cell {
         background: #1a1a1a;
         border: 2px solid #666;
-        border-radius: 8px;
+        border-radius: 50%;
         padding: 15px;
         position: relative;
         min-height: 80px;
@@ -124,16 +128,15 @@
         color: #2c1810;
         width: 32px;
         height: 32px;
-        border-radius: 50%;
+        border-radius: 5px;
         display: flex;
         align-items: center;
         justify-content: center;
         font-size-adjust: ex-height 0.43;
-        font-family: "Berkeley Mono", monospace;
+        font-family: var(--mono);
         font-weight: bold;
         font-size: 16px;
         border: 2px solid #2c1810;
-        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
         margin-bottom: 8px;
       }
 
@@ -145,9 +148,12 @@
       }
 
       .token-name {
-        font-size: 12px;
+        font-family: var(--mono);
+        font-size: 28px;
+        font-weight: bold;
         text-align: center;
-        color: #e8d5b7;
+        color: black;
+        display: none;
       }
 
       .grid-toggle {
@@ -169,15 +175,32 @@
       }
       @media print {
         .controls,
+        .token-image,
         h1,
         h3 {
           display: none;
+        }
+        .token-name {
+          display: block;
+        }
+        .token-cell {
+          border-radius: revert;
+          border: none;
+          border-right: 1px solid black;
+          border-bottom: 1px solid black;
+        }
+        .token-cell:nth-child(4n) {
+          border-right: none;
+        }
+        .cell-number {
+          border: none;
+          font-size: 60px;
+          margin-bottom: 24px;
         }
         body,
         .token-cell,
         .cell-number {
           background: white;
-          box-shadow: none;
         }
         .grid {
           margin: 0;
@@ -285,11 +308,11 @@
         "-4": { name: "-4", image: "images/ct_minus4.png" },
         "-5": { name: "-5", image: "images/ct_minus5.png" },
         skull: { name: "Skull", image: "images/ct_skull.png" },
-        cultist: { name: "Cultist", image: "images/ct_cultist.png" },
+        cultist: { name: "(Cu)", image: "images/ct_cultist.png" },
         tablet: { name: "Tablet", image: "images/ct_tablet.png" },
-        elder_thing: { name: "Elder Thing", image: "images/ct_elderthing.png" },
-        auto_fail: { name: "Auto Fail", image: "images/ct_autofail.png" },
-        elder_sign: { name: "Elder Sign", image: "images/ct_eldersign.png" },
+        elder_thing: { name: "Thing", image: "images/ct_elderthing.png" },
+        auto_fail: { name: "Fail", image: "images/ct_autofail.png" },
+        elder_sign: { name: "Sign", image: "images/ct_eldersign.png" },
       };
 
       // Event listeners for difficulty buttons
@@ -395,7 +418,6 @@
             // Empty cell
             const emptyLabel = document.createElement("div");
             emptyLabel.className = "token-name";
-            // emptyLabel.textContent = "Empty";
             emptyLabel.style.color = "#666";
             cell.appendChild(emptyLabel);
             cell.style.opacity = "0.5";
@@ -405,18 +427,10 @@
             tokenImage.className = "token-image";
             tokenImage.src = tokenInfo[token].image;
             tokenImage.alt = tokenInfo[token].name;
-            tokenImage.onerror = function () {
-              this.style.display = "none";
-              const fallback = document.createElement("div");
-              fallback.style.cssText =
-                "width:50px;height:50px;background:#333;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;color:white;";
-              // fallback.textContent = tokenInfo[token].name;
-              this.parentNode.insertBefore(fallback, this.nextSibling);
-            };
 
             const tokenName = document.createElement("div");
             tokenName.className = "token-name";
-            // tokenName.textContent = tokenInfo[token].name;
+            tokenName.textContent = tokenInfo[token].name;
 
             cell.appendChild(tokenImage);
             cell.appendChild(tokenName);
