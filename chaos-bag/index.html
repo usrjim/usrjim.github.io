@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -173,6 +173,232 @@
       .toggle-btn.active {
         background: #8b4513;
       }
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        overflow-y: auto;
+      }
+
+      .modal-content {
+        background: linear-gradient(135deg, #2c1810, #4a2c17);
+        margin: 5% auto;
+        padding: 20px;
+        border: 2px solid #8b4513;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 800px;
+        color: #e8d5b7;
+      }
+
+      .modal-section {
+        margin-bottom: 25px;
+        padding: 15px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        border: 1px solid #666;
+      }
+
+      .modal-section h4 {
+        color: #d4af37;
+        margin-bottom: 15px;
+        text-align: center;
+        font-size: 1.2em;
+      }
+
+      .available-tokens-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 10px;
+        overflow-y: auto;
+        padding: 10px 0;
+      }
+
+      .selected-tokens-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 10px;
+        min-height: 100px;
+        padding: 10px 0;
+      }
+
+      .token-item {
+        background: rgba(0, 0, 0, 0.4);
+        border: 2px solid #8b4513;
+        border-radius: 8px;
+        padding: 8px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        min-height: 80px;
+        position: relative;
+      }
+
+      .token-item:hover {
+        background: rgba(139, 69, 19, 0.4);
+        transform: translateY(-2px);
+        border-color: #d4af37;
+      }
+
+      .token-item img {
+        width: 35px;
+        height: 35px;
+        object-fit: contain;
+      }
+
+      .token-placeholder {
+        width: 35px;
+        height: 35px;
+        background: #d4af37;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #2c1810;
+        font-weight: bold;
+        font-size: 10px;
+        text-align: center;
+      }
+
+      .token-item-name {
+        font-family: var(--mono);
+        font-size: 11px;
+        font-weight: bold;
+        color: #e8d5b7;
+      }
+
+      .token-count {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: #d4af37;
+        color: #2c1810;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: bold;
+        border: 2px solid #2c1810;
+      }
+
+      .selected-token {
+        background: rgba(212, 175, 55, 0.3);
+        border-color: #d4af37;
+      }
+
+      .empty-selection {
+        grid-column: 1 / -1;
+        text-align: center;
+        color: #999;
+        font-style: italic;
+        padding: 20px;
+        border: 2px dashed #666;
+        border-radius: 8px;
+      }
+
+      .generate-custom-section {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .generate-custom-btn {
+        padding: 15px 30px;
+        background: #8b0000;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-weight: bold;
+      }
+
+      .generate-custom-btn:hover {
+        background: #a50000;
+        transform: scale(1.05);
+      }
+
+      .generate-custom-btn:disabled {
+        background: #666;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .close-modal {
+        color: #e8d5b7;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+        background: none;
+        border: none;
+      }
+
+      .close-modal:hover {
+        color: #d4af37;
+      }
+
+      .campaign-select {
+        padding: 12px;
+        margin-bottom: 20px;
+        background: #2c1810;
+        color: #e8d5b7;
+        border: 2px solid #8b4513;
+        border-radius: 5px;
+        font-size: 16px;
+        min-width: 250px;
+      }
+
+      .grid-container-hidden {
+        display: none;
+      }
+
+      .custom-token-image {
+        width: 50px;
+        height: 50px;
+        background: #d4af37;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #2c1810;
+        font-weight: bold;
+        font-size: 12px;
+      }
+
+      .empty-cell {
+        opacity: 0.5;
+      }
+
+      .empty-cell-label {
+        color: #666;
+      }
+
+      .total-token-count {
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: #999;
+      }
+
       @media print {
         .controls,
         .token-image,
@@ -213,16 +439,16 @@
       <h1>Arkham Horror Chaos Bag Generator</h1>
 
       <div class="controls">
-        <h3>Select Difficulty</h3>
+        <h3>Select Campaign</h3>
         <div class="difficulty-buttons">
-          <button class="difficulty-btn" data-difficulty="easy">Easy</button>
-          <button class="difficulty-btn active" data-difficulty="standard">
-            Standard
-          </button>
-          <button class="difficulty-btn" data-difficulty="hard">Hard</button>
-          <button class="difficulty-btn" data-difficulty="expert">
-            Expert
-          </button>
+          <select id="campaignSelect" class="campaign-select">
+            <option value="">Select a Campaign</option>
+          </select>
+        </div>
+
+        <h3>Select Difficulty</h3>
+        <div class="difficulty-buttons" id="difficultyButtons">
+          <!-- Difficulty buttons will be populated dynamically -->
         </div>
 
         <div class="grid-toggle">
@@ -236,69 +462,62 @@
         </button>
       </div>
 
-      <div class="grid-container" id="gridContainer" style="display: none">
+      <div class="grid-container grid-container-hidden" id="gridContainer">
         <h3>Chaos Bag Grid</h3>
         <div class="grid" id="tokenGrid"></div>
       </div>
+
+      <!-- Token Selection Modal -->
+      <div id="tokenModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close-modal" onclick="closeTokenModal()">
+              &times;
+            </button>
+          </div>
+
+          <div class="modal-section">
+            <h4>Available Tokens</h4>
+            <div class="available-tokens-grid" id="availableTokensGrid">
+              <!-- Available tokens will be populated here -->
+            </div>
+          </div>
+
+          <div class="modal-section">
+            <h4>Selected Tokens</h4>
+            <div class="selected-tokens-grid" id="selectedTokensGrid">
+              <div class="empty-selection">
+                Click tokens above to add them to your chaos bag
+              </div>
+            </div>
+          </div>
+
+          <div class="generate-custom-section">
+            <div class="total-token-count">
+              Total tokens: <span id="totalTokenCount">0</span>
+            </div>
+            <button
+              class="generate-custom-btn"
+              id="generateCustomBtn"
+              onclick="generateCustomChaosBag()"
+              disabled
+            >
+              Generate Chaos Bag
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
+    <script src="bags.js"></script>
     <script>
       let selectedDifficulty = "standard";
       let selectedGrid = "4x4";
+      let selectedCampaign = "";
+      let customTokens = {}; // Store custom tokens
+      let isCustomMode = false; // Track if we're in custom mode
+      let selectedTokensForCustomBag = {}; // Store tokens selected for custom bag
 
-      // Chaos bag compositions for different difficulties
-      const chaosBags = {
-        easy: {
-          "+1": 2,
-          0: 3,
-          "-1": 3,
-          "-2": 2,
-          skull: 2,
-          cultist: 1,
-          tablet: 1,
-          elder_thing: 1,
-          auto_fail: 1,
-        },
-        standard: {
-          "+1": 1,
-          0: 2,
-          "-1": 3,
-          "-2": 2,
-          "-3": 1,
-          skull: 2,
-          cultist: 1,
-          tablet: 2,
-          elder_thing: 1,
-          auto_fail: 1,
-        },
-        hard: {
-          0: 1,
-          "-1": 2,
-          "-2": 2,
-          "-3": 2,
-          "-4": 1,
-          skull: 3,
-          cultist: 2,
-          tablet: 2,
-          elder_thing: 2,
-          auto_fail: 1,
-        },
-        expert: {
-          0: 1,
-          "-1": 1,
-          "-2": 2,
-          "-3": 2,
-          "-4": 2,
-          "-5": 1,
-          skull: 2,
-          cultist: 2,
-          tablet: 2,
-          elder_thing: 2,
-          auto_fail: 1,
-        },
-      };
-
-      // Token display information
       const tokenInfo = {
         "+1": { name: "+1", image: "images/ct_plus1.png" },
         0: { name: "0", image: "images/ct_0.png" },
@@ -307,24 +526,117 @@
         "-3": { name: "-3", image: "images/ct_minus3.png" },
         "-4": { name: "-4", image: "images/ct_minus4.png" },
         "-5": { name: "-5", image: "images/ct_minus5.png" },
+        "-6": { name: "-6", image: "images/ct_minus6.png" },
+        "-7": { name: "-7", image: "images/ct_minus7.png" },
+        "-8": { name: "-8", image: "images/ct_minus8.png" },
         skull: { name: "Skull", image: "images/ct_skull.png" },
         cultist: { name: "(Cu)", image: "images/ct_cultist.png" },
         tablet: { name: "Tablet", image: "images/ct_tablet.png" },
-        elder_thing: { name: "Thing", image: "images/ct_elderthing.png" },
-        auto_fail: { name: "Fail", image: "images/ct_autofail.png" },
-        elder_sign: { name: "Sign", image: "images/ct_eldersign.png" },
+        elder_thing: {
+          name: "Thing",
+          image: "images/ct_elderthing.png",
+        },
+        auto_fail: {
+          name: "Fail",
+          image: "images/ct_autofail.png",
+        },
+        elder_sign: {
+          name: "Sign",
+          image: "images/ct_eldersign.png",
+        },
+        bless: { name: "Bless", image: "images/ct_bless.png" },
+        curse: { name: "Curse", image: "images/ct_curse.png" },
+        frost: { name: "Frost", image: "images/ct_frost.png" },
       };
 
-      // Event listeners for difficulty buttons
-      document.querySelectorAll(".difficulty-btn").forEach((btn) => {
-        btn.addEventListener("click", function () {
+      // Initialize campaign selection
+      function initializeCampaigns() {
+        const campaignSelect = document.getElementById("campaignSelect");
+
+        // Preserve order from bags.js and remove duplicates
+        const seenCampaigns = new Set();
+        const campaigns = [];
+
+        for (const bag of chaosBags) {
+          if (!seenCampaigns.has(bag.campaign)) {
+            seenCampaigns.add(bag.campaign);
+            campaigns.push(bag.campaign);
+          }
+        }
+
+        campaigns.forEach((campaign) => {
+          const option = document.createElement("option");
+          option.value = campaign;
+          option.textContent = campaign;
+          campaignSelect.appendChild(option);
+        });
+
+        campaignSelect.addEventListener("change", function () {
+          selectedCampaign = this.value;
+          updateDifficultyButtons();
+        });
+      }
+
+      // Update difficulty buttons based on selected campaign
+      function updateDifficultyButtons() {
+        const difficultyContainer =
+          document.getElementById("difficultyButtons");
+        difficultyContainer.innerHTML = "";
+
+        if (!selectedCampaign) {
+          return;
+        }
+
+        const campaignBags = chaosBags.filter(
+          (bag) => bag.campaign === selectedCampaign
+        );
+        const difficulties = campaignBags.map((bag) => bag.difficulty);
+
+        difficulties.forEach((difficulty) => {
+          const btn = document.createElement("button");
+          btn.className = "difficulty-btn";
+          btn.dataset.difficulty = difficulty.toLowerCase();
+          btn.textContent = difficulty;
+
+          if (difficulty.toLowerCase() === "standard") {
+            btn.classList.add("active");
+            selectedDifficulty = "standard";
+          }
+
+          btn.addEventListener("click", function () {
+            document
+              .querySelectorAll(".difficulty-btn")
+              .forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+            selectedDifficulty = this.dataset.difficulty;
+
+            if (selectedDifficulty === "custom") {
+              isCustomMode = true;
+              openTokenModal();
+            } else {
+              isCustomMode = false;
+            }
+          });
+
+          difficultyContainer.appendChild(btn);
+        });
+
+        // Add custom button
+        const customBtn = document.createElement("button");
+        customBtn.className = "difficulty-btn";
+        customBtn.dataset.difficulty = "custom";
+        customBtn.textContent = "Custom";
+        customBtn.addEventListener("click", function () {
           document
             .querySelectorAll(".difficulty-btn")
             .forEach((b) => b.classList.remove("active"));
           this.classList.add("active");
-          selectedDifficulty = this.dataset.difficulty;
+          selectedDifficulty = "custom";
+          isCustomMode = true;
+          openTokenModal();
         });
-      });
+        difficultyContainer.appendChild(customBtn);
+      }
 
       // Event listeners for grid toggle buttons
       document.querySelectorAll(".toggle-btn").forEach((btn) => {
@@ -337,38 +649,328 @@
         });
       });
 
-      function generateChaosBag() {
-        if (!selectedDifficulty) {
-          alert("Please select a difficulty level first!");
+      function openTokenModal() {
+        const modal = document.getElementById("tokenModal");
+
+        // Reset selection if in custom mode
+        if (isCustomMode) {
+          selectedTokensForCustomBag = {};
+        } else {
+          selectedTokensForCustomBag = { ...customTokens };
+        }
+
+        populateAvailableTokens();
+        updateSelectedTokensDisplay();
+        updateGenerateButton();
+
+        modal.style.display = "block";
+      }
+
+      function populateAvailableTokens() {
+        const grid = document.getElementById("availableTokensGrid");
+        grid.innerHTML = "";
+
+        for (const [k, token] of Object.entries(tokenInfo)) {
+          const tokenItem = document.createElement("div");
+          tokenItem.className = "token-item";
+          tokenItem.onclick = () => addTokenToSelection(k);
+
+          if (token.image) {
+            const img = document.createElement("img");
+            img.src = token.image;
+            img.alt = token.name;
+            tokenItem.appendChild(img);
+          } else {
+            const placeholder = document.createElement("div");
+            placeholder.className = "token-placeholder";
+            placeholder.textContent =
+              token.name.length > 4 ? token.name.substring(0, 4) : token.name;
+            tokenItem.appendChild(placeholder);
+          }
+
+          const name = document.createElement("div");
+          name.className = "token-item-name";
+          name.textContent = token.name;
+          tokenItem.appendChild(name);
+
+          grid.appendChild(tokenItem);
+        }
+      }
+
+      function addTokenToSelection(tokenKey) {
+        selectedTokensForCustomBag[tokenKey] =
+          (selectedTokensForCustomBag[tokenKey] || 0) + 1;
+        updateSelectedTokensDisplay();
+        updateGenerateButton();
+      }
+
+      function removeTokenFromSelection(tokenKey) {
+        if (selectedTokensForCustomBag[tokenKey] > 1) {
+          selectedTokensForCustomBag[tokenKey]--;
+        } else {
+          delete selectedTokensForCustomBag[tokenKey];
+        }
+        updateSelectedTokensDisplay();
+        updateGenerateButton();
+      }
+
+      function updateSelectedTokensDisplay() {
+        const grid = document.getElementById("selectedTokensGrid");
+        grid.innerHTML = "";
+
+        const hasTokens = Object.keys(selectedTokensForCustomBag).length > 0;
+
+        if (!hasTokens) {
+          const emptyDiv = document.createElement("div");
+          emptyDiv.className = "empty-selection";
+          emptyDiv.textContent =
+            "Click tokens above to add them to your chaos bag";
+          grid.appendChild(emptyDiv);
           return;
         }
 
-        const bagComposition = chaosBags[selectedDifficulty];
+        for (const [tokenKey, count] of Object.entries(
+          selectedTokensForCustomBag
+        )) {
+          const tokenItem = document.createElement("div");
+          tokenItem.className = "token-item selected-token";
+          tokenItem.onclick = () => removeTokenFromSelection(tokenKey);
+
+          // Find token info
+          const tokenData = tokenInfo[tokenKey];
+          if (tokenData.image) {
+            const img = document.createElement("img");
+            img.src = tokenData.image;
+            img.alt = tokenData.name;
+            tokenItem.appendChild(img);
+          } else {
+            const placeholder = document.createElement("div");
+            placeholder.className = "token-placeholder";
+            placeholder.textContent =
+              tokenData.name.length > 4
+                ? tokenData.name.substring(0, 4)
+                : tokenData.name;
+            tokenItem.appendChild(placeholder);
+          }
+
+          const name = document.createElement("div");
+          name.className = "token-item-name";
+          name.textContent = tokenData.name;
+          tokenItem.appendChild(name);
+
+          if (count > 1) {
+            const countBadge = document.createElement("div");
+            countBadge.className = "token-count";
+            countBadge.textContent = count;
+            tokenItem.appendChild(countBadge);
+          }
+
+          grid.appendChild(tokenItem);
+        }
+      }
+
+      function updateGenerateButton() {
+        const generateBtn = document.getElementById("generateCustomBtn");
+        const totalCount = document.getElementById("totalTokenCount");
+
+        const tokenCount = Object.values(selectedTokensForCustomBag).reduce(
+          (sum, count) => sum + count,
+          0
+        );
+        const hasTokens = tokenCount > 0;
+
+        generateBtn.disabled = !hasTokens;
+        totalCount.textContent = tokenCount;
+      }
+
+      function closeTokenModal() {
+        const modal = document.getElementById("tokenModal");
+        modal.style.display = "none";
+
+        // Clear custom input if it exists
+        const customInput = document.getElementById("customTokenName");
+        if (customInput) {
+          customInput.value = "";
+        }
+
+        // If closing custom mode without tokens, revert to standard
+        if (
+          isCustomMode &&
+          Object.keys(selectedTokensForCustomBag).length === 0
+        ) {
+          const standardBtn = document.querySelector(
+            '[data-difficulty="standard"]'
+          );
+          if (standardBtn) {
+            standardBtn.click();
+          }
+        } else if (!isCustomMode) {
+          // Update regular custom tokens from selection
+          customTokens = { ...selectedTokensForCustomBag };
+          updateCustomTokensList();
+        }
+      }
+
+      function addTokenFromModal(tokenKey) {
+        addTokenToSelection(tokenKey);
+      }
+
+      function addCustomTokenFromModal() {
+        const nameInput = document.getElementById("customTokenName");
+        const tokenName = nameInput.value.trim();
+
+        if (!tokenName) {
+          alert("Please enter a token name");
+          return;
+        }
+
+        if (tokenName.length > 10) {
+          alert("Token name must be 10 characters or less");
+          return;
+        }
+
+        // Add to available tokens if it's truly custom
+        if (!availableTokens.find((t) => t.key === tokenName)) {
+          availableTokens.push({
+            key: tokenName,
+            name: tokenName,
+            image: null,
+          });
+          populateAvailableTokens();
+        }
+
+        addTokenToSelection(tokenName);
+        nameInput.value = "";
+      }
+
+      // Close modal when clicking outside
+      window.onclick = function (event) {
+        const modal = document.getElementById("tokenModal");
+        if (event.target === modal) {
+          closeTokenModal();
+        }
+      };
+
+      // Handle Enter key in custom token input - with null check
+      document.addEventListener("DOMContentLoaded", function () {
+        initializeCampaigns();
+
+        // Add event listener for custom token input after DOM is loaded
+        const customTokenInput = document.getElementById("customTokenName");
+        if (customTokenInput) {
+          customTokenInput.addEventListener("keypress", function (e) {
+            if (e.key === "Enter") {
+              addCustomTokenFromModal();
+            }
+          });
+        }
+      });
+
+      function removeCustomToken(tokenName) {
+        delete customTokens[tokenName];
+        updateCustomTokensList();
+      }
+
+      function clearCustomTokens() {
+        customTokens = {};
+        updateCustomTokensList();
+      }
+
+      function updateCustomTokensList() {
+        const list = document.getElementById("customTokensList");
+        const clearBtn = document.getElementById("clearCustomBtn");
+
+        list.innerHTML = "";
+
+        const hasCustomTokens = Object.keys(customTokens).length > 0;
+        clearBtn.style.display = hasCustomTokens ? "block" : "none";
+
+        for (const [tokenName, count] of Object.entries(customTokens)) {
+          const item = document.createElement("div");
+          item.className = "custom-token-item";
+          item.innerHTML = `
+            <span>${tokenName} × ${count}</span>
+            <button class="remove-token-btn" onclick="removeCustomToken('${tokenName}')">Remove</button>
+          `;
+          list.appendChild(item);
+        }
+      }
+
+      function generateCustomChaosBag() {
+        if (Object.keys(selectedTokensForCustomBag).length === 0) {
+          alert("Please add some tokens first!");
+          return;
+        }
+
         let tokens = [];
 
-        // Generate tokens based on composition
-        for (const [tokenType, count] of Object.entries(bagComposition)) {
+        // Add selected tokens
+        for (const [tokenName, count] of Object.entries(
+          selectedTokensForCustomBag
+        )) {
+          for (let i = 0; i < count; i++) {
+            // Check if it's a standard token or custom
+            if (tokenInfo[tokenName]) {
+              tokens.push(tokenName);
+            } else {
+              tokens.push(`custom_${tokenName}`);
+            }
+          }
+        }
+
+        // Shuffle the tokens
+        for (let i = tokens.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [tokens[i], tokens[j]] = [tokens[j], tokens[i]];
+        }
+
+        displayGrid(tokens);
+        closeTokenModal();
+      }
+
+      function generateChaosBag() {
+        if (!selectedCampaign || !selectedDifficulty) {
+          alert("Please select a campaign and difficulty level first!");
+          return;
+        }
+
+        if (selectedDifficulty === "custom") {
+          openTokenModal();
+          return;
+        }
+
+        // Find the specific bag configuration
+        const bagConfig = chaosBags.find(
+          (bag) =>
+            bag.campaign === selectedCampaign &&
+            bag.difficulty.toLowerCase() === selectedDifficulty
+        );
+
+        if (!bagConfig) {
+          alert(
+            "Chaos bag configuration not found for selected campaign and difficulty!"
+          );
+          return;
+        }
+
+        let tokens = [];
+
+        // Generate tokens based on bag configuration
+        for (const [tokenType, count] of Object.entries(bagConfig)) {
+          // Skip campaign and difficulty properties
+          if (tokenType === "campaign" || tokenType === "difficulty") {
+            continue;
+          }
+
           for (let i = 0; i < count; i++) {
             tokens.push(tokenType);
           }
         }
 
-        // Add elder sign token
-        tokens.push("elder_sign");
-
-        // Always use exactly 16 tokens
-        const tokenCount = 16;
-
-        if (tokens.length < tokenCount) {
-          // Add more basic tokens if needed
-          while (tokens.length < tokenCount) {
-            tokens.push("0");
-          }
-        } else if (tokens.length > tokenCount) {
-          // Remove excess tokens randomly
-          while (tokens.length > tokenCount) {
-            const randomIndex = Math.floor(Math.random() * tokens.length);
-            tokens.splice(randomIndex, 1);
+        // Add custom tokens
+        for (const [tokenName, count] of Object.entries(customTokens)) {
+          for (let i = 0; i < count; i++) {
+            tokens.push(`custom_${tokenName}`);
           }
         }
 
@@ -382,21 +984,27 @@
       }
 
       function displayGrid(tokens) {
-        const grid = document.getElementById("tokenGrid");
+        const grid = document.querySelector("#gridContainer .grid");
         const gridContainer = document.getElementById("gridContainer");
 
         grid.innerHTML = "";
         grid.className = `grid grid-${selectedGrid}`;
 
         const totalCells = selectedGrid === "4x4" ? 16 : 20;
-        const emptyCount = totalCells - 16; // Number of empty cells needed
+        const tokenCount = tokens.length;
+        const emptyCount = Math.max(0, totalCells - tokenCount);
 
         // Create array with tokens and empty cells
-        let gridCells = [...tokens]; // 16 tokens
+        let gridCells = [...tokens];
 
-        // Add empty cells for 4x5 grid
+        // Add empty cells if needed
         for (let i = 0; i < emptyCount; i++) {
-          gridCells.push(null); // null represents empty cell
+          gridCells.push(null);
+        }
+
+        // If we have more tokens than grid cells, truncate
+        if (gridCells.length > totalCells) {
+          gridCells = gridCells.slice(0, totalCells);
         }
 
         // Shuffle all cells (tokens + empty cells)
@@ -417,12 +1025,44 @@
           if (token === null) {
             // Empty cell
             const emptyLabel = document.createElement("div");
-            emptyLabel.className = "token-name";
-            emptyLabel.style.color = "#666";
+            emptyLabel.className = "token-name empty-cell-label";
             cell.appendChild(emptyLabel);
-            cell.style.opacity = "0.5";
+            cell.classList.add("empty-cell");
+          } else if (token.startsWith("custom_")) {
+            // Custom token
+            const customName = token.replace("custom_", "");
+
+            // Check if it's a predefined token or truly custom
+            const predefinedToken = availableTokens.find(
+              (t) => t.key === customName
+            );
+
+            if (predefinedToken && predefinedToken.image) {
+              // Use predefined token image
+              const tokenImage = document.createElement("img");
+              tokenImage.className = "token-image";
+              tokenImage.src = predefinedToken.image;
+              tokenImage.alt = predefinedToken.name;
+              cell.appendChild(tokenImage);
+            } else {
+              // Use custom token styling
+              const tokenImage = document.createElement("div");
+              tokenImage.className = "token-image custom-token-image";
+              tokenImage.textContent =
+                customName.length > 4
+                  ? customName.substring(0, 4) + "..."
+                  : customName;
+              cell.appendChild(tokenImage);
+            }
+
+            const tokenName = document.createElement("div");
+            tokenName.className = "token-name";
+            tokenName.textContent = predefinedToken
+              ? predefinedToken.name
+              : customName;
+            cell.appendChild(tokenName);
           } else {
-            // Token cell
+            // Standard token
             const tokenImage = document.createElement("img");
             tokenImage.className = "token-image";
             tokenImage.src = tokenInfo[token].image;
@@ -439,7 +1079,7 @@
           grid.appendChild(cell);
         });
 
-        gridContainer.style.display = "block";
+        gridContainer.className = "grid-container";
       }
     </script>
   </body>
