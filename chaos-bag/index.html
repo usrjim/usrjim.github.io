@@ -514,7 +514,6 @@
       let selectedDifficulty = "standard";
       let selectedGrid = "4x4";
       let selectedCampaign = "";
-      let customTokens = {}; // Store custom tokens
       let isCustomMode = false; // Track if we're in custom mode
       let selectedTokensForCustomBag = {}; // Store tokens selected for custom bag
 
@@ -652,12 +651,8 @@
       function openTokenModal() {
         const modal = document.getElementById("tokenModal");
 
-        // Reset selection if in custom mode
-        if (isCustomMode) {
-          selectedTokensForCustomBag = {};
-        } else {
-          selectedTokensForCustomBag = { ...customTokens };
-        }
+        // Reset selection for custom mode
+        selectedTokensForCustomBag = {};
 
         populateAvailableTokens();
         updateSelectedTokensDisplay();
@@ -787,12 +782,6 @@
         const modal = document.getElementById("tokenModal");
         modal.style.display = "none";
 
-        // Clear custom input if it exists
-        const customInput = document.getElementById("customTokenName");
-        if (customInput) {
-          customInput.value = "";
-        }
-
         // If closing custom mode without tokens, revert to standard
         if (
           isCustomMode &&
@@ -804,43 +793,7 @@
           if (standardBtn) {
             standardBtn.click();
           }
-        } else if (!isCustomMode) {
-          // Update regular custom tokens from selection
-          customTokens = { ...selectedTokensForCustomBag };
-          updateCustomTokensList();
         }
-      }
-
-      function addTokenFromModal(tokenKey) {
-        addTokenToSelection(tokenKey);
-      }
-
-      function addCustomTokenFromModal() {
-        const nameInput = document.getElementById("customTokenName");
-        const tokenName = nameInput.value.trim();
-
-        if (!tokenName) {
-          alert("Please enter a token name");
-          return;
-        }
-
-        if (tokenName.length > 10) {
-          alert("Token name must be 10 characters or less");
-          return;
-        }
-
-        // Add to available tokens if it's truly custom
-        if (!availableTokens.find((t) => t.key === tokenName)) {
-          availableTokens.push({
-            key: tokenName,
-            name: tokenName,
-            image: null,
-          });
-          populateAvailableTokens();
-        }
-
-        addTokenToSelection(tokenName);
-        nameInput.value = "";
       }
 
       // Close modal when clicking outside
@@ -854,47 +807,7 @@
       // Handle Enter key in custom token input - with null check
       document.addEventListener("DOMContentLoaded", function () {
         initializeCampaigns();
-
-        // Add event listener for custom token input after DOM is loaded
-        const customTokenInput = document.getElementById("customTokenName");
-        if (customTokenInput) {
-          customTokenInput.addEventListener("keypress", function (e) {
-            if (e.key === "Enter") {
-              addCustomTokenFromModal();
-            }
-          });
-        }
       });
-
-      function removeCustomToken(tokenName) {
-        delete customTokens[tokenName];
-        updateCustomTokensList();
-      }
-
-      function clearCustomTokens() {
-        customTokens = {};
-        updateCustomTokensList();
-      }
-
-      function updateCustomTokensList() {
-        const list = document.getElementById("customTokensList");
-        const clearBtn = document.getElementById("clearCustomBtn");
-
-        list.innerHTML = "";
-
-        const hasCustomTokens = Object.keys(customTokens).length > 0;
-        clearBtn.style.display = hasCustomTokens ? "block" : "none";
-
-        for (const [tokenName, count] of Object.entries(customTokens)) {
-          const item = document.createElement("div");
-          item.className = "custom-token-item";
-          item.innerHTML = `
-            <span>${tokenName} × ${count}</span>
-            <button class="remove-token-btn" onclick="removeCustomToken('${tokenName}')">Remove</button>
-          `;
-          list.appendChild(item);
-        }
-      }
 
       function generateCustomChaosBag() {
         if (Object.keys(selectedTokensForCustomBag).length === 0) {
@@ -909,12 +822,7 @@
           selectedTokensForCustomBag
         )) {
           for (let i = 0; i < count; i++) {
-            // Check if it's a standard token or custom
-            if (tokenInfo[tokenName]) {
-              tokens.push(tokenName);
-            } else {
-              tokens.push(`custom_${tokenName}`);
-            }
+            tokens.push(tokenName);
           }
         }
 
@@ -964,13 +872,6 @@
 
           for (let i = 0; i < count; i++) {
             tokens.push(tokenType);
-          }
-        }
-
-        // Add custom tokens
-        for (const [tokenName, count] of Object.entries(customTokens)) {
-          for (let i = 0; i < count; i++) {
-            tokens.push(`custom_${tokenName}`);
           }
         }
 
@@ -1028,39 +929,6 @@
             emptyLabel.className = "token-name empty-cell-label";
             cell.appendChild(emptyLabel);
             cell.classList.add("empty-cell");
-          } else if (token.startsWith("custom_")) {
-            // Custom token
-            const customName = token.replace("custom_", "");
-
-            // Check if it's a predefined token or truly custom
-            const predefinedToken = availableTokens.find(
-              (t) => t.key === customName
-            );
-
-            if (predefinedToken && predefinedToken.image) {
-              // Use predefined token image
-              const tokenImage = document.createElement("img");
-              tokenImage.className = "token-image";
-              tokenImage.src = predefinedToken.image;
-              tokenImage.alt = predefinedToken.name;
-              cell.appendChild(tokenImage);
-            } else {
-              // Use custom token styling
-              const tokenImage = document.createElement("div");
-              tokenImage.className = "token-image custom-token-image";
-              tokenImage.textContent =
-                customName.length > 4
-                  ? customName.substring(0, 4) + "..."
-                  : customName;
-              cell.appendChild(tokenImage);
-            }
-
-            const tokenName = document.createElement("div");
-            tokenName.className = "token-name";
-            tokenName.textContent = predefinedToken
-              ? predefinedToken.name
-              : customName;
-            cell.appendChild(tokenName);
           } else {
             // Standard token
             const tokenImage = document.createElement("img");
