@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dice Roller</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        touch-action: manipulation;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        background: linear-gradient(
+          135deg,
+          #1b1014 0%,
+          #722e24 50%,
+          #42689f 100%
+        );
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .container {
+        background: linear-gradient(145deg, #1b1014 0%, #722e24 100%);
+        border-radius: 20px;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6),
+          0 0 30px rgba(103, 180, 205, 0.2);
+        padding: 30px;
+        max-width: 500px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid #c95339;
+      }
+
+      .controls {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .controls-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: linear-gradient(135deg, #722e24 0%, #1b5c3b 100%);
+        padding: 15px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s;
+        border: 2px solid #c95339;
+      }
+
+      .controls-header:hover {
+        background: linear-gradient(135deg, #1b5c3b 0%, #42689f 100%);
+        border-color: #67b4cd;
+        box-shadow: 0 0 15px rgba(103, 180, 205, 0.3);
+      }
+
+      .controls-title {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #67b4cd;
+      }
+
+      .collapse-icon {
+        font-size: 1.2em;
+        color: #67b4cd;
+        transition: transform 0.3s;
+      }
+
+      .collapsed .collapse-icon {
+        transform: rotate(-90deg);
+      }
+
+      .controls-content {
+        overflow: hidden;
+        transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+        max-height: 200px;
+        opacity: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .collapsed .controls-content {
+        max-height: 0;
+        opacity: 0;
+        padding-top: 0;
+      }
+
+      .control-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .dice-count-controls {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .count-button {
+        background: linear-gradient(135deg, #c95339 0%, #722e24 100%);
+        color: white;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        font-size: 1.2em;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 15px rgba(201, 83, 57, 0.4);
+      }
+
+      .count-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(201, 83, 57, 0.6);
+        background: linear-gradient(135deg, #67b4cd 0%, #42689f 100%);
+      }
+
+      .count-button:active {
+        transform: translateY(0);
+      }
+
+      .count-button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .dice-count-display {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #67b4cd;
+        min-width: 30px;
+        text-align: center;
+      }
+
+      label {
+        font-weight: bold;
+        color: #67b4cd;
+        font-size: 1.1em;
+      }
+
+      select,
+      input {
+        padding: 12px;
+        border: 2px solid #c95339;
+        border-radius: 8px;
+        font-size: 1em;
+        transition: all 0.3s;
+        background: linear-gradient(135deg, #722e24 0%, #1b5c3b 100%);
+        color: #67b4cd;
+      }
+
+      select:focus,
+      input:focus {
+        outline: none;
+        border-color: #67b4cd;
+        box-shadow: 0 0 10px rgba(103, 180, 205, 0.4);
+      }
+
+      .roll-button {
+        background: linear-gradient(135deg, #42689f 0%, #1b5c3b 100%);
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 50px;
+        font-size: 1.2em;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.2s;
+        margin: 20px 0;
+        box-shadow: 0 8px 25px rgba(66, 104, 159, 0.4);
+        border: 2px solid #67b4cd;
+      }
+
+      .roll-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 35px rgba(66, 104, 159, 0.6);
+        background: linear-gradient(135deg, #67b4cd 0%, #42689f 100%);
+      }
+
+      .roll-button:active {
+        transform: translateY(0);
+      }
+
+      .dice-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      .dice {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2em;
+        font-weight: bold;
+        color: #2d3748;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        animation: rollAnimation 0.6s ease-out;
+        border: 2px solid #cbd5e0;
+        padding: 8px;
+      }
+
+      .dice svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      .dice-dot {
+        fill: #2d3748;
+      }
+
+      .dice-number {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #2d3748;
+      }
+
+      @keyframes rollAnimation {
+        0% {
+          transform: rotate(0deg) scale(1);
+        }
+        50% {
+          transform: rotate(180deg) scale(1.1);
+        }
+        100% {
+          transform: rotate(360deg) scale(1);
+        }
+      }
+
+      .total {
+        text-align: center;
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #67b4cd;
+        background: linear-gradient(135deg, #722e24 0%, #1b5c3b 100%);
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 20px;
+        border: 2px solid #c95339;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4),
+          inset 0 1px 3px rgba(103, 180, 205, 0.2);
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 20px;
+          margin: 10px;
+        }
+
+        h1 {
+          font-size: 2em;
+        }
+
+        .dice {
+          width: 60px;
+          height: 60px;
+          font-size: 1.5em;
+        }
+
+        .controls {
+          gap: 15px;
+        }
+
+        .control-group {
+          gap: 5px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="controls collapsed">
+        <div class="controls-header" onclick="toggleControls()">
+          <span class="controls-title">⚙️ Settings</span>
+          <span class="collapse-icon">▼</span>
+        </div>
+
+        <div class="controls-content" id="controlsContent">
+          <div class="control-group">
+            <label>Number of Dice (1-5):</label>
+            <div class="dice-count-controls">
+              <button class="count-button" onclick="changeDiceCount(-1)">
+                -
+              </button>
+              <span class="dice-count-display" id="diceCountDisplay">1</span>
+              <button class="count-button" onclick="changeDiceCount(1)">
+                +
+              </button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label for="diceSides">Dice Sides:</label>
+            <select id="diceSides">
+              <option value="6">6 sides (D6)</option>
+              <option value="12">12 sides (D12)</option>
+              <option value="16">16 sides (D16)</option>
+              <option value="20">20 sides (D20)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <button class="roll-button" onclick="rollDice()">🎲 Roll Dice!</button>
+
+      <div class="dice-container" id="diceContainer">
+        <div class="dice">?</div>
+      </div>
+      <div class="total" id="total">Total: 0</div>
+    </div>
+
+    <script>
+      let currentDiceCount = 1;
+      let controlsCollapsed = true;
+      let lastRollResults = [];
+
+      // Better random number generator with seed mixing
+      function betterRandom() {
+        const now = Date.now();
+        const perf = performance.now();
+        const seed = (now * perf) % 1000000;
+
+        // Mix multiple entropy sources
+        const entropy1 = Math.sin(seed) * 10000;
+        const entropy2 = Math.cos(seed * 1.618) * 10000;
+        const entropy3 = Math.sin(perf * 2.718) * 10000;
+
+        const mixed = (entropy1 + entropy2 + entropy3) % 1;
+        return Math.abs(mixed);
+      }
+
+      // Generate a random number between 1 and max, avoiding previous result if possible
+      function rollSingleDie(max, previousResult = null, attempts = 0) {
+        if (attempts > 10) {
+          // Fallback to prevent infinite recursion
+          return Math.floor(betterRandom() * max) + 1;
+        }
+
+        const result = Math.floor(betterRandom() * max) + 1;
+
+        // If we have a previous result and it matches, try again (unless it's impossible to avoid)
+        if (previousResult !== null && result === previousResult && max > 1) {
+          return rollSingleDie(max, previousResult, attempts + 1);
+        }
+
+        return result;
+      }
+
+      function createDiceFaceSVG(number) {
+        if (number <= 6) {
+          return createD6Face(number);
+        } else {
+          // For dice with more than 6 sides, show the number
+          return `<div class="dice-number">${number}</div>`;
+        }
+      }
+
+      function createD6Face(number) {
+        const dotPositions = {
+          1: [[50, 50]], // center
+          2: [
+            [25, 25],
+            [75, 75],
+          ], // diagonal
+          3: [
+            [25, 25],
+            [50, 50],
+            [75, 75],
+          ], // diagonal with center
+          4: [
+            [25, 25],
+            [75, 25],
+            [25, 75],
+            [75, 75],
+          ], // corners
+          5: [
+            [25, 25],
+            [75, 25],
+            [50, 50],
+            [25, 75],
+            [75, 75],
+          ], // corners + center
+          6: [
+            [25, 25],
+            [75, 25],
+            [25, 50],
+            [75, 50],
+            [25, 75],
+            [75, 75],
+          ], // two columns
+        };
+
+        const dots = dotPositions[number] || [];
+        const dotColor = number === 1 ? "#dc2626" : "#2d3748"; // Red for 1, dark for others
+
+        const dotsHTML = dots
+          .map(
+            ([cx, cy]) =>
+              `<circle cx="${cx}" cy="${cy}" r="12" fill="${dotColor}"/>`
+          )
+          .join("");
+
+        return `
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            ${dotsHTML}
+          </svg>
+        `;
+      }
+
+      function toggleControls() {
+        const controlsElement = document.querySelector(".controls");
+        const controlsContent = document.getElementById("controlsContent");
+
+        controlsCollapsed = !controlsCollapsed;
+
+        if (controlsCollapsed) {
+          controlsElement.classList.add("collapsed");
+        } else {
+          controlsElement.classList.remove("collapsed");
+        }
+      }
+
+      function changeDiceCount(change) {
+        currentDiceCount = Math.min(Math.max(currentDiceCount + change, 1), 5);
+        document.getElementById("diceCountDisplay").textContent =
+          currentDiceCount;
+        updateCountButtons();
+      }
+
+      function updateCountButtons() {
+        const minusButton = document.querySelector(
+          '.count-button[onclick="changeDiceCount(-1)"]'
+        );
+        const plusButton = document.querySelector(
+          '.count-button[onclick="changeDiceCount(1)"]'
+        );
+
+        minusButton.disabled = currentDiceCount <= 1;
+        plusButton.disabled = currentDiceCount >= 5;
+      }
+
+      function rollDice() {
+        const diceCount = currentDiceCount;
+        const diceSides = parseInt(document.getElementById("diceSides").value);
+        const diceContainer = document.getElementById("diceContainer");
+        const totalElement = document.getElementById("total");
+
+        // Clear previous dice
+        diceContainer.innerHTML = "";
+
+        let total = 0;
+        const results = [];
+
+        // Add some delay and multiple randomization passes for better entropy
+        const baseDelay = Math.floor(betterRandom() * 50) + 10;
+
+        // Pre-generate some random numbers to mix the entropy pool
+        for (let warmup = 0; warmup < 5; warmup++) {
+          betterRandom();
+        }
+
+        // Create and roll dice
+        for (let i = 0; i < diceCount; i++) {
+          const diceElement = document.createElement("div");
+          diceElement.className = "dice";
+
+          // Use previous result from same position if available
+          const previousResult = lastRollResults[i] || null;
+          const result = rollSingleDie(diceSides, previousResult);
+
+          results.push(result);
+          total += result;
+
+          diceElement.innerHTML = createDiceFaceSVG(result);
+          diceContainer.appendChild(diceElement);
+        }
+
+        // Store results for next comparison
+        lastRollResults = [...results];
+
+        totalElement.textContent = `Total: ${total}`;
+      }
+
+      // Initialize with one die showing
+      document.addEventListener("DOMContentLoaded", function () {
+        updateCountButtons();
+        rollDice();
+      });
+
+      // Allow rolling with Enter key
+      document.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+          rollDice();
+        }
+      });
+    </script>
+  </body>
+</html>
