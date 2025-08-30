@@ -269,6 +269,25 @@
           inset 0 1px 3px rgba(103, 180, 205, 0.2);
       }
 
+      .dice-count-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin: 20px 0;
+        padding: 15px;
+        background: linear-gradient(135deg, #722e24 0%, #1b5c3b 100%);
+        border-radius: 10px;
+        border: 2px solid #c95339;
+      }
+
+      .dice-count-section label {
+        font-weight: bold;
+        color: #67b4cd;
+        font-size: 1.1em;
+        margin-bottom: 5px;
+      }
+
       @media (max-width: 480px) {
         .container {
           padding: 20px;
@@ -305,19 +324,6 @@
 
         <div class="controls-content" id="controlsContent">
           <div class="control-group">
-            <label>Number of Dice (1-5):</label>
-            <div class="dice-count-controls">
-              <button class="count-button" onclick="changeDiceCount(-1)">
-                -
-              </button>
-              <span class="dice-count-display" id="diceCountDisplay">1</span>
-              <button class="count-button" onclick="changeDiceCount(1)">
-                +
-              </button>
-            </div>
-          </div>
-
-          <div class="control-group">
             <label for="diceSides">Dice Sides:</label>
             <select id="diceSides">
               <option value="6">6 sides (D6)</option>
@@ -326,6 +332,15 @@
               <option value="20">20 sides (D20)</option>
             </select>
           </div>
+        </div>
+      </div>
+
+      <div class="dice-count-section">
+        <label>Number of Dice (1-5):</label>
+        <div class="dice-count-controls">
+          <button class="count-button" onclick="changeDiceCount(-1)">-</button>
+          <span class="dice-count-display" id="diceCountDisplay">1</span>
+          <button class="count-button" onclick="changeDiceCount(1)">+</button>
         </div>
       </div>
 
