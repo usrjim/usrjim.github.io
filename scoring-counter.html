@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Board Game Scoring Counter</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+
+      .row {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .number-selector {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+      }
+
+      .number-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+        border: 2px solid #007bff;
+        background-color: white;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      .number-btn:hover {
+        background-color: #e7f3ff;
+      }
+
+      .number-btn.selected {
+        background-color: #007bff;
+        color: white;
+      }
+
+      .ok-btn {
+        padding: 8px 20px;
+        font-size: 16px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+
+      .ok-btn:hover {
+        background-color: #218838;
+      }
+
+      .score-btn {
+        width: 120px;
+        height: 80px;
+        font-size: 24px;
+        font-weight: bold;
+        background-color: #dc3545;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      .score-btn:hover {
+        background-color: #c82333;
+      }
+
+      .history {
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 15px;
+        min-height: 80px;
+        max-height: 120px;
+        overflow-y: auto;
+      }
+
+      .history-item {
+        margin: 5px 0;
+        padding: 5px;
+        background-color: #f8f9fa;
+        border-radius: 3px;
+      }
+
+      .total {
+        font-size: 32px;
+        font-weight: bold;
+        color: #007bff;
+        background-color: white;
+        padding: 20px;
+        border: 2px solid #007bff;
+        border-radius: 10px;
+      }
+
+      .label {
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Row 1: Number selector and OK button -->
+    <div class="row">
+      <div class="label">Select Score (0-9):</div>
+      <div class="number-selector">
+        <button class="number-btn" onclick="selectNumber(0)">0</button>
+        <button class="number-btn" onclick="selectNumber(1)">1</button>
+        <button class="number-btn" onclick="selectNumber(2)">2</button>
+        <button class="number-btn" onclick="selectNumber(3)">3</button>
+        <button class="number-btn" onclick="selectNumber(4)">4</button>
+        <button class="number-btn" onclick="selectNumber(5)">5</button>
+        <button class="number-btn" onclick="selectNumber(6)">6</button>
+        <button class="number-btn" onclick="selectNumber(7)">7</button>
+        <button class="number-btn" onclick="selectNumber(8)">8</button>
+        <button class="number-btn" onclick="selectNumber(9)">9</button>
+      </div>
+      <button class="ok-btn" onclick="setScore()">OK</button>
+    </div>
+
+    <!-- Row 2: Big score button -->
+    <div class="row">
+      <div class="label">Score Button:</div>
+      <button class="score-btn" id="scoreBtn" onclick="addScore()">0</button>
+    </div>
+
+    <!-- Row 3: History -->
+    <div class="row">
+      <div class="label">History:</div>
+      <div class="history" id="history">
+        <div style="color: #666; font-style: italic">No scores added yet</div>
+      </div>
+    </div>
+
+    <!-- Row 4: Total score -->
+    <div class="row">
+      <div class="label">Total Score:</div>
+      <div class="total" id="totalScore">0</div>
+    </div>
+
+    <script>
+      let buildingScore = "";
+      let currentScore = 0;
+      let totalScore = 0;
+      let history = [];
+
+      // Hardcoded operation - can be changed to subtraction later
+      const OPERATION = "add"; // 'add' or 'subtract'
+
+      function selectNumber(num) {
+        // Append number to building score
+        buildingScore += num.toString();
+
+        // Update score button display
+        document.getElementById("scoreBtn").textContent = buildingScore;
+      }
+
+      function setScore() {
+        if (buildingScore === "") return;
+
+        currentScore = parseInt(buildingScore);
+        document.getElementById("scoreBtn").textContent = currentScore;
+
+        // Reset building state
+        buildingScore = "";
+
+        // Clear any visual selection (remove this part since we're not using selection anymore)
+        document.querySelectorAll(".number-btn").forEach((btn) => {
+          btn.classList.remove("selected");
+        });
+      }
+
+      function addScore() {
+        if (currentScore === 0) return;
+
+        // Hardcoded addition operation
+        if (OPERATION === "add") {
+          totalScore += currentScore;
+        } else if (OPERATION === "subtract") {
+          totalScore -= currentScore;
+        }
+
+        // Add to history
+        history.push({
+          score: currentScore,
+          operation: OPERATION,
+          timestamp: new Date().toLocaleTimeString(),
+        });
+
+        // Update displays
+        updateHistory();
+        updateTotal();
+      }
+
+      function updateHistory() {
+        const historyDiv = document.getElementById("history");
+
+        if (history.length === 0) {
+          historyDiv.innerHTML =
+            '<div style="color: #666; font-style: italic;">No scores added yet</div>';
+          return;
+        }
+
+        historyDiv.innerHTML = history
+          .map((item, index) => {
+            const sign = item.operation === "add" ? "+" : "-";
+            return `<div class="history-item">${index + 1}. ${sign}${
+              item.score
+            } (${item.timestamp})</div>`;
+          })
+          .join("");
+
+        // Scroll to bottom
+        historyDiv.scrollTop = historyDiv.scrollHeight;
+      }
+
+      function updateTotal() {
+        document.getElementById("totalScore").textContent = totalScore;
+      }
+    </script>
+  </body>
+</html>

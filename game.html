@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -45,7 +45,9 @@
         border-radius: 20px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         overflow: hidden;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
         text-decoration: none;
         color: inherit;
       }
@@ -135,6 +137,13 @@
     <script>
       // Games data
       const games = [
+        {
+          title: "Scoring Counter",
+          description:
+            "A simple scoring tracker that allows players to keep track of points",
+          image: "/images/covers/high_score.jpg",
+          link: "/scoring-counter-simple.html",
+        },
         {
           title: "Chaos Bag",
           description:
