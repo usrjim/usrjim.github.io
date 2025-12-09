@@ -1,0 +1,3097 @@
+[
+  {
+    "Set": "Ancestry",
+    "Qty": "1",
+    "Name": "Dwarf",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRANC_Card_DwarfMale.jpg"
+  },
+  {
+    "Set": "Ancestry",
+    "Qty": "1",
+    "Name": "Hammer Strike",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRANC_Card_HammerStrike.jpg"
+  },
+  {
+    "Set": "Ancestry",
+    "Qty": "1",
+    "Name": "Hammer",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRANC_Card_Hammer.jpg"
+  },
+  {
+    "Set": "Ancestry",
+    "Qty": "1",
+    "Name": "Pick",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRANC_Card_Pick.jpg"
+  },
+  {
+    "Set": "Ancestry",
+    "Qty": "1",
+    "Name": "Elf",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRANC_Card_ElfFemale.jpg"
+  },
+  {
+    "Set": "Ancestry",
+    "Qty": "1",
+    "Name": "Elven Wisdom",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRANC_Card_ElvenWisdom.jpg"
+  },
+  {
+    "Set": "Ancestry",
+    "Qty": "1",
+    "Name": "Elven Grace",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRANC_Card_ElvenGrace.jpg"
+  },
+  {
+    "Set": "Ancestry",
+    "Qty": "1",
+    "Name": "Sunstone Brooch",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRANC_Card_SunstoneBrooch.jpg"
+  },
+  {
+    "Set": "Ancestry",
+    "Qty": "1",
+    "Name": "Ogre",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRANC_Card_OgreMale.jpg"
+  },
+  {
+    "Set": "Ancestry",
+    "Qty": "1",
+    "Name": "Crush You!",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRANC_Card_CrushYou.jpg"
+  },
+  {
+    "Set": "Ancestry",
+    "Qty": "1",
+    "Name": "Shiny Rock",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRANC_Card_ShinyRock.jpg"
+  },
+  {
+    "Set": "Ancestry",
+    "Qty": "1",
+    "Name": "War Club",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRANC_Card_WarClub.jpg"
+  },
+  {
+    "Set": "Ancestry",
+    "Qty": "1",
+    "Name": "Orc",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRANC_Card_OrcFemale.jpg"
+  },
+  {
+    "Set": "Ancestry",
+    "Qty": "1",
+    "Name": "Battle Rage",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRANC_Card_BattleRage.jpg"
+  },
+  {
+    "Set": "Ancestry",
+    "Qty": "1",
+    "Name": "Bully",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRANC_Card_Bully.jpg"
+  },
+  {
+    "Set": "Ancestry",
+    "Qty": "1",
+    "Name": "Ragged Blade",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRANC_Card_RaggedBlade.jpg"
+  },
+  {
+    "Set": "Ancestry",
+    "Qty": "1",
+    "Name": "Smallfolk",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRANC_Card_SmallfolkMale.jpg"
+  },
+  {
+    "Set": "Ancestry",
+    "Qty": "1",
+    "Name": "Hide",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRANC_Card_Hide.jpg"
+  },
+  {
+    "Set": "Ancestry",
+    "Qty": "1",
+    "Name": "Burgle",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRANC_Card_Burgle.jpg"
+  },
+  {
+    "Set": "Ancestry",
+    "Qty": "1",
+    "Name": "Friendly Banter",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRANC_Card_FriendlyBanter.jpg"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Mastery"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Mastery"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Mastery"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Mastery"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Mastery"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Clever Fox"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Clever Fox"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Clever Fox"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Clever Fox"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Filthy Rat"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Filthy Rat"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Filthy Rat"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Filthy Rat"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Unnatural Fog"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Unnatural Fog"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Warty Toad"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Warty Toad"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Warty Toad"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Berserk"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Berserk"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Creeper Vines"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Roar"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Roar"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Trample"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Trample"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Infected Slash"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Infected Slash"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Infected Slash"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Chomping Goat"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Chomping Goat"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Hunting Cougar"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Hunting Cougar"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Relentless Storm"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Swarming Rabbit"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Swarming Rabbit"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Swarming Rabbit"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Swarming Rabbit"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "The Infection Grows"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Blighted Ground"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Frenzied Hart"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Frenzied Hart"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Insect Horde"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Insect Horde"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Pecking Chicken"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Pecking Chicken"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Pecking Chicken"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "The Infection Takes Over"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "The Infection Takes Over"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Transform: Galloping Elk"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Transform: Venomous Snake"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Transform: Web-Spinning Spider"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Transform: Keening Bat"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Level Up"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "5",
+    "Name": "Shopkeep’s Keys"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "5",
+    "Name": "Tasty Meal"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Phoenix Helm"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Shining Breastplate"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Helm of Fury"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Spiked Pauldrons"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Hunter’s Cloak"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Sure Shot Bracer"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Shadow Mask"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Silent Boots"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Runic Robes"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Spellcaster Gloves"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Hammer of Light"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Talisman of Renewal"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Rallying Flag"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Sharpening Stone"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Flashfire Arrow"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Pathfinder’s Compass"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Blackjack"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Jeweler’s Loupe"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Alchemist’s Stone"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Magic Mirror"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "The Beast"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "The Beast Within"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Malvan’s Staff"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Scorecard (40-70) | Scorecard (00-30)"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Scorecard (00-09) | Scorecard (80-89)"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Maddened Boar"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Charging Bull"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Alpha Wolf"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Battering Ram"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Covetous Raven"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Cunning Owl"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Enraged Bear"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Malvan, Beast Maker"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Galloping Elk Form"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Keening Bat Form"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Venomous Snake Form"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "Web-Spinning Spider Form"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "The Hydra"
+  },
+  {
+    "Set": "The Lost Village",
+    "Qty": "1",
+    "Name": "TIbus, Guild Lord"
+  },
+  {
+    "Set": "Journeys Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Ad (Thank You Backers!) | Rules"
+  },
+  {
+    "Set": "Journeys Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Battle Fire",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUKS_Card_BattleFire.jpg"
+  },
+  {
+    "Set": "Journeys Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Reha, the Healer",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUKS_Card_RehaTheHealer.jpg"
+  },
+  {
+    "Set": "Journeys Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Rickard, Imperial Archmage",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUKS_Card_RickardImperialArchmage.jpg"
+  },
+  {
+    "Set": "Journeys Kickstarter Promo Pack",
+    "Qty": "2",
+    "Name": "Tithing",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUKS_Card_Tithing.jpg"
+  },
+  {
+    "Set": "Journeys Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Asha, the Resurrectionist",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUKS_Card_AshaTheResurrectionist.jpg"
+  },
+  {
+    "Set": "Journeys Kickstarter Promo Pack",
+    "Qty": "2",
+    "Name": "Dark Sign",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUKS_Card_DarkSign.jpg"
+  },
+  {
+    "Set": "Journeys Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Enthrall",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUKS_Card_Enthrall.jpg"
+  },
+  {
+    "Set": "Journeys Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Julian, Blood Guardian",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUKS_Card_JulianBloodGuardian.jpg"
+  },
+  {
+    "Set": "Journeys Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Elven Fury",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUKS_Card_ElvenFury.jpg"
+  },
+  {
+    "Set": "Journeys Kickstarter Promo Pack",
+    "Qty": "2",
+    "Name": "Elven War Song",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUKS_Card_ElvenWarSong.jpg"
+  },
+  {
+    "Set": "Journeys Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Gornok Spinebreaker",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUKS_Card_GornokSpinebreaker.jpg"
+  },
+  {
+    "Set": "Journeys Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Gruber, the Wayfinder",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUKS_Card_GruberTheWayfinder.jpg"
+  },
+  {
+    "Set": "Journeys Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Jase, Songweaver",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUKS_Card_JaseSongweaver.jpg"
+  },
+  {
+    "Set": "Journeys Kickstarter Promo Pack",
+    "Qty": "2",
+    "Name": "Wolf Lord",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUKS_Card_WolfLord.jpg"
+  },
+  {
+    "Set": "Journeys Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Davik, the Lender",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUKS_Card_DavikTheLender.jpg"
+  },
+  {
+    "Set": "Journeys Kickstarter Promo Pack",
+    "Qty": "2",
+    "Name": "Illusionist",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUKS_Card_Illusionist.jpg"
+  },
+  {
+    "Set": "Journeys Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Scandal",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUKS_Card_Scandal.jpg"
+  },
+  {
+    "Set": "Journeys Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Teague, the Breaker",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUKS_Card_TeagueTheBreaker.jpg"
+  },
+  {
+    "Set": "Journeys Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Cloak of Night",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUKS_Card_CloakOfNight.jpg"
+  },
+  {
+    "Set": "Journeys Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Divining Wand",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUKS_Card_DiviningWand.jpg"
+  },
+  {
+    "Set": "Journeys Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Shimmering Steel",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUKS_Card_ShimmeringSteel.jpg"
+  },
+  {
+    "Set": "Journeys Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Diplomacy",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUKS_Card_Diplomacy.jpg"
+  },
+  {
+    "Set": "Journeys Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Havok",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUKS_Card_Havok.jpg"
+  },
+  {
+    "Set": "Journeys Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Patrol",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUKS_Card_Patrol.jpg"
+  },
+  {
+    "Set": "Journeys Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Half-Demon",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUKS_Card_HalfDemon.jpg"
+  },
+  {
+    "Set": "Journeys Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Hellfire",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUKS_Card_Hellfire.jpg"
+  },
+  {
+    "Set": "Journeys Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Demon Blood",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUKS_Card_DemonBlood.jpg"
+  },
+  {
+    "Set": "Journeys Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Demonic Strength",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUKS_Card_DemonicStrength.jpg"
+  },
+  {
+    "Set": "Journeys: Travelers",
+    "Qty": "1",
+    "Name": "Bounty Collection",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUTR_Card_BountyCollection.jpg"
+  },
+  {
+    "Set": "Journeys: Travelers",
+    "Qty": "2",
+    "Name": "Daring Escape",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUTR_Card_DaringEscape.jpg"
+  },
+  {
+    "Set": "Journeys: Travelers",
+    "Qty": "1",
+    "Name": "Fearless Charge",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUTR_Card_FearlessCharge.jpg"
+  },
+  {
+    "Set": "Journeys: Travelers",
+    "Qty": "2",
+    "Name": "Sway",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUTR_Card_Sway.jpg"
+  },
+  {
+    "Set": "Journeys: Travelers",
+    "Qty": "2",
+    "Name": "Con Artist",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUTR_Card_ConArtist.jpg"
+  },
+  {
+    "Set": "Journeys: Travelers",
+    "Qty": "1",
+    "Name": "Olara, the Slayer",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUTR_Card_OlaraTheSlayer.jpg"
+  },
+  {
+    "Set": "Journeys: Travelers",
+    "Qty": "1",
+    "Name": "Pelleas, the Seeker",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUTR_Card_PelleasTheSeeker.jpg"
+  },
+  {
+    "Set": "Journeys: Travelers",
+    "Qty": "2",
+    "Name": "Veteran Squire",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUTR_Card_VeteranSquire.jpg"
+  },
+  {
+    "Set": "Journeys: Hunters",
+    "Qty": "2",
+    "Name": "Confiscate",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUHU_Card_Confiscate.jpg"
+  },
+  {
+    "Set": "Journeys: Hunters",
+    "Qty": "1",
+    "Name": "Demonic Cloud",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUHU_Card_DemonicCloud.jpg"
+  },
+  {
+    "Set": "Journeys: Hunters",
+    "Qty": "1",
+    "Name": "Pack’s Fury",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUHU_Card_PacksFury.jpg"
+  },
+  {
+    "Set": "Journeys: Hunters",
+    "Qty": "2",
+    "Name": "Thrash",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUHU_Card_Thrash.jpg"
+  },
+  {
+    "Set": "Journeys: Hunters",
+    "Qty": "1",
+    "Name": "Andor, the Valiant",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUHU_Card_AndorTheValiant.jpg"
+  },
+  {
+    "Set": "Journeys: Hunters",
+    "Qty": "2",
+    "Name": "Fettered Imp",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUHU_Card_FetteredImp.jpg"
+  },
+  {
+    "Set": "Journeys: Hunters",
+    "Qty": "1",
+    "Name": "Lenka, the Hunter",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUHU_Card_LenkaTheHunter.jpg"
+  },
+  {
+    "Set": "Journeys: Hunters",
+    "Qty": "2",
+    "Name": "Pathfinder",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUHU_Card_Pathfinder.jpg"
+  },
+  {
+    "Set": "Journeys: Discovery",
+    "Qty": "1",
+    "Name": "Decanter of Souls",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUDI_Card_DecanterOfSouls.jpg"
+  },
+  {
+    "Set": "Journeys: Discovery",
+    "Qty": "1",
+    "Name": "Dragon Shard",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUDI_Card_DragonShard.jpg"
+  },
+  {
+    "Set": "Journeys: Discovery",
+    "Qty": "1",
+    "Name": "Phoenix Plume",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUDI_Card_PhoenixPlume.jpg"
+  },
+  {
+    "Set": "Journeys: Discovery",
+    "Qty": "1",
+    "Name": "Shadow Tome",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUDI_Card_ShadowTome.jpg"
+  },
+  {
+    "Set": "Journeys: Discovery",
+    "Qty": "1",
+    "Name": "Staff of Radiance",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUDI_Card_StaffOfRadiance.jpg"
+  },
+  {
+    "Set": "Journeys: Discovery",
+    "Qty": "1",
+    "Name": "Starlight Prison",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUDI_Card_StarlightPrison.jpg"
+  },
+  {
+    "Set": "Journeys: Discovery",
+    "Qty": "1",
+    "Name": "The Call",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUDI_Card_TheCall.jpg"
+  },
+  {
+    "Set": "Journeys: Discovery",
+    "Qty": "1",
+    "Name": "Discover",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUDI_Card_Discover.jpg"
+  },
+  {
+    "Set": "Journeys: Discovery",
+    "Qty": "1",
+    "Name": "The Hunt",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUDI_Card_TheHunt.jpg"
+  },
+  {
+    "Set": "Journeys: Discovery",
+    "Qty": "1",
+    "Name": "Persuade",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUDI_Card_Persuade.jpg"
+  },
+  {
+    "Set": "Journeys: Discovery",
+    "Qty": "1",
+    "Name": "Rally",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUDI_Card_Rally.jpg"
+  },
+  {
+    "Set": "Journeys: Discovery",
+    "Qty": "1",
+    "Name": "Unify",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUDI_Card_Unify.jpg"
+  },
+  {
+    "Set": "Journeys: Conquest",
+    "Qty": "1",
+    "Name": "Artek's Bones",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUCO_Card_ArteksBones.jpg"
+  },
+  {
+    "Set": "Journeys: Conquest",
+    "Qty": "1",
+    "Name": "Cup of Quickening",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUCO_Card_CupOfQuickening.jpg"
+  },
+  {
+    "Set": "Journeys: Conquest",
+    "Qty": "1",
+    "Name": "Kemlo's Ring",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUCO_Card_KemlosRing.jpg"
+  },
+  {
+    "Set": "Journeys: Conquest",
+    "Qty": "1",
+    "Name": "Moonblade",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUCO_Card_Moonblade.jpg"
+  },
+  {
+    "Set": "Journeys: Conquest",
+    "Qty": "1",
+    "Name": "Scrivener's Quill",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUCO_Card_ScrivenersQuill.jpg"
+  },
+  {
+    "Set": "Journeys: Conquest",
+    "Qty": "1",
+    "Name": "Spellbinder",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUCO_Card_Spellbinder.jpg"
+  },
+  {
+    "Set": "Journeys: Conquest",
+    "Qty": "1",
+    "Name": "Defend",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUCO_Card_Defend.jpg"
+  },
+  {
+    "Set": "Journeys: Conquest",
+    "Qty": "1",
+    "Name": "Drain",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUCO_Card_Drain.jpg"
+  },
+  {
+    "Set": "Journeys: Conquest",
+    "Qty": "1",
+    "Name": "Fortify",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUCO_Card_Fortify.jpg"
+  },
+  {
+    "Set": "Journeys: Conquest",
+    "Qty": "1",
+    "Name": "Inspire",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUCO_Card_Inspire.jpg"
+  },
+  {
+    "Set": "Journeys: Conquest",
+    "Qty": "1",
+    "Name": "Loot",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUCO_Card_Loot.jpg"
+  },
+  {
+    "Set": "Journeys: Conquest",
+    "Qty": "1",
+    "Name": "The Ritual",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/12/HRJOUCO_Card_TheRitual.jpg"
+  },
+  {
+    "Set": "Boss Deck: Lich",
+    "Qty": "1",
+    "Name": "Deep Insight",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BLI-EN-001-deep-insight.jpg"
+  },
+  {
+    "Set": "Boss Deck: Lich",
+    "Qty": "1",
+    "Name": "Heart of Evil",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BLI-EN-002-heart-of-evil.jpg"
+  },
+  {
+    "Set": "Boss Deck: Lich",
+    "Qty": "1",
+    "Name": "Infernal Wealth",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BLI-EN-003-infernal-wealth.jpg"
+  },
+  {
+    "Set": "Boss Deck: Lich",
+    "Qty": "1",
+    "Name": "Manipulation",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BLI-EN-004-manipulation.jpg"
+  },
+  {
+    "Set": "Boss Deck: Lich",
+    "Qty": "1",
+    "Name": "Unending Rage",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BLI-EN-005-unending-rage.jpg"
+  },
+  {
+    "Set": "Boss Deck: Lich",
+    "Qty": "1",
+    "Name": "Void",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BLI-EN-006-void.jpg"
+  },
+  {
+    "Set": "Boss Deck: Lich",
+    "Qty": "1",
+    "Name": "Abomination",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BLI-EN-008-abomination.jpg"
+  },
+  {
+    "Set": "Boss Deck: Lich",
+    "Qty": "1",
+    "Name": "Banshee",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BLI-EN-009-banshee.jpg"
+  },
+  {
+    "Set": "Boss Deck: Lich",
+    "Qty": "1",
+    "Name": "Ghoul",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BLI-EN-010-ghoul.jpg"
+  },
+  {
+    "Set": "Boss Deck: Lich",
+    "Qty": "1",
+    "Name": "Revenant",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BLI-EN-011-revenant.jpg"
+  },
+  {
+    "Set": "Boss Deck: Lich",
+    "Qty": "3",
+    "Name": "Skeleton Horde",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BLI-EN-012-skeleton-horde1.jpg"
+  },
+  {
+    "Set": "Boss Deck: Lich",
+    "Qty": "1",
+    "Name": "Wall of Bones",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BLI-EN-015-wall-of-bones.jpg"
+  },
+  {
+    "Set": "Boss Deck: Lich",
+    "Qty": "1",
+    "Name": "Wall of Fire",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BLI-EN-016-wall-of-fire.jpg"
+  },
+  {
+    "Set": "Boss Deck: Lich",
+    "Qty": "1",
+    "Name": "Zombie",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BLI-EN-017-zombie.jpg"
+  },
+  {
+    "Set": "Boss Deck: Lich",
+    "Qty": "1",
+    "Name": "Frozen Touch",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BLI-EN-019-frozen-touch.jpg"
+  },
+  {
+    "Set": "Boss Deck: Lich",
+    "Qty": "2",
+    "Name": "Gold",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BLI-EN-020-gold1.jpg"
+  },
+  {
+    "Set": "Boss Deck: Lich",
+    "Qty": "1",
+    "Name": "Minor Summoning",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BLI-EN-022-minor-summoning.jpg"
+  },
+  {
+    "Set": "Boss Deck: Lich",
+    "Qty": "1",
+    "Name": "Major Summoning",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BLI-EN-023-major-summoning.jpg"
+  },
+  {
+    "Set": "Boss Deck: Lich",
+    "Qty": "2",
+    "Name": "Ruby",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BLI-EN-024-ruby1.jpg"
+  },
+  {
+    "Set": "Boss Deck: Lich",
+    "Qty": "1",
+    "Name": "Soul Crush",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BLI-EN-026-soul-crush.jpg"
+  },
+  {
+    "Set": "Boss Deck: Lich",
+    "Qty": "2",
+    "Name": "Soul Diamond",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BLI-EN-027-soul-diamond1.jpg"
+  },
+  {
+    "Set": "Boss Deck: Lich",
+    "Qty": "1",
+    "Name": "Corruption | Control"
+  },
+  {
+    "Set": "Boss Deck: Lich",
+    "Qty": "1",
+    "Name": "Lich | Rules"
+  },
+  {
+    "Set": "Boss Deck: Lich",
+    "Qty": "1",
+    "Name": "Scorecard (40-70) | Scorecard (00-30)"
+  },
+  {
+    "Set": "Boss Deck: Lich",
+    "Qty": "1",
+    "Name": "Scorecard (00-09) | Scorecard (80-89)"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Demon Coin",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BDR-EN-001-demon-coin.jpg"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Dragon's Bite",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BDR-EN-002-dragons-bite.jpg"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Dragon's Claw A",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BDR-EN-003-dragons-claw.jpg"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Dragon's Fire A",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BDR-EN-004-dragons-fire.jpg"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Dragon's Tail",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BDR-EN-005-dragons-tail.jpg"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Elven Gold",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BDR-EN-006-elven-gold.jpg"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Guild Mark",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BDR-EN-007-guild-mark.jpg"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Hoard",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BDR-EN-008-hoard.jpg"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Imperial Chevron",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BDR-EN-009-imperial-chevron.jpg"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Ruby A",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BDR-EN-010-ruby.jpg"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Ruby B",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BDR-EN-011-ruby2.jpg"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Dragon's Claw B",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BDR-EN-012-dragons-claw2.jpg"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Cunning Blow",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BDR-EN-013-cunning-blow.jpg"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Prismatic Diamond A",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BDR-EN-014-prismatic-diamond.jpg"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Dragon's Fire B",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BDR-EN-015-dragons-fire2.jpg"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Ruby C",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BDR-EN-016-ruby3.jpg"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Prismatic Diamond B",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BDR-EN-017-prismatic-diamond2.jpg"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Dragon's Claw C",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BDR-EN-018-dragons-claw3.jpg"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Amulet of Cleansing",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BDR-EN-020-amulet-of-cleansing.jpg"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Boots of Speed",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BDR-EN-021-boots-of-speed.jpg"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Crown of Will",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BDR-EN-022-crown-of-will.jpg"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Gauntlets of Strength",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BDR-EN-023-gauntlets-of-strength.jpg"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Guardian's Shield",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BDR-EN-024-guardians-shield.jpg"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Orb of Death",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BDR-EN-025-orb-of-death.jpg"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Ring of Wishes",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BDR-EN-026-ring-of-wishes.jpg"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Sword of Destiny",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BDR-EN-027-sword-of-destiny.jpg"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Vial of Elven Tears",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BDR-EN-028-vial-of-elven-tears.jpg"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Dragon | Rules"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Scorecard (40-70) | Scorecard (00-30)"
+  },
+  {
+    "Set": "Boss Deck: Dragon",
+    "Qty": "1",
+    "Name": "Scorecard (00-09) | Scorecard (80-89)"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Flame Burst",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-001-flame-burst.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Fire Blast",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-003-fire-blast.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Fireball",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-005-fireball.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Rolling Fireball",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-007-rolling-fireball.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Scorching Fireball",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-009-scorching-fireball.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Barreling Fireball",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-011-barreling-fireball.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Explosive Fireball",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-013-explosive-fireball.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Searing Fireball",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-015-searing-fireball.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Channel",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-017-channel.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Deep Channel",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-019-deep-channel.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Calm Channel",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-021-calm-channel.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Soul Channel",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-023-soul-channel.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Pure Channel",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-025-pure-channel.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Serene Channel",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-027-serene-channel.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Precision Blow",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-029-precision-blow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Powerful Blow",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-031-powerful-blow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Crushing Blow",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-033-crushing-blow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Sweeping Blow",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-035-sweeping-blow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Smashing Blow",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-037-smashing-blow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Whirling Blow",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-039-whirling-blow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Mighty Blow",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-041-mighty-blow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Devastating Blow",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-043-devastating-blow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Shoulder Bash",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-045-shoulder-bash.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Knock Back",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-047-knock-back.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Shoulder Smash",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-049-shoulder-smash.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Knock down",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-051-knock-down.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Group Tackle",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-053-group-tackle.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Shoulder Crush",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-055-shoulder-crush.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Minor Resurrect",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-057-minor-resurrect.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Lesser Resurrect",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-059-lesser-resurrect.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Resurrect",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-061-resurrect.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Battle Resurrect",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-063-battle-resurrect.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Holy Resurrect",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-065-holy-resurrect.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Mass Resurrect",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-067-mass-resurrect.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Righteous Resurrect",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-069-righteous-resurrect.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Divine Resurrect",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-071-divine-resurrect.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Bless",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-073-bless.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Bless of Iron",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-075-bless-of-iron.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Bless of Heart",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-077-bless-of-heart.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Bless of Steel",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-079-bless-of-steel.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Bless the Flock",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-081-bless-the-flock.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Bless of Soul",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-083-bless-of-soul.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Pilfer",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-085-pilfer.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Theft",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-087-theft.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Heist",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-089-heist.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Timely Heist",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-091-timely-heist.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Skillful Heist",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-093-skillful-heist.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Practiced Heist",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-095-practiced-heist.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Smooth Heist",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-097-smooth-heist-back.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Masterful Heist",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-099-masterly-heist-back.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Pickpocket",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-101-pickpocket.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Sleight of Hand",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-103-sleight-of-hand.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Swipe",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-105-swipe.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Misdirection",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-107-misdirection.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Distracted Exchange",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-109-distracted-exchange.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Lift",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-111-lift.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Steady Shot",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-113-steady-shot.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Well Placed Shot",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-115-well-placed-shot.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Headshot",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-117-headshot.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Quickshot",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-119-quickshot.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Twin Shot",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-121-twin-shot.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Snapshot",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-123-snapshot.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Longshot",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-125-longshot.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Triple Shot",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-127-triple-shot.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Track",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-129-track.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Fast Track",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-131-fast-track.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Careful Track",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-133-careful-track.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Instinctive Track",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-135-instinctive-track.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Relentless Track",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-137-relentless-track.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Flawless Track",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-139-flawless-track.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Additional Health (Cleric)",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-141-cleric-health.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Additional Health (Fighter)",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-143-fighter-health.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Additional Health (Ranger)",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-145-ranger-health.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Additional Health (Thief)",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-147-thief-health.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Additional Health (Wizard)",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-149-wizard-health.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Veteran Follower",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-151-veteran-follower.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Redeemed Ruinos",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-152-redeemed-ruinos.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Everburning Candle",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-153-everburning-candle.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Brightstar Shield",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-154-brightstar-shield.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Seasoned Shield Bearer",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-155-seasoned-shield-bearer.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Double-Bladed Axe",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-156-double-bladed-axe.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Hand Scythe",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-157-hand-scythe.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Jagged Spear",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-158-jagged-spear.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Honed Black Arrow",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-159-honed-black-arrow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Light Crossbow",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-160-light-crossbow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Snake Pet",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-161-snake-pet.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Unending Quiver",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-162-unending-quiver.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Keen Throwing Knife",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-163-keen-throwing-knife.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Sacrificial Dagger",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-164-sacrificial-dagger.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Enchanted Garrote",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-165-enchanted-garrote.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Knife Belt",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-166-knife-belt.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Blazing Staff",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-167-blazing-staff.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Serpentine Staff",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-168-serpentine-staff.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Silverskull Amulet",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-169-silverskull-amulet.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Arcane Wand",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-170-arcane-wand.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Ruinos Disciple",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-174-ruinos-disciple-yellow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Ruinos Disciple",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-174-ruinos-disciple-yellow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Ruinos Disciple",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-174-ruinos-disciple-yellow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Ruinos Disciple",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-174-ruinos-disciple-yellow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Ruinos Enforcer",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-177-ruinos-enforcer-red.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Ruinos Enforcer",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-177-ruinos-enforcer-red.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Ruinos Enforcer",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-177-ruinos-enforcer-red.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Biting Imp",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-181-biting-imp-yellow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Biting Imp",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-181-biting-imp-yellow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Biting Imp",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-181-biting-imp-yellow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Biting Imp",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-181-biting-imp-yellow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Twisting Bolt",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-183-twisting-bolt-favored.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Twisting Bolt",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-183-twisting-bolt-favored.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Charging Drunk",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-187-charging-drunk-yellow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Charging Drunk",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-187-charging-drunk-yellow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Charging Drunk",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-187-charging-drunk-yellow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Charging Drunk",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-187-charging-drunk-yellow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Crazed Bartender",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-188-crazed-bartender.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Broken Tables and Chairs",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-190-broken-tables-and-chairs-favored.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Broken Tables and Chairs",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-190-broken-tables-and-chairs-favored.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Temporary Insanity",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-192-temporary-insanity-yellow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Temporary Insanity",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-192-temporary-insanity-yellow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Ruinos Vampire",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-195-ruinos-vampire-yellow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Ruinos Vampire",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-195-ruinos-vampire-yellow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Ruinos Vampire",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-195-ruinos-vampire-yellow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Ruinos Ambusher",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-197-ruinos-ambusher-yellow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Ruinos Ambusher",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-197-ruinos-ambusher-yellow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Clinging Imp",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-200-clinging-imp-green.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Clinging Imp",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-200-clinging-imp-green.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Clinging Imp",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-200-clinging-imp-green.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Escape!",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-201-escape.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Captive",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-202-capture.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Ruinos Chanter",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-205-ruinos-chanter-yellow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Ruinos Chanter",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-205-ruinos-chanter-yellow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Ruinos Chanter",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-205-ruinos-chanter-yellow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Stone Golem",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-207-stone-golem-green.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Stone Golem",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-207-stone-golem-green.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Fire Pentagram",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-209-fire-pentagram-yellow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Fire Pentagram",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-209-fire-pentagram-yellow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Ruinos Zealot",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-210-ruinos-zealot.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Vexing Imp",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-211-vexing-imp.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Mastery",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-216-mastery-yellow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Mastery",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-216-mastery-yellow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Mastery",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-216-mastery-yellow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Mastery",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-216-mastery-yellow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Mastery",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-216-mastery-yellow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Elixir of Endurance",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-217-elixir-of-endurance.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Elixir of Fortune",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-218-elixir-of-fortune.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Elixir of Concentration",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-219-elixir-of-concentration.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Elixir of Strength",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-220-elixir-of-strength.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Elixir of Wisdom",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-221-elixir-of-wisdom.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Steel of Karakan",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-222-steel-of-karakan.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Tooth of Ingarash",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-223-tooth-of-ingarash.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Shard of Slaughterclaw",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-224-shard-of-slaughterclaw.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Stone of Laughing Shadow",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-225-stone-of-laughing-shadow.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Enthralled Regulars"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Ruinos Zealot",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-210-ruinos-zealot.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Vexing Imp",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/ROT-EN-211-vexing-imp.jpg"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Ruinos Archpriestess"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Slaughterclaw"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "The Laughing Shadow"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Ingarash the Insatiable"
+  },
+  {
+    "Set": "The Ruin of Thandar",
+    "Qty": "1",
+    "Name": "Karakan Flesh-of-Iron"
+  },
+  {
+    "Set": "Character Pack: Wizard",
+    "Qty": "1",
+    "Name": "Wizard",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/CWZ-EN-002-wizard-character-male.jpg"
+  },
+  {
+    "Set": "Character Pack: Wizard",
+    "Qty": "1",
+    "Name": "Channel | Rules (Part 2)"
+  },
+  {
+    "Set": "Character Pack: Wizard",
+    "Qty": "1",
+    "Name": "Fireball | Rules (Part 1)"
+  },
+  {
+    "Set": "Character Pack: Wizard",
+    "Qty": "1",
+    "Name": "Cat Familiar",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/11/CWZ-EN-010-wizard-cat-familiar.jpg"
+  },
+  {
+    "Set": "Character Pack: Wizard",
+    "Qty": "2",
+    "Name": "Ignite",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/CWZ-EN-013-wizard-ignite.jpg"
+  },
+  {
+    "Set": "Character Pack: Wizard",
+    "Qty": "1",
+    "Name": "Spell Components",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/CWZ-EN-014-wizard-spell-components.jpg"
+  },
+  {
+    "Set": "Character Pack: Wizard",
+    "Qty": "1",
+    "Name": "Fire Staff",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/CWZ-EN-015-wizard-fire-staff.jpg"
+  },
+  {
+    "Set": "Character Pack: Wizard",
+    "Qty": "5",
+    "Name": "Gold",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/CWZ-EN-012-wizard-gold.jpg"
+  },
+  {
+    "Set": "Character Pack: Wizard",
+    "Qty": "1",
+    "Name": "Scorecard (00-09) | Scorecard (80-89)"
+  },
+  {
+    "Set": "Character Pack: Wizard",
+    "Qty": "1",
+    "Name": "Scorecard (40-70) | Scorecard (00-30)"
+  },
+  {
+    "Set": "Character Pack: Thief",
+    "Qty": "1",
+    "Name": "Thief",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/CTH-EN-001-thief-character-female.jpg"
+  },
+  {
+    "Set": "Character Pack: Thief",
+    "Qty": "1",
+    "Name": "Heist | Rules (Part 1)"
+  },
+  {
+    "Set": "Character Pack: Thief",
+    "Qty": "1",
+    "Name": "Pick Pocket | Rules (Part 2)"
+  },
+  {
+    "Set": "Character Pack: Thief",
+    "Qty": "3",
+    "Name": "Throwing Knife",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/CTH-EN-011-thief-throwing-knife.jpg"
+  },
+  {
+    "Set": "Character Pack: Thief",
+    "Qty": "5",
+    "Name": "Gold",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/CTH-EN-013-thief-gold.jpg"
+  },
+  {
+    "Set": "Character Pack: Thief",
+    "Qty": "2",
+    "Name": "Ruby",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/CTH-EN-010-thief-ruby.jpg"
+  },
+  {
+    "Set": "Character Pack: Thief",
+    "Qty": "1",
+    "Name": "Scorecard (00-09) | Scorecard (80-89)"
+  },
+  {
+    "Set": "Character Pack: Thief",
+    "Qty": "1",
+    "Name": "Scorecard (40-70) | Scorecard (00-30)"
+  },
+  {
+    "Set": "Character Pack: Ranger",
+    "Qty": "1",
+    "Name": "Ranger",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/CRA-EN-003-ranger-character-male.jpg"
+  },
+  {
+    "Set": "Character Pack: Ranger",
+    "Qty": "1",
+    "Name": "Headshot | Rules (Part 1)"
+  },
+  {
+    "Set": "Character Pack: Ranger",
+    "Qty": "1",
+    "Name": "Track | Rules (Part 2)"
+  },
+  {
+    "Set": "Character Pack: Ranger",
+    "Qty": "2",
+    "Name": "Black Arrow",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/CRA-EN-001-ranger-black-arrow.jpg"
+  },
+  {
+    "Set": "Character Pack: Ranger",
+    "Qty": "1",
+    "Name": "Horn of Calling",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/CRA-EN-007-ranger-horn-of-calling.jpg"
+  },
+  {
+    "Set": "Character Pack: Ranger",
+    "Qty": "1",
+    "Name": "Hunting Bow",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/CRA-EN-008-ranger-hunting-bow.jpg"
+  },
+  {
+    "Set": "Character Pack: Ranger",
+    "Qty": "5",
+    "Name": "Gold",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/CRA-EN-004-ranger-gold.jpg"
+  },
+  {
+    "Set": "Character Pack: Ranger",
+    "Qty": "1",
+    "Name": "Ruby",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/CRA-EN-009-ranger-ruby.jpg"
+  },
+  {
+    "Set": "Character Pack: Ranger",
+    "Qty": "1",
+    "Name": "Scorecard (00-09) | Scorecard (80-89)"
+  },
+  {
+    "Set": "Character Pack: Ranger",
+    "Qty": "1",
+    "Name": "Scorecard (40-70) | Scorecard (00-30)"
+  },
+  {
+    "Set": "Character Pack: Fighter",
+    "Qty": "1",
+    "Name": "Fighter",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/CFT-EN-002-fighter-character-male.jpg"
+  },
+  {
+    "Set": "Character Pack: Fighter",
+    "Qty": "1",
+    "Name": "Crushing Blow | Rules (Part 1)"
+  },
+  {
+    "Set": "Character Pack: Fighter",
+    "Qty": "1",
+    "Name": "Shoulder Bash | Rules (Part 2)"
+  },
+  {
+    "Set": "Character Pack: Fighter",
+    "Qty": "1",
+    "Name": "Longsword",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/CFT-EN-006-fighter-longsword.jpg"
+  },
+  {
+    "Set": "Character Pack: Fighter",
+    "Qty": "1",
+    "Name": "Shield Bearer",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/CFT-EN-008-fighter-shield-bearer.jpg"
+  },
+  {
+    "Set": "Character Pack: Fighter",
+    "Qty": "1",
+    "Name": "Throwing Axe",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/CFT-EN-011-fighter-throwing-axe.jpg"
+  },
+  {
+    "Set": "Character Pack: Fighter",
+    "Qty": "6",
+    "Name": "Gold",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/CFT-EN-005-fighter-gold.jpg"
+  },
+  {
+    "Set": "Character Pack: Fighter",
+    "Qty": "1",
+    "Name": "Ruby",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/CFT-EN-007-fighter-ruby.jpg"
+  },
+  {
+    "Set": "Character Pack: Fighter",
+    "Qty": "1",
+    "Name": "Scorecard (00-09) | Scorecard (80-89)"
+  },
+  {
+    "Set": "Character Pack: Fighter",
+    "Qty": "1",
+    "Name": "Scorecard (40-70) | Scorecard (00-30)"
+  },
+  {
+    "Set": "Character Pack: Cleric",
+    "Qty": "1",
+    "Name": "Cleric",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/CCL-EN-003-cleric-character-female.jpg"
+  },
+  {
+    "Set": "Character Pack: Cleric",
+    "Qty": "1",
+    "Name": "Resurrect | Rules (Part 1)"
+  },
+  {
+    "Set": "Character Pack: Cleric",
+    "Qty": "1",
+    "Name": "Bless | Rules (Part 2)"
+  },
+  {
+    "Set": "Character Pack: Cleric",
+    "Qty": "1",
+    "Name": "Follower A",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/CCL-EN-005-cleric-follower-a.jpg"
+  },
+  {
+    "Set": "Character Pack: Cleric",
+    "Qty": "1",
+    "Name": "Follower B",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/CCL-EN-006-cleric-follower-b.jpg"
+  },
+  {
+    "Set": "Character Pack: Cleric",
+    "Qty": "1",
+    "Name": "Spiked Mace",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/CCL-EN-008-cleric-spiked-mace.jpg"
+  },
+  {
+    "Set": "Character Pack: Cleric",
+    "Qty": "1",
+    "Name": "Prayer Beads",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/CCL-EN-009-cleric-prayer-beads.jpg"
+  },
+  {
+    "Set": "Character Pack: Cleric",
+    "Qty": "6",
+    "Name": "Gold",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/CCL-EN-007-cleric-gold.jpg"
+  },
+  {
+    "Set": "Character Pack: Cleric",
+    "Qty": "1",
+    "Name": "Scorecard (00-09) | Scorecard (80-89)"
+  },
+  {
+    "Set": "Character Pack: Cleric",
+    "Qty": "1",
+    "Name": "Scorecard (40-70) | Scorecard (00-30)"
+  },
+  {
+    "Set": "1st Kickstarter Promo Pack",
+    "Qty": "2",
+    "Name": "Afterlife",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/KIK-EN-01-afterlife.jpg"
+  },
+  {
+    "Set": "1st Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Crime Spree",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/KIK-EN-05-crime-spree.jpg"
+  },
+  {
+    "Set": "1st Kickstarter Promo Pack",
+    "Qty": "2",
+    "Name": "Devotion",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/KIK-EN-06-devotion.jpg"
+  },
+  {
+    "Set": "1st Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Dragon Fire",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/KIK-EN-08-dragon-fire.jpg"
+  },
+  {
+    "Set": "1st Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Mobia, Elf Lord",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/KIK-EN-13-mobia-elf-lord.jpg"
+  },
+  {
+    "Set": "1st Kickstarter Promo Pack",
+    "Qty": "2",
+    "Name": "Raiding Party",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/KIK-EN-14-raiding-party.jpg"
+  },
+  {
+    "Set": "1st Kickstarter Promo Pack",
+    "Qty": "2",
+    "Name": "Robbery",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/KIK-EN-17-robbery.jpg"
+  },
+  {
+    "Set": "1st Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "The Summoning",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/KIK-EN-19-the-summoning.jpg"
+  },
+  {
+    "Set": "1st Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Bjorn, the Centurion",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/KIK-EN-03-bjorn-the-centurion.jpg"
+  },
+  {
+    "Set": "1st Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Bloodfang",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/KIK-EN-04-bloodfang.jpg"
+  },
+  {
+    "Set": "1st Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Droga, Guild Enforcer",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/KIK-EN-09-droga-guild-enforcer.jpg"
+  },
+  {
+    "Set": "1st Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Galok, the Vile",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/KIK-EN-10-galok-the-vile.jpg"
+  },
+  {
+    "Set": "1st Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Gorg, Orc Shaman",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/KIK-EN-11-gorg-orc-shaman.jpg"
+  },
+  {
+    "Set": "1st Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Kasha, the Awakener",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/KIK-EN-12-kasha-the-awakener.jpg"
+  },
+  {
+    "Set": "1st Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Ren, Bounty Hunter",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/KIK-EN-16-ren-bounty-hunter.jpg"
+  },
+  {
+    "Set": "1st Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Valius, Fire Dragon",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/KIK-EN-20-valius-fire-dragon.jpg"
+  },
+  {
+    "Set": "1st Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Bag of Holding",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/KIK-EN-21-bag-of-holding.jpg"
+  },
+  {
+    "Set": "1st Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Blade of Conquest",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/KIK-EN-22-blade-of-conquest.jpg"
+  },
+  {
+    "Set": "1st Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Book of Secrets",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/KIK-EN-23-book-of-secrets.jpg"
+  },
+  {
+    "Set": "1st Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Starsoul Amulet",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/KIK-EN-24-starsoul-amulet.jpg"
+  },
+  {
+    "Set": "1st Kickstarter Promo Pack",
+    "Qty": "1",
+    "Name": "Stone of Seeking",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/KIK-EN-25-stone-of-seeking.jpg"
+  },
+  {
+    "Set": "1st Kickstarter Promo Pack",
+    "Qty": "8",
+    "Name": "Legionnaire | Zombie"
+  },
+  {
+    "Set": "1st Kickstarter Promo Pack, The Lost Village",
+    "Qty": "1",
+    "Name": "Tibus, Guild Lord",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/KIK-EN-45-tibus-guild-lord-co-op.jpg"
+  },
+  {
+    "Set": "1st Kickstarter Promo Pack, The Lost Village",
+    "Qty": "1",
+    "Name": "Tibus, Guild Lord",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/KIK-EN-45-tibus-guild-lord-co-op.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Arkus, Imperial Dragon",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-001-arkus-imperial-dragon.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Close Ranks",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-002-close-ranks.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Command",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-003-command.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Darian, War Mage",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-004-darian-war-mage.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Domination",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-005-domination.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Cristov, the Just",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-006-cristov-the-just.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Kraka, High Priest",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-007-kraka-high-priest.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "2",
+    "Name": "Man-at-Arms",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/08/HRBAS_Card_ManAtArms.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Master Weyan",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-010-master-weyan.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Rally the Troops",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-011-rally-the-troops.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "3",
+    "Name": "Recruit",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-012-recruit.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "2",
+    "Name": "Tithe Priest",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-015-tithe-priest.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "3",
+    "Name": "Taxation",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-017-taxation.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Word of Power",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-020-word-of-power.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Borg, Ogre Mercenary",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-021-borg-ogre-mercenary.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "3",
+    "Name": "Bribe",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-022-bribe.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Death Threat",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-025-death-threat.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Deception",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-026-deception.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Fire Bomb",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-027-fire-bomb.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Hit Job",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-028-hit-job.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "2",
+    "Name": "Intimidation",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-029-intimidation.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Myros, Guild Mage",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-031-myros-guild-mage.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Parov, the Enforcer",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-032-parov-the-enforcer.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "3",
+    "Name": "Profit",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-033-profit.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Rake, Master Assassin",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-036-rake-master-assassin.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Rasmus, the Smuggler",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-037-rasmus-the-smuggler.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Smash and Grab",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-038-smash-and-grab.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "2",
+    "Name": "Street Thug",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-039-street-thug.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "2",
+    "Name": "Cult Priest",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-041-cult-priest.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Dark Energy",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-043-dark-energy.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Dark Reward",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-044-dark-reward.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "2",
+    "Name": "Death Cultist",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-045-death-cultist.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "3",
+    "Name": "Death Touch",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-047-death-touch.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Rayla, Endweaver",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/08/HRBAS_Card_RaylaEndweaver.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "3",
+    "Name": "Influence",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-051-influence.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Krythos, Master Vampire",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-054-krythos-master-vampire.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Life Drain",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-055-life-drain.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Lys, the Unseen",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-056-lys-the-unseen.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "2",
+    "Name": "The Rot",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-057-the-rot.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Tyrannor, the Devourer",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-059-tyrannor-the-devourer.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Varrick, the Necromancer",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-060-varrick-the-necromancer.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Broelyn, Loreweaver",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2021/08/HRBAS_Card_BroelynLoreweaver.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Cron, the Berserker",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-062-cron-the-berserker.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Dire Wolf",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-063-dire-wolf.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "2",
+    "Name": "Elven Curse",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-064-elven-curse.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "3",
+    "Name": "Elven Gift",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-066-elven-gift.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Grak, Storm Giant",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-069-grak-storm-giant.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Nature's Bounty",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-070-natures-bounty.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "2",
+    "Name": "Orc Grunt",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-071-orc-grunt.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Rampage",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-073-rampage.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Torgen Rocksplitter",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-074-torgen-rocksplitter.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "3",
+    "Name": "Spark",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-075-spark.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Wolf Form",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-078-wolf-form.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "2",
+    "Name": "Wolf Shaman",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-079-wolf-shaman.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "16",
+    "Name": "Fire Gem",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-081-fire-gem.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "28",
+    "Name": "Gold",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-097-gold.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "4",
+    "Name": "Shortsword",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-125-shortsword.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "4",
+    "Name": "Dagger",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-129-dagger.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "4",
+    "Name": "Ruby",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/BAS-EN-133-ruby.jpg"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Scorecard (00-09) | Scorecard (80-89)"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Scorecard (00-09) | Scorecard (80-89)"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Scorecard (00-09) | Scorecard (80-89)"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Scorecard (00-09) | Scorecard (80-89)"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Scorecard (40-70) | Scorecard (00-30)"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Scorecard (40-70) | Scorecard (00-30)"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Scorecard (40-70) | Scorecard (00-30)"
+  },
+  {
+    "Set": "Base Set",
+    "Qty": "1",
+    "Name": "Scorecard (40-70) | Scorecard (00-30)"
+  },
+  {
+    "Set": "Promos (Domination Storage Box)",
+    "Qty": "1",
+    "Name": "Captain Koska",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/PRO-EN-PromoCard1-CaptainKoska.jpg"
+  },
+  {
+    "Set": "Promos (Convention Promo)",
+    "Qty": "1",
+    "Name": "Contract Negotiation",
+    "Image": "https://www.herorealms.com/wp-content/uploads/2017/09/PRO-EN-PromoCard2-ContractNegotiation.jpg"
+  },
+  {
+    "Set": "Promos (Convention Promo)",
+    "Qty": "1",
+    "Name": "Scorecard (40-70) | Scorecard (00-30)"
+  },
+  {
+    "Set": "Promos (Convention Promo)",
+    "Qty": "1",
+    "Name": "Scorecard (00-09) | Scorecard (80-89)"
+  }
+]

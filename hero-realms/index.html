@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hero Realms Card Browser</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        color: #333;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      h1 {
+        color: white;
+        font-size: 2.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        margin-bottom: 10px;
+      }
+
+      .filters {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        gap: 20px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+
+      .filter-group {
+        flex: 1;
+        min-width: 250px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+        color: #555;
+      }
+
+      select,
+      input[type="search"] {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: border-color 0.3s ease;
+      }
+
+      select:focus,
+      input[type="search"]:focus {
+        outline: none;
+        border-color: #667eea;
+      }
+
+      .results-info {
+        background: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      #result-count {
+        font-weight: 600;
+        color: #555;
+      }
+
+      .results {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+
+      .card-row {
+        display: grid;
+        grid-template-columns: 340px 1fr 80px 2fr;
+        gap: 15px;
+        padding: 15px 20px;
+        border-bottom: 1px solid #eee;
+        transition: background-color 0.2s ease;
+        align-items: center;
+      }
+
+      .card-row:hover {
+        background-color: #f8f9fa;
+      }
+
+      .card-row:last-child {
+        border-bottom: none;
+      }
+
+      .card-name {
+        font-weight: 600;
+        color: #333;
+        font-size: 1.1rem;
+      }
+
+      .card-qty {
+        text-align: center;
+        font-weight: 600;
+        color: #667eea;
+        background: #f0f2ff;
+        padding: 5px 10px;
+        border-radius: 15px;
+        font-size: 0.9rem;
+      }
+
+      .card-set {
+        color: #666;
+        font-size: 0.95rem;
+      }
+
+      .card-image {
+        width: 320px;
+        height: 450px;
+        object-fit: cover;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .loading {
+        text-align: center;
+        padding: 40px;
+        color: #666;
+        font-style: italic;
+      }
+
+      .no-results {
+        text-align: center;
+        padding: 40px;
+        color: #999;
+      }
+
+      @media (max-width: 768px) {
+        .filters {
+          flex-direction: column;
+        }
+
+        .card-row {
+          grid-template-columns: 1fr;
+          gap: 10px;
+          text-align: center;
+        }
+
+        .card-image {
+          width: 60px;
+          height: 84px;
+          margin: 0 auto;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Hero Realms Card Browser</h1>
+      </header>
+
+      <div class="filters">
+        <div class="filter-group">
+          <label for="set-select">Filter by Set:</label>
+          <select id="set-select">
+            <option value="">All Sets</option>
+            <option value="1st Kickstarter Promo Pack">
+              1st Kickstarter Promo Pack
+            </option>
+            <option value="1st Kickstarter Promo Pack, The Lost Village">
+              1st Kickstarter Promo Pack, The Lost Village
+            </option>
+            <option value="Ancestry">Ancestry</option>
+            <option value="Base Set">Base Set</option>
+            <option value="Boss Deck: Dragon">Boss Deck: Dragon</option>
+            <option value="Boss Deck: Lich">Boss Deck: Lich</option>
+            <option value="Character Pack: Cleric">
+              Character Pack: Cleric
+            </option>
+            <option value="Character Pack: Fighter">
+              Character Pack: Fighter
+            </option>
+            <option value="Character Pack: Ranger">
+              Character Pack: Ranger
+            </option>
+            <option value="Character Pack: Thief">Character Pack: Thief</option>
+            <option value="Character Pack: Wizard">
+              Character Pack: Wizard
+            </option>
+            <option value="Journeys Kickstarter Promo Pack">
+              Journeys Kickstarter Promo Pack
+            </option>
+            <option value="Journeys: Conquest">Journeys: Conquest</option>
+            <option value="Journeys: Discovery">Journeys: Discovery</option>
+            <option value="Journeys: Hunters">Journeys: Hunters</option>
+            <option value="Journeys: Travelers">Journeys: Travelers</option>
+            <option value="Promos (Convention Promo)">
+              Promos (Convention Promo)
+            </option>
+            <option value="Promos (Domination Storage Box)">
+              Promos (Domination Storage Box)
+            </option>
+            <option value="The Lost Village">The Lost Village</option>
+            <option value="The Ruin of Thandar">The Ruin of Thandar</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="search-input">Search by Name:</label>
+          <input
+            type="search"
+            id="search-input"
+            placeholder="Enter card name..."
+          />
+        </div>
+      </div>
+
+      <div class="results-info">
+        <span id="result-count">Loading cards...</span>
+      </div>
+
+      <div id="results-container" class="results">
+        <div class="loading">Loading card data...</div>
+      </div>
+    </div>
+
+    <script>
+      let allCards = [];
+      let filteredCards = [];
+
+      const setSelect = document.getElementById("set-select");
+      const searchInput = document.getElementById("search-input");
+      const resultsContainer = document.getElementById("results-container");
+      const resultCount = document.getElementById("result-count");
+
+      async function loadCards() {
+        try {
+          const response = await fetch("data/card_list.json");
+          allCards = await response.json();
+          filteredCards = [];
+          displayCards();
+          updateResultCount();
+        } catch (error) {
+          console.error("Error loading cards:", error);
+          resultsContainer.innerHTML =
+            '<div class="loading">Error loading card data. Please try again later.</div>';
+        }
+      }
+
+      function filterCards() {
+        const selectedSet = setSelect.value.toLowerCase();
+        const searchTerm = searchInput.value.toLowerCase();
+
+        filteredCards = allCards.filter((card) => {
+          const matchesSet =
+            !selectedSet || card.Set.toLowerCase() === selectedSet;
+          const matchesSearch =
+            !searchTerm || card.Name.toLowerCase().includes(searchTerm);
+          return matchesSet && matchesSearch;
+        });
+
+        displayCards();
+        updateResultCount();
+      }
+
+      function displayCards() {
+        if (filteredCards.length === 0) {
+          resultsContainer.innerHTML =
+            '<div class="no-results">No cards found matching your criteria.</div>';
+          return;
+        }
+
+        const cardRows = filteredCards
+          .map(
+            (card) => `
+        <div class="card-row">
+            <img class="card-image" src="${escapeHtml(
+              card.Image,
+            )}" alt="${escapeHtml(
+              card.Name,
+            )}" onerror="this.style.display='none'">
+            <div class="card-name">${escapeHtml(card.Name)}</div>
+            <div class="card-qty">${escapeHtml(card.Qty)}</div>
+            <div class="card-set">${escapeHtml(card.Set)}</div>
+        </div>
+    `,
+          )
+          .join("");
+
+        resultsContainer.innerHTML = cardRows;
+      }
+
+      function updateResultCount() {
+        const count = filteredCards.length;
+        const total = allCards.length;
+        const qtySum = filteredCards.reduce(
+          (sum, card) => sum + parseInt(card.Qty || 0),
+          0,
+        );
+        resultCount.textContent = `Showing ${count} of ${total} cards (${qtySum} total quantity)`;
+      }
+
+      function escapeHtml(text) {
+        const div = document.createElement("div");
+        div.textContent = text;
+        return div.innerHTML;
+      }
+
+      setSelect.addEventListener("change", filterCards);
+      searchInput.addEventListener("input", filterCards);
+
+      window.addEventListener("load", loadCards);
+    </script>
+  </body>
+</html>
