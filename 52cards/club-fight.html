@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Club Fight</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <a class="back-link" href="index.html">&larr; Back to deck</a>
+
+      <div class="banner">
+        <div class="card clubs val-A"></div>
+        <span class="title">Club Fight</span>
+        <div class="card hearts val-6"></div>
+        <div class="card spades val-K"></div>
+        <div class="card diamonds val-9"></div>
+      </div>
+
+      <h2>Setup</h2>
+      <ol>
+        <li>Choose difficulty: 1 Joker (easy) or 2 Jokers (hard).</li>
+        <li>Separate the 13 clubs, shuffle &rarr; your draw pile. Draw 4 into your hand.</li>
+        <li>Shuffle the remaining cards (39&ndash;40) &rarr; the <em>grid deck</em>.</li>
+        <li>Deal 9 cards face up in a 3&times;3 grid. Leave space for discards.</li>
+      </ol>
+
+      <h2>Rules</h2>
+      <ul>
+        <li>Each turn: discard one club from your hand to clear grid cards via one of 6 actions, then refresh the grid (left&rarr;right, top row down) and draw back up to 4 clubs.</li>
+        <li>Values: A=1, J=11, Q=12, K=13. Jokers have no suit or value.</li>
+        <li>13 turns max. Win by clearing the last grid cards with no grid deck left.</li>
+      </ul>
+
+      <h2>Actions</h2>
+      <ul>
+        <li><em>Always available:</em>
+          <ol>
+            <li><em>Match</em> &mdash; clear all grid cards of the same value as your discarded club.</li>
+            <li><em>Sum</em> &mdash; clear any number of grid cards whose sum equals your club's value.</li>
+            <li><em>Any</em> &mdash; clear any one grid card (one of two actions that can clear a Joker).</li>
+          </ol>
+        </li>
+        <li><em>Blockable</em> (blocked when 3+ of a suit appear in the grid):
+          <ol start="4">
+            <li><em>Line</em> &mdash; clear one row or column containing a card of the same value. (Blocked by 3+ &diams;)</li>
+            <li><em>Up/Down</em> &mdash; discard 2&ndash;7&clubs; to clear all lower cards, or 7&ndash;Q&clubs; to clear all higher cards. (Blocked by 3+ &spades;)</li>
+            <li><em>Run</em> &mdash; clear any number of grid cards that, with your club, form a sequential run (no wrap K&rarr;A). (Blocked by 3+ &hearts;)</li>
+          </ol>
+        </li>
+      </ul>
+    </div>
+    <script></script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Scoundrel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <a class="back-link" href="index.html">&larr; Back to deck</a>
+
+      <div class="banner">
+        <div class="card diamonds val-5"></div>
+        <span class="title">Scoundrel</span>
+        <div class="card spades val-Q"></div>
+      </div>
+
+      <h2>Setup</h2>
+      <ol>
+        <li>Standard 52-card deck.</li>
+        <li>Remove Jokers, red face cards (J/Q/K of &hearts;/&diams;), and red Aces (A&hearts;, A&diams;) &mdash; 16 cards out, 36 remain.</li>
+        <li>Shuffle the 36 and place face down on your left &mdash; the <em>Dungeon</em>.</li>
+        <li>Note your starting <em>Health</em>: 20.</li>
+      </ol>
+
+      <h2>Rules</h2>
+      <ul>
+        <li>Clubs &amp; Spades (26) = <em>Monsters</em>; value is ordered (A=14, K=13, &hellip; 2=2).</li>
+        <li>Diamonds (9) = <em>Weapons</em>; damage equals value. Weapons are <em>binding</em> &mdash; picking one up forces you to equip it and discard the previous.</li>
+        <li>Hearts (9) = <em>Health Potions</em>; add value to Health (max 20). Only one potion per turn; a second is discarded.</li>
+        <li>Each turn, flip 4 cards face up &mdash; a <em>Room</em>. You may avoid the Room (send all 4 to the bottom of the Dungeon), but never two Rooms in a row.</li>
+        <li>If you don't avoid, face 3 of the 4 cards, one at a time:
+          <ul>
+            <li><em>Weapon</em>: equip it (discard previous weapon + its slain monsters).</li>
+            <li><em>Potion</em>: heal, then discard.</li>
+            <li><em>Monster</em>: fight barehanded (take full damage) or with your weapon (subtract weapon value from monster value; take the remainder). A weapon can only slay monsters &le; the last one it slew.</li>
+          </ul>
+        </li>
+        <li>The 4th card stays face up as the start of the next Room.</li>
+        <li>Game ends when Health hits 0 (lose) or the Dungeon is cleared (win).</li>
+      </ul>
+    </div>
+    <script></script>
+  </body>
+</html>

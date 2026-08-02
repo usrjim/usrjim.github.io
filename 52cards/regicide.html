@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Regicide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <a class="back-link" href="index.html">&larr; Back to deck</a>
+
+      <div class="banner">
+        <div class="card spades val-K"></div>
+        <div class="card hearts val-K"></div>
+        <div class="card diamonds val-K"></div>
+        <div class="card clubs val-K"></div>
+        <span class="title">Regicide</span>
+      </div>
+
+      <h2>Setup</h2>
+      <ol>
+        <li><em>Castle deck</em>: shuffle 4 Kings face down, 4 Queens on top, 4 Jacks on top. Flip the top card face up = the current enemy.</li>
+        <li><em>Tavern deck</em>: shuffle 2s&ndash;10s + 4 Aces (Animal Companions). Set the 2 Jesters aside (not in the deck).</li>
+        <li>Draw 8 cards into your hand.</li>
+      </ol>
+
+      <h2>Rules</h2>
+      <ul>
+        <li>Goal: defeat all 12 enemies (Jacks &rarr; Queens &rarr; Kings). Win when the last King falls.</li>
+        <li>Enemy stats: Jack 10 atk / 20 HP &middot; Queen 15/30 &middot; King 20/40.</li>
+        <li>Each turn has 4 steps:
+          <ol>
+            <li>Play a card (attack = its number; A=1) or yield.</li>
+            <li>Activate the suit power (mandatory):
+              <ul>
+                <li><em>&hearts; Heal</em> &mdash; shuffle discard, count cards = attack value, tuck them under the Tavern deck.</li>
+                <li><em>&diams; Draw</em> &mdash; draw cards = attack value (capped by max hand size).</li>
+                <li><em>&clubs; Double</em> &mdash; damage = 2&times; attack value.</li>
+                <li><em>&spades; Shield</em> &mdash; reduce enemy attack by attack value (cumulative).</li>
+              </ul>
+            </li>
+            <li>Deal damage; if total &ge; enemy HP, it's defeated (exact = bonus).</li>
+            <li>Suffer damage &mdash; discard cards totaling enemy attack (minus shields). Can't cover it &rarr; you lose.</li>
+          </ol>
+        </li>
+        <li>Enemy immunity: an enemy is immune to its own suit's power.</li>
+        <li>Combos: play 2&ndash;4 same-number cards if total &le; 10 (all suit powers trigger). Aces pair with one other card.</li>
+        <li>Defeated enemies in hand: J=10, Q=15, K=20 (as attack or discard).</li>
+        <li><em>Solo Jester power</em>: flip a set-aside Jester to discard your hand and refill to 8 (twice per game). 0 used = Gold, 1 = Silver, 2 = Bronze.</li>
+      </ul>
+    </div>
+    <script></script>
+  </body>
+</html>

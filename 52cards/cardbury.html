@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cardbury</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <a class="back-link" href="index.html">&larr; Back to deck</a>
+
+      <div class="banner">
+        <div class="card spades val-A"></div>
+        <div class="card hearts val-A"></div>
+        <div class="card diamonds val-A"></div>
+        <div class="card clubs val-A"></div>
+        <span class="title">Cardbury</span>
+      </div>
+
+      <h2>Setup</h2>
+      <ol>
+        <li>Shuffle a standard 52-card deck. Deal a face-down row of 4 cards (don't examine them). Place the deck to the left of the row.</li>
+        <li>Draw 3 cards. If they all share a suit, shuffle them back and redraw until you have at least 2 suits in hand.</li>
+      </ol>
+
+      <h2>Rules</h2>
+      <ul>
+        <li>Goal: build 4 <em>skyscrapers</em> (one per suit, ascending A low &rarr; K high), of sizes 5 / 4 / 3 / 2 cards (left to right), without running out of deck.</li>
+        <li>Each turn has 4 steps:
+          <ol>
+            <li><em>Pollution</em> &mdash; if you hold 3+ of any suit, discard that set face-down as a pollution stack. If there are ever 6+ pollution stacks, or your hand empties from pollution, you lose.</li>
+            <li><em>Population</em> &mdash; for each "set in all 4 suits" OR each suit beyond the first with 2+ cards, move a deck card to the population stack. If the stack ever exceeds the value of the highest card in any skyscraper (K=13), you lose.</li>
+            <li><em>Construction</em> &mdash; add a hand card to a skyscraper (higher than the previous card; a new skyscraper needs a suit not yet built). If you start a new skyscraper, draw the card below it into your hand and loop back to step 1. If you can't play legally, <em>dismantle</em>: remove cards from a skyscraper until a legal placement exists (removed cards leave play).</li>
+            <li><em>Supply</em> &mdash; draw 2 cards. If the deck empties before all 4 skyscrapers are done, you lose.</li>
+          </ol>
+        </li>
+      </ul>
+    </div>
+    <script></script>
+  </body>
+</html>

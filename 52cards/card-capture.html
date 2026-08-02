@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Card Capture</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <a class="back-link" href="index.html">&larr; Back to deck</a>
+
+      <div class="banner">
+        <div class="card clubs val-2"></div>
+        <div class="card clubs val-3"></div>
+        <div class="card clubs val-4"></div>
+        <span class="title">Card Capture</span>
+        <div class="card spades val-K"></div>
+      </div>
+
+      <h2>Setup</h2>
+      <ol>
+        <li>Pull all 2s, 3s, 4s, and both Jokers &mdash; shuffle as your <em>Personal Draw Deck</em>.</li>
+        <li>Shuffle the remaining 44 cards = the <em>Enemy Draw Deck</em> (place on your left).</li>
+        <li>Draw 4 enemy cards face up into Positions 1&ndash;4 (left to right, away from the deck).</li>
+        <li>If any J/Q/K/A appear, move them to the bottom of the Enemy Deck; refill later.</li>
+      </ol>
+
+      <h2>Rules</h2>
+      <ul>
+        <li>Goal: capture all enemy combatants (Aces + face cards) using non-face cards.</li>
+        <li>Each round has 4 phases:
+          <ol>
+            <li><em>Enemy</em> &mdash; slide cards right to fill empty positions, then draw replacements.</li>
+            <li><em>Discard</em> &mdash; you may discard any number of cards from your hand.</li>
+            <li><em>Draw</em> &mdash; draw from your Personal Deck until you hold 4 cards. If empty, reshuffle your discard pile into a new Personal Deck.</li>
+            <li><em>Capture</em> &mdash; do one of:
+              <ul>
+                <li><em>Capture</em>: spend same-suit cards from hand totaling &ge; the enemy card's value. Spent + captured cards go to your discard.</li>
+                <li><em>Let enemy capture</em>: Position 1 enemy card + a card from your hand go to the Enemy Capture Pile.</li>
+                <li><em>Sacrifice</em>: discard 2 hand cards to send an enemy row card to the bottom of the Enemy Deck.</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li>Jokers act as any one card in your hand.</li>
+        <li>Values: J=11, Q=12, K=13, A=14.</li>
+        <li>You lose immediately if any A/J/Q/K ends up in the Enemy Capture Pile.</li>
+        <li>Win when the Enemy Deck and all 4 Positions are empty and no face card was ever captured.</li>
+      </ul>
+    </div>
+    <script></script>
+  </body>
+</html>

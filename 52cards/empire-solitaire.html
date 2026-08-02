@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Empire Solitaire</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <a class="back-link" href="index.html">&larr; Back to deck</a>
+
+      <div class="banner grid">
+        <div class="grid-cards">
+          <div class="card spades val-A"></div>
+          <div class="card hearts val-K"></div>
+          <div class="card diamonds val-Q"></div>
+          <div class="card clubs val-J"></div>
+          <div class="card hearts val-9"></div>
+          <div class="card clubs val-2"></div>
+        </div>
+        <span class="title">Empire Solitaire</span>
+      </div>
+
+      <h2>Setup</h2>
+      <ol>
+        <li>Standard 52-card deck, but only 18 cards are used; set the other 34 aside.</li>
+        <li>Deal 15 cards face up in 3 rows of 5 (non-overlapping).</li>
+        <li>Place the remaining 3 cards face down as a <em>stock pile</em>.</li>
+      </ol>
+
+      <h2>Rules</h2>
+      <ul>
+        <li>Goal: collapse the board into a <em>single stack</em>.</li>
+        <li>A card may <em>conquer</em> another card of the same rank or same suit:
+          <ul>
+            <li>Any adjacent card (including diagonally), OR</li>
+            <li>Any card in the same row/column with no cards between (a rook move).</li>
+          </ul>
+        </li>
+        <li>The conquered card is removed from play (or stays under the conqueror as part of one stack &mdash; your choice of variant).</li>
+        <li>You may turn over a stock card at any time, but it <em>must</em> be placed face-up on an empty board space before any other move. You can't flip a stock card as your first move (no empty spaces yet).</li>
+        <li>All 3 stock cards must be played during the game.</li>
+        <li>Win when all cards form a single stack (or one card remains, in the removal variant).</li>
+      </ul>
+    </div>
+    <script></script>
+  </body>
+</html>

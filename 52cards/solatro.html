@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Solatro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <a class="back-link" href="index.html">&larr; Back to deck</a>
+
+      <div class="banner">
+        <div class="card spades val-A"></div>
+        <div class="card spades val-K"></div>
+        <div class="card spades val-Q"></div>
+        <div class="card spades val-J"></div>
+        <div class="card spades val-10"></div>
+        <span class="title">Solatro</span>
+      </div>
+
+      <h2>Setup</h2>
+      <ol>
+        <li>Standard 54-card deck (incl. 2 Jokers). Shuffle.</li>
+        <li>Keep a score sheet: round number, bonus points, owned tokens.</li>
+        <li>Round 1 target = 25. Each new round: +25 (R2=50, R3=75, &hellip;).</li>
+      </ol>
+
+      <h2>Rules</h2>
+      <ul>
+        <li>Each round: draw 8 cards, get 3 plays + 3 discards (discard 1&ndash;5 cards each time). Draw back to hand limit after each play/discard.</li>
+        <li>On a play, choose up to 5 cards to make a poker hand; score it (see chart), then set those cards aside until next round.</li>
+        <li>Jokers are wildcards. If drawn, bank it and draw a replacement. A banked Joker can be added to any future play. If a second Joker appears while one is banked, you lose BOTH.</li>
+        <li>After 3 plays, total your scores. Meet/beat the target &rarr; advance. Miss with no Shield &rarr; you lose.</li>
+        <li>Excess points (beyond target) spend at the Bonus Shop. You may own only one of each token; points don't carry between rounds.</li>
+      </ul>
+
+      <h2>Hand Scores</h2>
+      <ul>
+        <li>High card 5 &middot; Pair 10 &middot; Two pair 20 &middot; Three of a kind 30 &middot; Straight 40 &middot; Flush 50 &middot; Full house 60 &middot; Four of a kind 100 &middot; Straight flush 125 &middot; Royal flush 150</li>
+      </ul>
+
+      <h2>Bonus Shop</h2>
+      <ul>
+        <li>Extra Card 10 &middot; Extra Discard 25 &middot; Pocket Points 50 &middot; Extra Hand 75 &middot; Double Score 100 &middot; Shield 150</li>
+      </ul>
+    </div>
+    <script></script>
+  </body>
+</html>

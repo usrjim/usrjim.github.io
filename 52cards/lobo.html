@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Lobo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <a class="back-link" href="index.html">&larr; Back to deck</a>
+
+      <div class="banner">
+        <div class="card spades val-9"></div>
+        <span class="title">Lobo</span>
+        <div class="card hearts val-9"></div>
+      </div>
+
+      <h2>Setup</h2>
+      <ol>
+        <li>Uses a <em>Postas deck</em> (50 cards: ranks 1&ndash;10 in 5 suits). Suits are irrelevant, so two poker decks combined also work.</li>
+        <li>Shuffle and deal two rows of 4 cards: top row = the <em>Wolf</em>, bottom row = you. Keep the top card of the deck face up (the <em>cub</em>).</li>
+      </ol>
+
+      <h2>Rules</h2>
+      <ul>
+        <li>Goal: empty the Wolf's hand. If you can't, leave it with as few points as possible. Play multiple rounds, race to 100 points.</li>
+        <li>Only you take actions; the Wolf doesn't. Continue until you fold, run out of moves, or the Wolf is empty.</li>
+        <li>Five actions, each with a different consequence:
+          <ul>
+            <li><em>Perfect</em>: play one card to capture a matching-rank Wolf card. &rarr; Discard both; draw the top deck card into <em>your</em> hand.</li>
+            <li><em>Sum</em>: discard several of your cards that sum exactly to a Wolf card's value. &rarr; Discard all; draw top deck card into <em>your</em> hand.</li>
+            <li><em>Split</em>: play one card to capture several Wolf cards that sum to its value. &rarr; Discard all; draw top deck card into the <em>Wolf's</em> hand.</li>
+            <li><em>Over</em>: play one card to capture one smaller Wolf card. &rarr; Discard both; deal (difference in ranks) cards from the deck into the <em>Wolf's</em> hand. No upper limit on the Wolf's hand size.</li>
+            <li><em>Fold</em>: stop at any time (or when you have no moves).</li>
+          </ul>
+        </li>
+        <li>Scoring: if the Wolf is empty, you win the round and score the sum of your remaining hand. If the Wolf has cards, it scores their sum (your cards are ignored). Fold early to cap the Wolf's score.</li>
+        <li>Difficulty: Hard = full deck; Ordinary = remove 10s; Easy = remove 9s and 10s.</li>
+      </ul>
+    </div>
+    <script></script>
+  </body>
+</html>

@@ -1,0 +1,209 @@
+/* =========================================
+   Base Card Container
+   ========================================= */
+.card {
+  /* Default coordinates (Top Left) */
+  --col: 0;
+  --row: 0;
+  
+  /* Original image is 950x392. 
+     950 / 14 cols ≈ 67.85px 
+     392 / 4 rows = 98px */
+  width: 68px; 
+  height: 98px; 
+  
+  /* Reference the sprite image verbatim */
+  background-image: url('cards.jpeg');
+  
+  /* 14 columns = 1400%, 4 rows = 400% */
+  background-size: 1400% 400%; 
+  
+  /* Dynamically calculate the background position based on the variable */
+  background-position: calc(var(--col) * 100% / 13) calc(var(--row) * 100% / 3);
+  
+  display: inline-block;
+  border-radius: 4px; /* Optional: smooths the corners */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2); /* Optional: adds subtle depth */
+}
+
+/* =========================================
+   Rows (Suits)
+   ========================================= */
+.spades   { --row: 0; }
+.hearts   { --row: 1; }
+.clubs    { --row: 2; }
+.diamonds { --row: 3; }
+
+/* =========================================
+   Columns (Card Values)
+   ========================================= */
+.val-A  { --col: 1; }
+.val-2  { --col: 2; }
+.val-3  { --col: 3; }
+.val-4  { --col: 4; }
+.val-5  { --col: 5; }
+.val-6  { --col: 6; }
+.val-7  { --col: 7; }
+.val-8  { --col: 8; }
+.val-9  { --col: 9; }
+.val-10 { --col: 10; }
+.val-J  { --col: 11; }
+.val-Q  { --col: 12; }
+.val-K  { --col: 13; }
+
+/* =========================================
+   Column 0 (Specials: Jokers & Backs)
+   ========================================= */
+.joker-color { --col: 0; --row: 0; }
+.joker-bw    { --col: 0; --row: 1; }
+.back-black  { --col: 0; --row: 2; }
+.back-red    { --col: 0; --row: 3; }
+
+/* =========================================
+   Anthropic Theme — Editorial Skin
+   ========================================= */
+:root {
+  --bg-canvas: #faf9f5;
+  --bg-surface: #f4f1ec;
+  --bg-surface-raised: #eeead4;
+  --text-primary: #191919;
+  --text-secondary: #484845;
+  --text-tertiary: #6e6d67;
+  --accent: #bf4a37;
+  --accent-soft: rgba(191, 74, 55, 0.15);
+  --accent-medium: rgba(191, 74, 55, 0.25);
+  --border-subtle: rgba(25, 25, 25, 0.15);
+  --border-medium: rgba(25, 25, 25, 0.22);
+  --font-display: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+body {
+  background: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.75;
+  margin: 0;
+  padding: 3rem 1.5rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 680px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.back-link {
+  display: inline-block;
+  color: var(--text-tertiary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+  transition: color 0.15s ease;
+}
+.back-link:hover {
+  color: var(--accent);
+}
+
+.banner {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 1rem 0 2rem;
+}
+.banner .title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-left: 10px;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+}
+
+/* Grid banner (e.g. Empire Solitaire's 3×2 board motif) */
+.banner.grid {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.banner.grid .grid-cards {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 6px;
+}
+.banner.grid .title {
+  margin-left: 0;
+}
+
+h2 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  font-weight: 500;
+  margin: 2rem 0 0.75rem;
+  font-size: 1.35rem;
+}
+
+ol,
+ul {
+  margin: 0.5rem 0 1.5rem;
+  padding-left: 1.5rem;
+  line-height: 1.75;
+}
+
+li {
+  margin: 0.4rem 0;
+  color: var(--text-secondary);
+}
+
+li em {
+  color: var(--accent);
+  font-style: italic;
+}
+
+/* Index page — editorial table of contents */
+.toc {
+  list-style: none;
+  padding-left: 0;
+  margin: 1.5rem 0;
+}
+.toc li {
+  border-top: 1px solid var(--border-subtle);
+  margin: 0;
+}
+.toc li:last-child {
+  border-bottom: 1px solid var(--border-subtle);
+}
+.toc li a {
+  display: block;
+  padding: 1rem 0.5rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+.toc li a:hover {
+  color: var(--accent);
+  background-color: var(--accent-soft);
+}
+
+/* =========================================
+   Mobile — smaller cards, ratio preserved (34:49)
+   ========================================= */
+@media (max-width: 480px) {
+  .card {
+    width: 48px;
+    height: calc(48px * 49 / 34);
+  }
+  .banner {
+    gap: 6px;
+  }
+  .banner .title {
+    font-size: 1.3rem;
+    margin-left: 8px;
+  }
+}

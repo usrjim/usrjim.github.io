@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Loot the Loop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <a class="back-link" href="index.html">&larr; Back to deck</a>
+
+      <div class="banner">
+        <div class="card clubs val-A"></div>
+        <span class="title">Loot the Loop</span>
+        <div class="card joker-color"></div>
+      </div>
+
+      <h2>Setup</h2>
+      <ol>
+        <li>Standard 52-card deck + 1 Joker. Shuffle, hold face down.</li>
+        <li>Leave space for 3 <em>Notes</em> cards and a <em>Score Pile</em>.</li>
+      </ol>
+
+      <h2>Rules</h2>
+      <ul>
+        <li>You're exploring a closed-loop temple (the deck). The top card = your location. Move forward by sending cards from top to bottom.</li>
+        <li>Aces = <em>jewels</em> (loot them). 2&ndash;10 = <em>trinkets</em> (loot them). Face cards = <em>traps</em> (avoid them). Joker = the <em>exit</em>.</li>
+        <li>Each turn, take exactly ONE of these actions:
+          <ol>
+            <li><em>Look Around</em> &mdash; flip the top two cards face up (only if the top card is face down). Your only option at the start.</li>
+            <li><em>Explore</em> &mdash; if either of the top two cards is a face-up trinket, choose its value and move that many cards to the bottom. Then:
+              <ul>
+                <li>Land on face-down &rarr; nothing.</li>
+                <li>Land on face-up trap &rarr; you lose.</li>
+                <li>Land on face-up jewel/trinket &rarr; move it to your Score Pile.</li>
+                <li>Land on face-up Joker &rarr; if you hold all 4 jewels, you win; otherwise nothing.</li>
+              </ul>
+            </li>
+            <li><em>Mark a Path</em> &mdash; if the top card is a trinket and you have &lt;3 Notes, move it to your Notes (max 3).</li>
+            <li><em>Return</em> &mdash; place a Note card face up on top of the deck.</li>
+          </ol>
+        </li>
+        <li>You may look through face-up cards anytime; never face-down.</li>
+        <li>Lose if stuck with no safe move. Win by landing on the Joker with all four jewels scored. Score = total cards in your Score Pile (greed pays).</li>
+      </ul>
+    </div>
+    <script></script>
+  </body>
+</html>
