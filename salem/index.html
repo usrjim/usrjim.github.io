@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <link rel="icon" href="data:," />
+    <link rel="manifest" href="/salem/manifest.json" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#07060a" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>Salem 1692 &mdash; Night Phase</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --ink: #07060a;
+        --bone: #f4e6c8;
+        --amber: #ffbe6b;
+        --brass: #b89158;
+        --serif: "Hoefler Text", "Baskerville", "Palatino Linotype", Palatino,
+          "Iowan Old Style", Georgia, serif;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: fixed;
+        inset: 0;
+        overscroll-behavior: none;
+        background: var(--ink);
+      }
+
+      body {
+        font-family: var(--serif);
+        color: var(--bone);
+        -webkit-user-select: none;
+        user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: none;
+      }
+
+      /* ---------- stage ---------- */
+
+      .stage {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        height: 100dvh;
+        overflow: hidden;
+        touch-action: none;
+        isolation: isolate;
+      }
+
+      .night,
+      .glow,
+      .grain,
+      .vignette {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      .night {
+        background: radial-gradient(
+          118% 86% at 50% -6%,
+          #19110c 0%,
+          #0d0908 42%,
+          #060507 100%
+        );
+      }
+
+      .glow {
+        background: radial-gradient(
+          52% 38% at 50% 10%,
+          rgba(255, 188, 104, 0.26),
+          rgba(255, 150, 60, 0.07) 46%,
+          transparent 74%
+        );
+        animation: flicker 7.5s ease-in-out infinite;
+      }
+
+      @keyframes flicker {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        34% {
+          opacity: 0.82;
+        }
+        47% {
+          opacity: 0.96;
+        }
+        63% {
+          opacity: 0.74;
+        }
+        78% {
+          opacity: 0.92;
+        }
+      }
+
+      .grain {
+        opacity: 0.055;
+        mix-blend-mode: overlay;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+        background-size: 180px 180px;
+      }
+
+      .vignette {
+        background: radial-gradient(
+          78% 62% at 50% 46%,
+          transparent 38%,
+          rgba(0, 0, 0, 0.55) 82%,
+          rgba(0, 0, 0, 0.88) 100%
+        );
+      }
+
+      /* ---------- the arrow ---------- */
+
+      .arrow {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 0;
+        height: 0;
+        z-index: 3;
+        opacity: 0;
+        pointer-events: none;
+        transform: rotate(var(--angle, 0deg));
+        transform-origin: 0 0;
+        filter: drop-shadow(0 0 18px rgba(255, 168, 76, 0.5));
+        transition: opacity 0.26s ease,
+          transform 0.2s cubic-bezier(0.22, 0.9, 0.24, 1);
+      }
+
+      .stage[data-arrow="on"] .arrow {
+        opacity: 1;
+      }
+
+      .shaft {
+        position: absolute;
+        left: var(--start, 70px);
+        top: 0;
+        width: var(--len, 120px);
+        height: var(--shaft-h, 20px);
+        transform: translateY(-50%);
+        border-radius: 999px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 249, 232, 0.98) 0%,
+          rgba(238, 216, 168, 0.94) 48%,
+          rgba(196, 155, 94, 0.9) 100%
+        );
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+        transition: width 0.2s cubic-bezier(0.22, 0.9, 0.24, 1);
+      }
+
+      .head {
+        position: absolute;
+        left: calc(var(--start, 70px) + var(--len, 120px));
+        top: 0;
+        width: var(--head-w, 54px);
+        height: var(--head-h, 67px);
+        transform: translateY(-50%);
+        clip-path: polygon(0 0, 100% 50%, 0 100%, 17% 50%);
+        background: linear-gradient(
+          158deg,
+          #fffdf6 0%,
+          #f6dfae 44%,
+          #d9ae62 100%
+        );
+      }
+
+      .head::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          200deg,
+          rgba(255, 255, 255, 0.55),
+          transparent 46%
+        );
+      }
+
+      /* ---------- idle sigil ---------- */
+
+      .sigil {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: calc(var(--orb, 116px) * 1.85);
+        height: calc(var(--orb, 116px) * 1.85);
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        pointer-events: none;
+        border-radius: 50%;
+        background: conic-gradient(
+          from 0deg,
+          rgba(255, 190, 110, 0.32) 0deg 10deg,
+          transparent 10deg 360deg
+        );
+        -webkit-mask: radial-gradient(
+          closest-side,
+          transparent 93%,
+          #000 94%,
+          #000 97%,
+          transparent 98%
+        );
+        mask: radial-gradient(
+          closest-side,
+          transparent 93%,
+          #000 94%,
+          #000 97%,
+          transparent 98%
+        );
+        animation: spin 26s linear infinite;
+        transition: opacity 0.5s ease;
+      }
+
+      .stage[data-aimed="yes"] .sigil {
+        opacity: 0;
+      }
+
+      @keyframes spin {
+        to {
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+
+      /* ---------- center orb ---------- */
+
+      .orb {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: var(--orb, 116px);
+        height: var(--orb, 116px);
+        transform: translate(-50%, -50%);
+        z-index: 5;
+        border: 0;
+        padding: 0;
+        border-radius: 50%;
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        color: var(--bone);
+        font-family: var(--serif);
+        background: radial-gradient(
+          124% 124% at 50% 20%,
+          #2c211a 0%,
+          #16110e 46%,
+          #090707 100%
+        );
+        box-shadow: 0 0 0 1px rgba(198, 157, 96, 0.55),
+          0 0 0 9px rgba(8, 6, 5, 0.72),
+          inset 0 1px 1px rgba(255, 214, 150, 0.22),
+          inset 0 -14px 26px rgba(0, 0, 0, 0.6),
+          0 0 calc(34px + 26px * var(--p, 0)) rgba(255, 160, 70, 0.1),
+          0 18px 42px rgba(0, 0, 0, 0.66);
+        transition: transform 0.18s ease, box-shadow 0.12s linear,
+          opacity 0.3s ease;
+        touch-action: none;
+      }
+
+      .orb.is-holding {
+        transform: translate(-50%, -50%) scale(0.965);
+      }
+
+      .orb.is-warn {
+        animation: warn 0.42s ease;
+      }
+
+      @keyframes warn {
+        0%,
+        100% {
+          transform: translate(-50%, -50%);
+        }
+        20% {
+          transform: translate(calc(-50% - 7px), -50%);
+        }
+        45% {
+          transform: translate(calc(-50% + 6px), -50%);
+        }
+        70% {
+          transform: translate(calc(-50% - 3px), -50%);
+        }
+      }
+
+      .orb.is-pulsing {
+        animation: pulse 0.5s cubic-bezier(0.2, 0.8, 0.3, 1);
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: translate(-50%, -50%) scale(1);
+        }
+        38% {
+          transform: translate(-50%, -50%) scale(1.07);
+        }
+        100% {
+          transform: translate(-50%, -50%) scale(1);
+        }
+      }
+
+      .orb-label {
+        font-size: clamp(15px, 4.6vmin, 19px);
+        letter-spacing: 0.22em;
+        text-indent: 0.11em;
+        color: #f8e9c8;
+        text-shadow: 0 0 16px rgba(255, 176, 88, 0.5),
+          0 1px 0 rgba(0, 0, 0, 0.7);
+        pointer-events: none;
+        transition: opacity 0.14s ease, transform 0.14s ease;
+      }
+
+      .orb.is-holding .orb-label {
+        transform: scale(0.97);
+      }
+
+      /* ---------- hold rings ---------- */
+
+      .ring {
+        position: absolute;
+        inset: -9px;
+        width: calc(100% + 18px);
+        height: calc(100% + 18px);
+        transform: rotate(-90deg);
+        overflow: visible;
+        pointer-events: none;
+      }
+
+      .ring-track {
+        fill: none;
+        stroke: rgba(255, 205, 140, 0.14);
+        stroke-width: 2.4;
+      }
+
+      .ring-progress {
+        fill: none;
+        stroke: #ffcf87;
+        stroke-width: 3;
+        stroke-linecap: round;
+        filter: drop-shadow(0 0 5px rgba(255, 180, 90, 0.85));
+        transition: stroke-dashoffset 0.42s cubic-bezier(0.2, 0.8, 0.3, 1);
+      }
+
+      .is-holding .ring-progress {
+        transition: none;
+      }
+
+      /* ---------- reset ---------- */
+
+      .reset {
+        position: absolute;
+        top: calc(env(safe-area-inset-top, 0px) + 14px);
+        right: calc(env(safe-area-inset-right, 0px) + 14px);
+        width: 62px;
+        height: 62px;
+        z-index: 6;
+        border-radius: 50%;
+        border: 1px solid rgba(190, 150, 95, 0.26);
+        background: radial-gradient(
+          120% 120% at 50% 22%,
+          rgba(42, 32, 25, 0.92),
+          rgba(12, 9, 8, 0.9)
+        );
+        color: rgba(238, 216, 178, 0.58);
+        font-family: var(--serif);
+        font-size: 11px;
+        letter-spacing: 0.16em;
+        text-indent: 0.08em;
+        text-transform: uppercase;
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        touch-action: none;
+        -webkit-tap-highlight-color: transparent;
+        transition: color 0.3s ease, border-color 0.3s ease,
+          box-shadow 0.2s ease, transform 0.18s ease;
+      }
+
+      .reset.is-holding {
+        transform: scale(0.94);
+      }
+
+      .stage[data-mode="confirmed"] .reset {
+        color: rgba(255, 224, 176, 0.88);
+        border-color: rgba(255, 196, 120, 0.5);
+        box-shadow: 0 0 20px rgba(255, 160, 70, 0.16);
+      }
+
+      .reset .ring {
+        inset: -6px;
+        width: calc(100% + 12px);
+        height: calc(100% + 12px);
+      }
+
+      .reset .ring-progress {
+        stroke-width: 4;
+      }
+
+      /* ---------- hint + flash ---------- */
+
+      .hint {
+        position: absolute;
+        left: 50%;
+        bottom: calc(env(safe-area-inset-bottom, 0px) + 34px);
+        transform: translateX(-50%);
+        z-index: 4;
+        pointer-events: none;
+        white-space: nowrap;
+        font-size: 12px;
+        letter-spacing: 0.34em;
+        text-indent: 0.34em;
+        text-transform: uppercase;
+        color: rgba(232, 205, 158, 0.4);
+        transition: opacity 0.45s ease;
+      }
+
+      .stage[data-aimed="yes"] .hint {
+        opacity: 0;
+      }
+
+      .flash {
+        position: absolute;
+        inset: 0;
+        z-index: 7;
+        pointer-events: none;
+        opacity: 0;
+        background: radial-gradient(
+          62% 46% at 50% 50%,
+          rgba(255, 232, 184, 0.6),
+          rgba(255, 168, 78, 0.14) 56%,
+          transparent 76%
+        );
+      }
+
+      .flash.fire {
+        animation: flash 0.52s ease-out;
+      }
+
+      @keyframes flash {
+        0% {
+          opacity: 0;
+        }
+        16% {
+          opacity: 0.9;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .glow,
+        .sigil {
+          animation: none;
+        }
+        .arrow,
+        .shaft,
+        .orb,
+        .reset {
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="stage" id="stage" data-mode="aiming" data-aimed="no" data-arrow="off">
+      <div class="night" aria-hidden="true"></div>
+      <div class="glow" aria-hidden="true"></div>
+      <div class="grain" aria-hidden="true"></div>
+      <div class="vignette" aria-hidden="true"></div>
+
+      <div class="sigil" aria-hidden="true"></div>
+
+      <div class="arrow" id="arrow" aria-hidden="true">
+        <div class="shaft"></div>
+        <div class="head"></div>
+      </div>
+
+      <button class="orb" id="orb" type="button" aria-label="confirm">
+        <svg class="ring" viewBox="0 0 100 100" aria-hidden="true">
+          <circle class="ring-track" cx="50" cy="50" r="47.5" />
+          <circle class="ring-progress" cx="50" cy="50" r="47.5" />
+        </svg>
+        <span class="orb-label" id="orbLabel" aria-live="polite">confirm</span>
+      </button>
+
+      <button class="reset" id="reset" type="button" aria-label="reset">
+        <svg class="ring" viewBox="0 0 100 100" aria-hidden="true">
+          <circle class="ring-track" cx="50" cy="50" r="47.5" />
+          <circle class="ring-progress" cx="50" cy="50" r="47.5" />
+        </svg>
+        <span>reset</span>
+      </button>
+
+      <p class="hint" id="hint">touch a direction</p>
+      <div class="flash" id="flash" aria-hidden="true"></div>
+    </main>
+
+    <script>
+      (function () {
+        "use strict";
+
+        var HOLD_MS = 550;
+
+        var stage = document.getElementById("stage");
+        var orb = document.getElementById("orb");
+        var orbLabel = document.getElementById("orbLabel");
+        var resetBtn = document.getElementById("reset");
+        var flash = document.getElementById("flash");
+
+        var state = {
+          mode: "aiming", // "aiming" | "confirmed"
+          angle: null, // locked degrees, null until aimed
+          aimed: false,
+          revealed: false,
+        };
+
+        /* ---------------- geometry ---------------- */
+
+        function layout() {
+          var w = window.innerWidth;
+          var h = window.innerHeight;
+          var min = Math.min(w, h);
+
+          var orbSize = Math.min(Math.max(min * 0.3, 104), 150);
+          var headW = Math.min(Math.max(min * 0.14, 42), 62);
+          var headH = headW * 1.24;
+          var shaftH = Math.min(Math.max(headW * 0.42, 12), 26);
+          var start = orbSize / 2 + 16;
+          var inset = 26;
+
+          var rad =
+            state.angle === null ? -Math.PI / 2 : (state.angle * Math.PI) / 180;
+          var dx = Math.cos(rad);
+          var dy = Math.sin(rad);
+          var hw = w / 2;
+          var hh = h / 2;
+          var reach = Infinity;
+
+          if (dx > 1e-6) reach = Math.min(reach, hw / dx);
+          if (dx < -1e-6) reach = Math.min(reach, hw / -dx);
+          if (dy > 1e-6) reach = Math.min(reach, hh / dy);
+          if (dy < -1e-6) reach = Math.min(reach, hh / -dy);
+
+          var tip = Math.max(start + headW + 4, reach - inset);
+          var headLeft = tip - headW;
+          var len = Math.max(6, headLeft + headW * 0.2 - start);
+
+          stage.style.setProperty("--orb", orbSize.toFixed(1) + "px");
+          stage.style.setProperty("--start", start.toFixed(1) + "px");
+          stage.style.setProperty("--head-w", headW.toFixed(1) + "px");
+          stage.style.setProperty("--head-h", headH.toFixed(1) + "px");
+          stage.style.setProperty("--shaft-h", shaftH.toFixed(1) + "px");
+          stage.style.setProperty("--len", len.toFixed(1) + "px");
+        }
+
+        function setAngle(deg) {
+          state.angle = deg;
+          stage.style.setProperty("--angle", deg.toFixed(2) + "deg");
+          layout();
+        }
+
+        /* ---------------- aiming ---------------- */
+
+        function aimAt(clientX, clientY) {
+          if (state.mode !== "aiming") return;
+
+          var cx = window.innerWidth / 2;
+          var cy = window.innerHeight / 2;
+          var deg = (Math.atan2(clientY - cy, clientX - cx) * 180) / Math.PI;
+
+          if (!state.aimed) {
+            state.aimed = true;
+            stage.dataset.aimed = "yes";
+          }
+          setAngle(deg);
+          stage.dataset.arrow = "on";
+        }
+
+        stage.addEventListener(
+          "pointerdown",
+          function (e) {
+            if (state.mode !== "aiming") return;
+            if (e.pointerType === "mouse" && e.button !== 0) return;
+            // never aim from a button press
+            if (e.target.closest && e.target.closest(".orb, .reset")) return;
+
+            e.preventDefault();
+            aimAt(e.clientX, e.clientY);
+
+            var move = function (ev) {
+              if (state.mode === "aiming") aimAt(ev.clientX, ev.clientY);
+            };
+            var end = function () {
+              stage.removeEventListener("pointermove", move);
+              window.removeEventListener("pointerup", end);
+              window.removeEventListener("pointercancel", end);
+            };
+            stage.addEventListener("pointermove", move);
+            window.addEventListener("pointerup", end);
+            window.addEventListener("pointercancel", end);
+          },
+          { passive: false }
+        );
+
+        /* ---------------- hold to activate ---------------- */
+
+        function createHold(el, onActivate) {
+          var progress = el.querySelector(".ring-progress");
+          var C = 2 * Math.PI * 47.5;
+          progress.style.strokeDasharray = C.toFixed(2);
+          progress.style.strokeDashoffset = C.toFixed(2);
+
+          var raf = 0;
+          var pointerId = null;
+          var keyHeld = false;
+          var ox = 0;
+          var oy = 0;
+          var t0 = 0;
+
+          function paint(p) {
+            progress.style.strokeDashoffset = (C * (1 - p)).toFixed(2);
+            el.style.setProperty("--p", p.toFixed(3));
+          }
+
+          function stop(activate) {
+            var wasActive = pointerId !== null || keyHeld;
+            if (raf) {
+              cancelAnimationFrame(raf);
+              raf = 0;
+            }
+            pointerId = null;
+            keyHeld = false;
+            el.classList.remove("is-holding");
+            if (!wasActive) return;
+
+            if (activate) {
+              paint(1);
+              onActivate();
+              setTimeout(function () {
+                if (pointerId === null && !keyHeld) paint(0);
+              }, 240);
+            } else {
+              paint(0);
+            }
+          }
+
+          function begin() {
+            if (raf) return;
+            t0 = performance.now();
+            el.classList.add("is-holding");
+            paint(0);
+            var step = function () {
+              var p = Math.min(1, (performance.now() - t0) / HOLD_MS);
+              paint(p);
+              if (p >= 1) {
+                stop(true);
+                return;
+              }
+              raf = requestAnimationFrame(step);
+            };
+            raf = requestAnimationFrame(step);
+          }
+
+          el.addEventListener(
+            "pointerdown",
+            function (e) {
+              if (pointerId !== null) return;
+              if (e.pointerType === "mouse" && e.button !== 0) return;
+              pointerId = e.pointerId;
+              ox = e.clientX;
+              oy = e.clientY;
+              try {
+                el.setPointerCapture(e.pointerId);
+              } catch (err) {
+                /* capture is best effort */
+              }
+              begin();
+            },
+            { passive: true }
+          );
+
+          el.addEventListener(
+            "pointermove",
+            function (e) {
+              if (pointerId !== e.pointerId) return;
+              var dx = e.clientX - ox;
+              var dy = e.clientY - oy;
+              if (dx * dx + dy * dy > 36 * 36) stop(false); // drifted away
+            },
+            { passive: true }
+          );
+
+          el.addEventListener(
+            "pointerup",
+            function (e) {
+              if (pointerId !== e.pointerId) return;
+              if (performance.now() - t0 >= HOLD_MS) stop(true);
+              else stop(false);
+            },
+            { passive: true }
+          );
+
+          el.addEventListener(
+            "pointercancel",
+            function (e) {
+              if (pointerId !== e.pointerId) return;
+              stop(false);
+            },
+            { passive: true }
+          );
+
+          el.addEventListener("lostpointercapture", function () {
+            if (pointerId !== null) stop(false);
+          });
+
+          el.addEventListener(
+            "keydown",
+            function (e) {
+              if (e.key !== "Enter" && e.key !== " ") return;
+              e.preventDefault();
+              if (e.repeat) return;
+              keyHeld = true;
+              begin();
+            },
+            { passive: false }
+          );
+
+          el.addEventListener("keyup", function (e) {
+            if (e.key !== "Enter" && e.key !== " ") return;
+            e.preventDefault();
+            if (!keyHeld) return;
+            if (performance.now() - t0 >= HOLD_MS) stop(true);
+            else stop(false);
+          });
+
+          // a native click must never trigger the action
+          el.addEventListener("click", function (e) {
+            e.preventDefault();
+          });
+
+          paint(0);
+        }
+
+        /* ---------------- actions ---------------- */
+
+        function updateLabel() {
+          var text =
+            state.mode === "aiming"
+              ? "confirm"
+              : state.revealed
+                ? "hide"
+                : "reveal";
+          if (orbLabel.textContent !== text) orbLabel.textContent = text;
+          orb.setAttribute("aria-label", text);
+        }
+
+        function fireFlash() {
+          flash.classList.remove("fire");
+          void flash.offsetWidth;
+          flash.classList.add("fire");
+        }
+
+        function warnNoTarget() {
+          orb.classList.remove("is-warn");
+          void orb.offsetWidth;
+          orb.classList.add("is-warn");
+          setTimeout(function () {
+            orb.classList.remove("is-warn");
+          }, 460);
+        }
+
+        function orbActivate() {
+          if (state.mode === "aiming") {
+            if (!state.aimed) {
+              warnNoTarget();
+              return;
+            }
+            state.mode = "confirmed";
+            state.revealed = false;
+            stage.dataset.mode = "confirmed";
+            stage.dataset.arrow = "off";
+            updateLabel();
+            orb.classList.remove("is-pulsing");
+            void orb.offsetWidth;
+            orb.classList.add("is-pulsing");
+            setTimeout(function () {
+              orb.classList.remove("is-pulsing");
+            }, 520);
+          } else {
+            state.revealed = !state.revealed;
+            stage.dataset.arrow = state.revealed ? "on" : "off";
+            updateLabel();
+            if (state.revealed) fireFlash();
+          }
+        }
+
+        function resetActivate() {
+          state.mode = "aiming";
+          state.aimed = false;
+          state.revealed = false;
+          state.angle = null;
+          stage.dataset.mode = "aiming";
+          stage.dataset.aimed = "no";
+          stage.dataset.arrow = "off";
+          stage.style.setProperty("--angle", "0deg");
+          layout();
+          updateLabel();
+        }
+
+        createHold(orb, orbActivate);
+        createHold(resetBtn, resetActivate);
+
+        /* ---------------- misc guards ---------------- */
+
+        window.addEventListener("resize", layout);
+        window.addEventListener("orientationchange", function () {
+          setTimeout(layout, 120);
+        });
+        if (window.visualViewport) {
+          window.visualViewport.addEventListener("resize", layout);
+        }
+
+        document.addEventListener("contextmenu", function (e) {
+          e.preventDefault();
+        });
+        document.addEventListener("gesturestart", function (e) {
+          e.preventDefault();
+        });
+        document.addEventListener(
+          "dblclick",
+          function (e) {
+            e.preventDefault();
+          },
+          { passive: false }
+        );
+
+        layout();
+        updateLabel();
+      })();
+    </script>
+  </body>
+</html>

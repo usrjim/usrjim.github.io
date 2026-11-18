@@ -1,0 +1,17 @@
+{
+  "name": "salem",
+  "short_name": "salem",
+  "description": "salem",
+  "icons": [
+    {
+      "src": "/salem/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/salem/index.html",
+  "scope": "/salem/index.html",
+  "display": "standalone",
+  "background_color": "#07060a",
+  "theme_color": "#07060a"
+}
